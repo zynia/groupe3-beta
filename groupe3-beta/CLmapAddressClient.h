@@ -1,0 +1,43 @@
+#pragma once
+
+namespace NS_Map_Addr_Client
+{
+	ref class CLmapAddressClient
+	{
+	private:
+		int id_address;
+		System::String^ Street_name;
+		int Street_number;
+		System::String^ Residence_name;
+		System::String^ Building_name;
+		int Floor_number;
+		System::String^ Complement;
+		System::String^ Name_city;
+		int Post_code;
+	public:
+		System::String^ Select(void);
+		System::String^ Insert(void);
+		System::String^ Delete(void);
+		System::String^ Update(void);
+
+		void setIdaddress(int);
+		int getIdaddress(void);
+		void setStreetname(System::String^);
+		System::String^ getStreetname(void);
+		void setStreetnumber(int);
+		int getStreetnumber(void);
+		void setResidencename(System::String^);
+		System::String^ getResidencename(void);
+		void setBuildingname(System::String^);
+		System::String^ getBuildingname(void);
+		void setFloornumber(int);
+		int getFloornumber(void);
+		void setComplement(System::String^);
+		System::String^ getComplement(void);
+		void setNamecity(System::String^);
+		System::String^ getNamecity(void);
+		void setPostcode(int);
+		int getPostcode(void);
+
+	};
+}

@@ -1,0 +1,445 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Fichiers sources">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Fichiers d%27en-tête">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="Fichiers de ressources">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Fichiers d%27en-tête\staff">
+      <UniqueIdentifier>{a9868f72-f6d8-4d36-8d03-d982179945e6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers d%27en-tête\staff\form">
+      <UniqueIdentifier>{8654c0e2-7513-425e-bba8-db9b176c5296}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers d%27en-tête\staff\SQLcommands">
+      <UniqueIdentifier>{c73928c7-ae89-4555-9a94-f6aa9ab1d8e8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers d%27en-tête\staff\attributes">
+      <UniqueIdentifier>{7cbc3139-f692-4ba1-9de0-fd53786aabc4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers sources\staff">
+      <UniqueIdentifier>{159c3675-e31c-44a8-b2c4-abf455907fe7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers sources\staff\form">
+      <UniqueIdentifier>{ff0b43f6-d708-4611-b978-edfe13b4039d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers sources\CAD">
+      <UniqueIdentifier>{dc2b930d-44a5-4cea-8cdf-1bf4bc0fc3cf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers d%27en-tête\CAD">
+      <UniqueIdentifier>{03a621c1-7006-49bb-976a-654ed39ab4e4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers sources\staff\attributes">
+      <UniqueIdentifier>{dbff359d-296c-4cc2-9d17-6aa7d84fb03c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers sources\staff\SQLcommands">
+      <UniqueIdentifier>{fbc1c848-0e93-4756-90d5-0705478db209}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers d%27en-tête\client">
+      <UniqueIdentifier>{7259387d-58b3-42e2-acf6-5a1d396a55dd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers sources\client">
+      <UniqueIdentifier>{ab193cd3-2f4d-4c80-8549-a35ea354d811}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers d%27en-tête\client\form">
+      <UniqueIdentifier>{53ea8450-9bfc-463f-a3ee-7420b507d525}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers sources\client\form">
+      <UniqueIdentifier>{47e01bf3-9282-42e1-9670-8a340b0f5f45}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers d%27en-tête\client\attributes">
+      <UniqueIdentifier>{b61be8df-4b12-4d6c-a43e-b27b68d7848a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers sources\client\attributes">
+      <UniqueIdentifier>{8bc69b4b-552c-4261-871f-2a474f1af9cb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers d%27en-tête\client\SQLcommands">
+      <UniqueIdentifier>{1d7e02c9-634e-4b38-9349-787423844e0c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers sources\client\SQLcommands">
+      <UniqueIdentifier>{dcf37788-5fdd-4a59-8acd-43311ba27ff0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers d%27en-tête\order">
+      <UniqueIdentifier>{2ad769d2-b301-4425-8a08-317672a73941}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers sources\order">
+      <UniqueIdentifier>{b84d3c5c-4d92-41cd-8ece-0534d638ba2e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers d%27en-tête\order\form">
+      <UniqueIdentifier>{a609cc31-dc30-4fb3-85bf-ed0e95159d78}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers d%27en-tête\order\attributes">
+      <UniqueIdentifier>{7f9cce6d-dbd3-4648-ae3e-4216dcbc19a7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers d%27en-tête\order\SQLcommands">
+      <UniqueIdentifier>{95c333cb-ebeb-4078-b902-ce15a88d61cc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers sources\order\form">
+      <UniqueIdentifier>{a70e3d1f-9e37-4c18-a0a5-6548f5c7b6db}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers sources\order\attributes">
+      <UniqueIdentifier>{85777ce1-35c4-4dd2-8385-b2b96de8a126}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers sources\order\SQLcommands">
+      <UniqueIdentifier>{bf65a58c-14f6-417f-a8a4-346550735955}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers d%27en-tête\supply">
+      <UniqueIdentifier>{8ca7f626-270f-4088-b034-a066615bb23e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers sources\supply">
+      <UniqueIdentifier>{d5abc6f0-fada-4975-8ca6-0af1132e2a14}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers d%27en-tête\supply\form">
+      <UniqueIdentifier>{effb3aeb-f0ef-4cdd-b6ef-42ef2a4e23a2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers d%27en-tête\supply\attributes">
+      <UniqueIdentifier>{248255d1-f6b0-400e-ada4-3a0f3de829f7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers d%27en-tête\supply\SQLcommands">
+      <UniqueIdentifier>{33f9ec9b-d238-4d87-9a58-0c1b0c4dc986}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers sources\supply\form">
+      <UniqueIdentifier>{b4d7393a-5c92-44e8-97b9-d21b71a58d2e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers sources\supply\attributes">
+      <UniqueIdentifier>{a6f42a59-9254-4430-9cf4-7ecf72e92767}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers sources\supply\SQLcommands">
+      <UniqueIdentifier>{78415a52-51f6-41d0-9996-03c47efafa95}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers d%27en-tête\stats">
+      <UniqueIdentifier>{18db8471-4b67-4b61-9266-affb87636808}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers sources\stats">
+      <UniqueIdentifier>{c2723e85-140a-4e71-ab23-17cd8ba23ab0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers sources\stats\form">
+      <UniqueIdentifier>{62ef35f2-666b-4f61-91c9-136bdfd9b176}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers d%27en-tête\stats\form">
+      <UniqueIdentifier>{1a454f27-4ae4-43a3-ab04-c368c0dd4ab0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers sources\stats\attributes">
+      <UniqueIdentifier>{036ac628-d7bd-4bde-92d3-15b2b0baf29e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers d%27en-tête\stats\attributes">
+      <UniqueIdentifier>{71e82f4e-969d-4c12-bcce-a43146346ce6}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="app.rc">
+      <Filter>Fichiers de ressources</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Resource.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="pch.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="CLservices.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="CLservicestaff.h">
+      <Filter>Fichiers d%27en-tête\staff</Filter>
+    </ClInclude>
+    <ClInclude Include="CLstafform.h">
+      <Filter>Fichiers d%27en-tête\staff\form</Filter>
+    </ClInclude>
+    <ClInclude Include="CLcad.h">
+      <Filter>Fichiers d%27en-tête\CAD</Filter>
+    </ClInclude>
+    <ClInclude Include="CLmapstaff.h">
+      <Filter>Fichiers d%27en-tête\staff\attributes</Filter>
+    </ClInclude>
+    <ClInclude Include="CLmapPersonal_infostaf.h">
+      <Filter>Fichiers d%27en-tête\staff\attributes</Filter>
+    </ClInclude>
+    <ClInclude Include="CLmapAddressStaf.h">
+      <Filter>Fichiers d%27en-tête\staff\attributes</Filter>
+    </ClInclude>
+    <ClInclude Include="CLmapCityStaf.h">
+      <Filter>Fichiers d%27en-tête\staff\attributes</Filter>
+    </ClInclude>
+    <ClInclude Include="CLmapPost_codeStaf.h">
+      <Filter>Fichiers d%27en-tête\staff\attributes</Filter>
+    </ClInclude>
+    <ClInclude Include="CLcreatestafform.h">
+      <Filter>Fichiers d%27en-tête\staff\SQLcommands</Filter>
+    </ClInclude>
+    <ClInclude Include="CLreadstafform.h">
+      <Filter>Fichiers d%27en-tête\staff\SQLcommands</Filter>
+    </ClInclude>
+    <ClInclude Include="CLupdatestafform.h">
+      <Filter>Fichiers d%27en-tête\staff\SQLcommands</Filter>
+    </ClInclude>
+    <ClInclude Include="CLdeletestafform.h">
+      <Filter>Fichiers d%27en-tête\staff\SQLcommands</Filter>
+    </ClInclude>
+    <ClInclude Include="CLcustomerform.h">
+      <Filter>Fichiers d%27en-tête\client\form</Filter>
+    </ClInclude>
+    <ClInclude Include="CLservicesclient.h">
+      <Filter>Fichiers d%27en-tête\client</Filter>
+    </ClInclude>
+    <ClInclude Include="CLcreateclientform.h">
+      <Filter>Fichiers d%27en-tête\client\SQLcommands</Filter>
+    </ClInclude>
+    <ClInclude Include="CLreadclientform.h">
+      <Filter>Fichiers d%27en-tête\client\SQLcommands</Filter>
+    </ClInclude>
+    <ClInclude Include="CLupdateclientform.h">
+      <Filter>Fichiers d%27en-tête\client\SQLcommands</Filter>
+    </ClInclude>
+    <ClInclude Include="CLdeleteclientform.h">
+      <Filter>Fichiers d%27en-tête\client\SQLcommands</Filter>
+    </ClInclude>
+    <ClInclude Include="CLmapPersonal_infoclient.h">
+      <Filter>Fichiers d%27en-tête\client\attributes</Filter>
+    </ClInclude>
+    <ClInclude Include="CLmapbilling.h">
+      <Filter>Fichiers d%27en-tête\client\attributes</Filter>
+    </ClInclude>
+    <ClInclude Include="CLmapdelivering.h">
+      <Filter>Fichiers d%27en-tête\client\attributes</Filter>
+    </ClInclude>
+    <ClInclude Include="CLmapAddressClient.h">
+      <Filter>Fichiers d%27en-tête\client\attributes</Filter>
+    </ClInclude>
+    <ClInclude Include="CLmapCityClient.h">
+      <Filter>Fichiers d%27en-tête\client\attributes</Filter>
+    </ClInclude>
+    <ClInclude Include="CLmapPost_codeClient.h">
+      <Filter>Fichiers d%27en-tête\client\attributes</Filter>
+    </ClInclude>
+    <ClInclude Include="CLservicesorder.h">
+      <Filter>Fichiers d%27en-tête\order</Filter>
+    </ClInclude>
+    <ClInclude Include="CLorderform.h">
+      <Filter>Fichiers d%27en-tête\order\form</Filter>
+    </ClInclude>
+    <ClInclude Include="CLcreateorderform.h">
+      <Filter>Fichiers d%27en-tête\order\SQLcommands</Filter>
+    </ClInclude>
+    <ClInclude Include="CLreadorderform.h">
+      <Filter>Fichiers d%27en-tête\order\SQLcommands</Filter>
+    </ClInclude>
+    <ClInclude Include="CLupdateorderform.h">
+      <Filter>Fichiers d%27en-tête\order\SQLcommands</Filter>
+    </ClInclude>
+    <ClInclude Include="CLdeleteorderform.h">
+      <Filter>Fichiers d%27en-tête\order\SQLcommands</Filter>
+    </ClInclude>
+    <ClInclude Include="CLmapOrder.h">
+      <Filter>Fichiers d%27en-tête\order\attributes</Filter>
+    </ClInclude>
+    <ClInclude Include="CLmapPayment.h">
+      <Filter>Fichiers d%27en-tête\order\attributes</Filter>
+    </ClInclude>
+    <ClInclude Include="CLmapArticleOrder.h">
+      <Filter>Fichiers d%27en-tête\order\attributes</Filter>
+    </ClInclude>
+    <ClInclude Include="CLmapCustomer.h">
+      <Filter>Fichiers d%27en-tête\order\attributes</Filter>
+    </ClInclude>
+    <ClInclude Include="CLsupplyform.h">
+      <Filter>Fichiers d%27en-tête\supply\form</Filter>
+    </ClInclude>
+    <ClInclude Include="CLmapArticleSupply.h">
+      <Filter>Fichiers d%27en-tête\supply\attributes</Filter>
+    </ClInclude>
+    <ClInclude Include="CLcreatesupplyform.h">
+      <Filter>Fichiers d%27en-tête\supply\SQLcommands</Filter>
+    </ClInclude>
+    <ClInclude Include="CLreadsupplyform.h">
+      <Filter>Fichiers d%27en-tête\supply\SQLcommands</Filter>
+    </ClInclude>
+    <ClInclude Include="CLupdatesupplyform.h">
+      <Filter>Fichiers d%27en-tête\supply\SQLcommands</Filter>
+    </ClInclude>
+    <ClInclude Include="CLdeletesupplyform.h">
+      <Filter>Fichiers d%27en-tête\supply\SQLcommands</Filter>
+    </ClInclude>
+    <ClInclude Include="CLservicesupply.h">
+      <Filter>Fichiers d%27en-tête\supply</Filter>
+    </ClInclude>
+    <ClInclude Include="CLservicesstats.h">
+      <Filter>Fichiers d%27en-tête\stats</Filter>
+    </ClInclude>
+    <ClInclude Include="CLstatsform.h">
+      <Filter>Fichiers d%27en-tête\stats\form</Filter>
+    </ClInclude>
+    <ClInclude Include="CLmapOrderStats.h">
+      <Filter>Fichiers d%27en-tête\stats\attributes</Filter>
+    </ClInclude>
+    <ClInclude Include="CLmapArticleStats.h">
+      <Filter>Fichiers d%27en-tête\stats\attributes</Filter>
+    </ClInclude>
+    <ClInclude Include="CLmainform.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="AssemblyInfo.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="pch.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="CLservices.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="CLstafform.cpp">
+      <Filter>Fichiers sources\staff\form</Filter>
+    </ClCompile>
+    <ClCompile Include="CLservicestaff.cpp">
+      <Filter>Fichiers sources\staff</Filter>
+    </ClCompile>
+    <ClCompile Include="CLcad.cpp">
+      <Filter>Fichiers sources\CAD</Filter>
+    </ClCompile>
+    <ClCompile Include="CLmapstaff.cpp">
+      <Filter>Fichiers sources\staff\attributes</Filter>
+    </ClCompile>
+    <ClCompile Include="CLmapPersonal_infostaf.cpp">
+      <Filter>Fichiers sources\staff\attributes</Filter>
+    </ClCompile>
+    <ClCompile Include="CLmapAddressStaf.cpp">
+      <Filter>Fichiers sources\staff\attributes</Filter>
+    </ClCompile>
+    <ClCompile Include="CLmapCityStaf.cpp">
+      <Filter>Fichiers sources\staff\attributes</Filter>
+    </ClCompile>
+    <ClCompile Include="CLmapPost_codeStaf.cpp">
+      <Filter>Fichiers sources\staff\attributes</Filter>
+    </ClCompile>
+    <ClCompile Include="CLcreatestafform.cpp">
+      <Filter>Fichiers sources\staff\SQLcommands</Filter>
+    </ClCompile>
+    <ClCompile Include="CLreadstafform.cpp">
+      <Filter>Fichiers sources\staff\SQLcommands</Filter>
+    </ClCompile>
+    <ClCompile Include="CLupdatestafform.cpp">
+      <Filter>Fichiers sources\staff\SQLcommands</Filter>
+    </ClCompile>
+    <ClCompile Include="CLdeletestafform.cpp">
+      <Filter>Fichiers sources\staff\SQLcommands</Filter>
+    </ClCompile>
+    <ClCompile Include="CLcustomerform.cpp">
+      <Filter>Fichiers sources\client\form</Filter>
+    </ClCompile>
+    <ClCompile Include="CLservicesclient.cpp">
+      <Filter>Fichiers sources\client</Filter>
+    </ClCompile>
+    <ClCompile Include="CLcreateclientform.cpp">
+      <Filter>Fichiers sources\client\SQLcommands</Filter>
+    </ClCompile>
+    <ClCompile Include="CLreadclientform.cpp">
+      <Filter>Fichiers sources\client\SQLcommands</Filter>
+    </ClCompile>
+    <ClCompile Include="CLupdateclientform.cpp">
+      <Filter>Fichiers sources\client\SQLcommands</Filter>
+    </ClCompile>
+    <ClCompile Include="CLdeleteclientform.cpp">
+      <Filter>Fichiers sources\client\SQLcommands</Filter>
+    </ClCompile>
+    <ClCompile Include="CLmapPersonal_infoclient.cpp">
+      <Filter>Fichiers sources\client\attributes</Filter>
+    </ClCompile>
+    <ClCompile Include="CLmapbilling.cpp">
+      <Filter>Fichiers sources\client\attributes</Filter>
+    </ClCompile>
+    <ClCompile Include="CLmapdelivering.cpp">
+      <Filter>Fichiers sources\client\attributes</Filter>
+    </ClCompile>
+    <ClCompile Include="CLmapAddressClient.cpp">
+      <Filter>Fichiers sources\client\attributes</Filter>
+    </ClCompile>
+    <ClCompile Include="CLmapCityClient.cpp">
+      <Filter>Fichiers sources\client\attributes</Filter>
+    </ClCompile>
+    <ClCompile Include="CLmapPost_codeClient.cpp">
+      <Filter>Fichiers sources\client\attributes</Filter>
+    </ClCompile>
+    <ClCompile Include="CLservicesorder.cpp">
+      <Filter>Fichiers sources\order</Filter>
+    </ClCompile>
+    <ClCompile Include="CLorderform.cpp">
+      <Filter>Fichiers sources\order\form</Filter>
+    </ClCompile>
+    <ClCompile Include="CLcreateorderform.cpp">
+      <Filter>Fichiers sources\order\SQLcommands</Filter>
+    </ClCompile>
+    <ClCompile Include="CLreadorderform.cpp">
+      <Filter>Fichiers sources\order\SQLcommands</Filter>
+    </ClCompile>
+    <ClCompile Include="CLupdateorderform.cpp">
+      <Filter>Fichiers sources\order\SQLcommands</Filter>
+    </ClCompile>
+    <ClCompile Include="CLdeleteorderform.cpp">
+      <Filter>Fichiers sources\order\SQLcommands</Filter>
+    </ClCompile>
+    <ClCompile Include="CLmapOrder.cpp">
+      <Filter>Fichiers sources\order\attributes</Filter>
+    </ClCompile>
+    <ClCompile Include="CLmapPayment.cpp">
+      <Filter>Fichiers sources\order\attributes</Filter>
+    </ClCompile>
+    <ClCompile Include="CLmapArticleOrder.cpp">
+      <Filter>Fichiers sources\order\attributes</Filter>
+    </ClCompile>
+    <ClCompile Include="CLmapCustomer.cpp">
+      <Filter>Fichiers sources\order\attributes</Filter>
+    </ClCompile>
+    <ClCompile Include="CLsupplyform.cpp">
+      <Filter>Fichiers sources\supply\form</Filter>
+    </ClCompile>
+    <ClCompile Include="CLmapArticleSupply.cpp">
+      <Filter>Fichiers sources\supply\attributes</Filter>
+    </ClCompile>
+    <ClCompile Include="CLcreatesupplyform.cpp">
+      <Filter>Fichiers sources\supply\SQLcommands</Filter>
+    </ClCompile>
+    <ClCompile Include="CLreadsupplyform.cpp">
+      <Filter>Fichiers sources\supply\SQLcommands</Filter>
+    </ClCompile>
+    <ClCompile Include="CLupdatesupplyform.cpp">
+      <Filter>Fichiers sources\supply\SQLcommands</Filter>
+    </ClCompile>
+    <ClCompile Include="CLdeletesupplyform.cpp">
+      <Filter>Fichiers sources\supply\SQLcommands</Filter>
+    </ClCompile>
+    <ClCompile Include="CLservicesupply.cpp">
+      <Filter>Fichiers sources\supply</Filter>
+    </ClCompile>
+    <ClCompile Include="CLservicesstats.cpp">
+      <Filter>Fichiers sources\stats</Filter>
+    </ClCompile>
+    <ClCompile Include="CLstatsform.cpp">
+      <Filter>Fichiers sources\stats\form</Filter>
+    </ClCompile>
+    <ClCompile Include="CLmapOrderStats.cpp">
+      <Filter>Fichiers sources\stats\attributes</Filter>
+    </ClCompile>
+    <ClCompile Include="CLmapArticleStats.cpp">
+      <Filter>Fichiers sources\stats\attributes</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="app.ico">
+      <Filter>Fichiers de ressources</Filter>
+    </Image>
+  </ItemGroup>
+</Project>
