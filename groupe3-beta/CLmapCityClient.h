@@ -3,12 +3,12 @@
 namespace NS_Map_City_Client {
 	ref class CLmapCityCLient {
 	private:
+		int id_city;
 		System::String^ name_city;
-		int Post_code;
 	public:
+		void setidcity(int);
+		int getidcity(void);
 		void setNamecity(System::String^);
 		System::String^ getNamecity(void);
-		void setPostcode(int);
-		int getPostcode(void);
 	};
 }

@@ -1,6 +1,14 @@
 #include "pch.h"
 #include "CLmapPersonal_infoclient.h"
 
+void NS_Map_Personal_info_client::CLmapPersonalinfoclient::setidperso(int id) {
+	this->id_perso = id;
+}
+
+int NS_Map_Personal_info_client::CLmapPersonalinfoclient::getidperso(void) {
+	return id_perso;
+}
+
 void NS_Map_Personal_info_client::CLmapPersonalinfoclient::setFirstname(System::String^ firstname) {
 	this->first_name = firstname;
 }

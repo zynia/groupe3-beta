@@ -57,7 +57,7 @@ void NS_Map_Addr_Client::CLmapAddressClient::setComplement(System::String^ cp) {
 System::String^ NS_Map_Addr_Client::CLmapAddressClient::getComplement(void) {
 	return Complement;
 }
-
+/*
 void NS_Map_Addr_Client::CLmapAddressClient::setNamecity(System::String^ Namecity) {
 	this->Name_city = Namecity;
 }
@@ -86,3 +86,4 @@ System::String^ NS_Map_Addr_Client::CLmapAddressClient::Delete(void) {
 System::String^ NS_Map_Addr_Client::CLmapAddressClient::Update(void) {
 	return "UPDATE Address SET Street_name = '" + this->Street_name + "', Street_number = '" + this->Street_number.ToString() + "', Residency_name = '" + this->Residence_name + "', Building_name = '" + this->Building_name + "', Floor_number = '" + this->Floor_number.ToString() + "', Complement = '" + this->Complement + "' WHERE id_address = " + this->id_address + ";";
 }
+*/

@@ -1,58 +1,90 @@
 #include "pch.h"
 #include "CLservicesclient.h"
 
-NS_Comp_Svc::CLservices::CLservices(void)
+NS_Comp_Svc::CLservicesClient::CLservicesClient(void)
 {
 	this->oCad = gcnew NS_Comp_Data::CLcad();
-	this->oMapAdrCli = gcnew NS_Map_Addr_Client::CLmapAddressClient();
+	this->oMapAddr = gcnew NS_Map_Addr_Client::CLmapAddressClient();
+	this->oMapBill = gcnew NS_Map_Billing::CLmapbilling();
+	this->oMapCityClient = gcnew NS_Map_City_Client::CLmapCityCLient();
+	this->oMapDeliv = gcnew NS_Map_Delivering::CLmapdelivering();
+	this->oMapPersoInfo = gcnew NS_Map_Personal_info_client::CLmapPersonalinfoclient();
+	this->oMapPostCode = gcnew NS_Map_Post_Code::CLmapPostcodeClient();
 }
-System::Data::DataSet^ NS_Comp_Svc::CLservices::getAllAddress(System::String^ dataTableName)
+System::Data::DataSet^ NS_Comp_Svc::CLservicesClient::SelectClient(System::String^ dataTableName)
 {
 	System::String^ sql;
 
-	sql = this->oMapAdrCli->Select();
+	sql = this->oSvc->Select();
 	return this->oCad->getRows(sql, dataTableName);
 }
-void NS_Comp_Svc::CLservices::addAddress(System::String^ streetname, int streetnumber, System::String^ Residencyname, System::String^ Buildingname, int floornumber, System::String^ complement)
+
+void NS_Comp_Svc::CLservicesClient::InsertClient(System::String^ streetname, int streetnumber, System::String^ residencename, System::String^ buildingname, int floornumber, System::String^ complement, System::String^ city, int postcode, System::String^ firstname, System::String^ lastname, System::String^ birthdate)
 {
 	System::String^ sql;
 
-	this->oMapAdrCli->setStreetname(streetname);
-	this->oMapAdrCli->setStreetnumber(streetnumber);
-	this->oMapAdrCli->setResidencename(Residencyname);
-	this->oMapAdrCli->setBuildingname(Buildingname);
-	this->oMapAdrCli->setFloornumber(floornumber);
-	this->oMapAdrCli->setComplement(complement);
+	this->oMapAddr->setStreetname(streetname);
+	this->oMapAddr->setStreetnumber(streetnumber);
+	this->oMapAddr->setResidencename(residencename);
+	this->oMapAddr->setBuildingname(buildingname);
+	this->oMapAddr->setFloornumber(floornumber);
+	this->oMapAddr->setComplement(complement);
+	this->oMapCityClient->setNamecity(city);
+	this->oMapPostCode->setPostcode(postcode);
+	this->oMapPersoInfo->setFirstname(firstname);
+	this->oMapPersoInfo->setLastname(lastname);
+	this->oMapPersoInfo->setBirthdate(birthdate);
 
-	sql = this->oMapAdrCli->Insert();
-
-	this->oCad->actionRows(sql);
-}
-
-void NS_Comp_Svc::CLservices::deleteAddress(int id) {
-
-	System::String^ sql;
-
-	this->oMapAdrCli->setIdaddress(id);
-
-	sql = this->oMapAdrCli->Delete();
+	sql = this->oSvc->Insert();
 
 	this->oCad->actionRows(sql);
 }
 
-void NS_Comp_Svc::CLservices::updateAddress(int id, System::String^ streetname, int streetnumber, System::String^ Residencyname, System::String^ Buildingname, int floornumber, System::String^ complement) {
+void NS_Comp_Svc::CLservicesClient::DeleteClient(int idperso) {
 
 	System::String^ sql;
 
-	this->oMapAdrCli->setIdaddress(id);
-	this->oMapAdrCli->setStreetname(streetname);
-	this->oMapAdrCli->setStreetnumber(streetnumber);
-	this->oMapAdrCli->setResidencename(Residencyname);
-	this->oMapAdrCli->setBuildingname(Buildingname);
-	this->oMapAdrCli->setFloornumber(floornumber);
-	this->oMapAdrCli->setComplement(complement);
+	this->oMapPersoInfo->setidperso(idperso);
 
-	sql = this->oMapAdrCli->Update();
+	sql = this->oSvc->Delete();
 
 	this->oCad->actionRows(sql);
+}
+
+void NS_Comp_Svc::CLservicesClient::UpdateClient(int idperso, System::String^ streetname, int streetnumber, System::String^ residencename, System::String^ buildingname, int floornumber, System::String^ complement, System::String^ city, int postcode, System::String^ firstname, System::String^ lastname, System::String^ birthdate) {
+
+	System::String^ sql;
+
+	this->oMapPersoInfo->setidperso(idperso);
+	this->oMapAddr->setStreetname(streetname);
+	this->oMapAddr->setStreetnumber(streetnumber);
+	this->oMapAddr->setResidencename(residencename);
+	this->oMapAddr->setBuildingname(buildingname);
+	this->oMapAddr->setFloornumber(floornumber);
+	this->oMapAddr->setComplement(complement);
+	this->oMapCityClient->setNamecity(city);
+	this->oMapPostCode->setPostcode(postcode);
+	this->oMapPersoInfo->setFirstname(firstname);
+	this->oMapPersoInfo->setLastname(lastname);
+	this->oMapPersoInfo->setBirthdate(birthdate);
+
+	sql = this->oSvc->Update();
+
+	this->oCad->actionRows(sql);
+}
+
+System::String^ NS_Comp_Svc::CLservicesClient::Select() {
+	return "";
+}
+
+System::String^ NS_Comp_Svc::CLservicesClient::Insert() {
+	return "";
+}
+
+System::String^ NS_Comp_Svc::CLservicesClient::Delete() {
+	return "";
+}
+
+System::String^ NS_Comp_Svc::CLservicesClient::Update() {
+	return "";
 }

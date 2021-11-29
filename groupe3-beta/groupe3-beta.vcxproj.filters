@@ -61,9 +61,6 @@
     <Filter Include="Fichiers sources\client\attributes">
       <UniqueIdentifier>{8bc69b4b-552c-4261-871f-2a474f1af9cb}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Fichiers d%27en-tête\client\SQLcommands">
-      <UniqueIdentifier>{1d7e02c9-634e-4b38-9349-787423844e0c}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Fichiers sources\client\SQLcommands">
       <UniqueIdentifier>{dcf37788-5fdd-4a59-8acd-43311ba27ff0}</UniqueIdentifier>
     </Filter>
@@ -133,6 +130,9 @@
     <Filter Include="Fichiers d%27en-tête\stats\attributes">
       <UniqueIdentifier>{71e82f4e-969d-4c12-bcce-a43146346ce6}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Fichiers d%27en-tête\client\FormsCOMMANDS">
+      <UniqueIdentifier>{1d7e02c9-634e-4b38-9349-787423844e0c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="app.rc">
@@ -192,16 +192,16 @@
       <Filter>Fichiers d%27en-tête\client</Filter>
     </ClInclude>
     <ClInclude Include="CLcreateclientform.h">
-      <Filter>Fichiers d%27en-tête\client\SQLcommands</Filter>
+      <Filter>Fichiers d%27en-tête\client\FormsCOMMANDS</Filter>
     </ClInclude>
     <ClInclude Include="CLreadclientform.h">
-      <Filter>Fichiers d%27en-tête\client\SQLcommands</Filter>
+      <Filter>Fichiers d%27en-tête\client\FormsCOMMANDS</Filter>
     </ClInclude>
     <ClInclude Include="CLupdateclientform.h">
-      <Filter>Fichiers d%27en-tête\client\SQLcommands</Filter>
+      <Filter>Fichiers d%27en-tête\client\FormsCOMMANDS</Filter>
     </ClInclude>
     <ClInclude Include="CLdeleteclientform.h">
-      <Filter>Fichiers d%27en-tête\client\SQLcommands</Filter>
+      <Filter>Fichiers d%27en-tête\client\FormsCOMMANDS</Filter>
     </ClInclude>
     <ClInclude Include="CLmapPersonal_infoclient.h">
       <Filter>Fichiers d%27en-tête\client\attributes</Filter>
