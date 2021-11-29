@@ -12,11 +12,7 @@ namespace NS_Map_Addr_Client
 		System::String^ Building_name;
 		int Floor_number;
 		System::String^ Complement;
-		
-		/*
-		System::String^ Name_city;
-		int Post_code;
-		*/
+
 	public:
 
 		void setIdaddress(int);
@@ -33,12 +29,6 @@ namespace NS_Map_Addr_Client
 		int getFloornumber(void);
 		void setComplement(System::String^);
 		System::String^ getComplement(void);
-		/*
-		void setNamecity(System::String^);
-		System::String^ getNamecity(void);
-		void setPostcode(int);
-		int getPostcode(void);
-		*/
 
 	};
 }

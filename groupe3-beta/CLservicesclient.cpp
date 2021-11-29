@@ -1,7 +1,7 @@
 #include "pch.h"
 #include "CLservicesclient.h"
 
-NS_Comp_Svc::CLservicesClient::CLservicesClient(void)
+NS_Comp_Svc_Cli::CLservicesClient::CLservicesClient(void)
 {
 	this->oCad = gcnew NS_Comp_Data::CLcad();
 	this->oMapAddr = gcnew NS_Map_Addr_Client::CLmapAddressClient();
@@ -11,7 +11,7 @@ NS_Comp_Svc::CLservicesClient::CLservicesClient(void)
 	this->oMapPersoInfo = gcnew NS_Map_Personal_info_client::CLmapPersonalinfoclient();
 	this->oMapPostCode = gcnew NS_Map_Post_Code::CLmapPostcodeClient();
 }
-System::Data::DataSet^ NS_Comp_Svc::CLservicesClient::SelectClient(System::String^ dataTableName)
+System::Data::DataSet^ NS_Comp_Svc_Cli::CLservicesClient::SelectClient(System::String^ dataTableName)
 {
 	System::String^ sql;
 
@@ -19,7 +19,7 @@ System::Data::DataSet^ NS_Comp_Svc::CLservicesClient::SelectClient(System::Strin
 	return this->oCad->getRows(sql, dataTableName);
 }
 
-void NS_Comp_Svc::CLservicesClient::InsertClient(System::String^ streetname, int streetnumber, System::String^ residencename, System::String^ buildingname, int floornumber, System::String^ complement, System::String^ city, int postcode, System::String^ firstname, System::String^ lastname, System::String^ birthdate)
+void NS_Comp_Svc_Cli::CLservicesClient::InsertClient(System::String^ streetname, int streetnumber, System::String^ residencename, System::String^ buildingname, int floornumber, System::String^ complement, System::String^ city, int postcode, System::String^ firstname, System::String^ lastname, System::String^ birthdate)
 {
 	System::String^ sql;
 
@@ -40,7 +40,7 @@ void NS_Comp_Svc::CLservicesClient::InsertClient(System::String^ streetname, int
 	this->oCad->actionRows(sql);
 }
 
-void NS_Comp_Svc::CLservicesClient::DeleteClient(int idperso) {
+void NS_Comp_Svc_Cli::CLservicesClient::DeleteClient(int idperso) {
 
 	System::String^ sql;
 
@@ -51,7 +51,7 @@ void NS_Comp_Svc::CLservicesClient::DeleteClient(int idperso) {
 	this->oCad->actionRows(sql);
 }
 
-void NS_Comp_Svc::CLservicesClient::UpdateClient(int idperso, System::String^ streetname, int streetnumber, System::String^ residencename, System::String^ buildingname, int floornumber, System::String^ complement, System::String^ city, int postcode, System::String^ firstname, System::String^ lastname, System::String^ birthdate) {
+void NS_Comp_Svc_Cli::CLservicesClient::UpdateClient(int idperso, System::String^ streetname, int streetnumber, System::String^ residencename, System::String^ buildingname, int floornumber, System::String^ complement, System::String^ city, int postcode, System::String^ firstname, System::String^ lastname, System::String^ birthdate) {
 
 	System::String^ sql;
 
@@ -73,18 +73,18 @@ void NS_Comp_Svc::CLservicesClient::UpdateClient(int idperso, System::String^ st
 	this->oCad->actionRows(sql);
 }
 
-System::String^ NS_Comp_Svc::CLservicesClient::Select() {
+System::String^ NS_Comp_Svc_Cli::CLservicesClient::Select() {
 	return "";
 }
 
-System::String^ NS_Comp_Svc::CLservicesClient::Insert() {
+System::String^ NS_Comp_Svc_Cli::CLservicesClient::Insert() {
 	return "";
 }
 
-System::String^ NS_Comp_Svc::CLservicesClient::Delete() {
+System::String^ NS_Comp_Svc_Cli::CLservicesClient::Delete() {
 	return "";
 }
 
-System::String^ NS_Comp_Svc::CLservicesClient::Update() {
+System::String^ NS_Comp_Svc_Cli::CLservicesClient::Update() {
 	return "";
 }

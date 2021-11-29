@@ -57,33 +57,3 @@ void NS_Map_Addr_Client::CLmapAddressClient::setComplement(System::String^ cp) {
 System::String^ NS_Map_Addr_Client::CLmapAddressClient::getComplement(void) {
 	return Complement;
 }
-/*
-void NS_Map_Addr_Client::CLmapAddressClient::setNamecity(System::String^ Namecity) {
-	this->Name_city = Namecity;
-}
-
-System::String^ NS_Map_Addr_Client::CLmapAddressClient::getNamecity(void) {
-	return Name_city;
-}
-
-void NS_Map_Addr_Client::CLmapAddressClient::setPostcode(int Postcode) {
-	this->Post_code = Postcode;
-}
-
-int NS_Map_Addr_Client::CLmapAddressClient::getPostcode(void) {
-	return Post_code;
-}
-
-System::String^ NS_Map_Addr_Client::CLmapAddressClient::Select(void) {
-	return "SELECT * FROM Groupe3_POO.dbo.Address;";
-}
-System::String^ NS_Map_Addr_Client::CLmapAddressClient::Insert(void) {
-	return "INSERT INTO Address (Street_name, Street_number, Residency_name, Building_name, Floor_number, Complement) VALUES ('" + this->Street_name + "','" + this->Street_number.ToString() + "','" + this->Residence_name + "','" + this->Building_name + "','" + this->Floor_number.ToString() + "','" + this->Complement + "');";
-}
-System::String^ NS_Map_Addr_Client::CLmapAddressClient::Delete(void) {
-	return "DELETE FROM Address WHERE id_address = " + this->id_address.ToString() + ";";
-}
-System::String^ NS_Map_Addr_Client::CLmapAddressClient::Update(void) {
-	return "UPDATE Address SET Street_name = '" + this->Street_name + "', Street_number = '" + this->Street_number.ToString() + "', Residency_name = '" + this->Residence_name + "', Building_name = '" + this->Building_name + "', Floor_number = '" + this->Floor_number.ToString() + "', Complement = '" + this->Complement + "' WHERE id_address = " + this->id_address + ";";
-}
-*/

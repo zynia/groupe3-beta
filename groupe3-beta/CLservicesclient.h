@@ -7,12 +7,12 @@
 #include "CLmapPersonal_infoclient.h"
 #include "CLmapPost_codeClient.h"
 
-namespace NS_Comp_Svc
+namespace NS_Comp_Svc_Cli
 {
 	ref class CLservicesClient
 	{
 	private:
-		NS_Comp_Svc::CLservicesClient^ oSvc;
+		NS_Comp_Svc_Cli::CLservicesClient^ oSvc;
 		NS_Comp_Data::CLcad^ oCad;
 		NS_Map_Addr_Client::CLmapAddressClient^ oMapAddr;
 		NS_Map_Billing::CLmapbilling^ oMapBill;
