@@ -20,7 +20,7 @@ namespace NS_Comp_Svc_Order {
 		System::Data::DataSet^ SelectOrder(System::String^);
 		void InsertOrder(System::String^, System::String^, float, int, float, System::String^, float, float, float, int, System::String^, System::String^, System::String^, int, System::String^, int, System::String^);
 		void DeleteOrder(int);
-		void UpdateOrder();
+		void UpdateOrder(int, System::String^, System::String^, float, int, float, System::String^, float, float, float, int, System::String^, System::String^, System::String^, int, System::String^, int, System::String^);
 
 		System::String^ Select();
 		System::String^ Insert();

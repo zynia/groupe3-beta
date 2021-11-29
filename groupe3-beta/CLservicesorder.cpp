@@ -53,3 +53,47 @@ void NS_Comp_Svc_Order::CLserviceOrder::DeleteOrder(int id) {
 
 	this->oCad->actionRows(sql);
 }
+
+void NS_Comp_Svc_Order::CLserviceOrder::UpdateOrder(int id, System::String^ color, System::String^ type, float margin, int repl, float ht, System::String^ name, float discount, float tva, float invshrink, int nbstock, System::String^ delivdate, System::String^ senddate, System::String^ reforder, int nbart, System::String^ paytype, int paynb, System::String^ paydate) {
+
+	System::String^ sql;
+
+	this->oMapOrd->setIdorder(id);
+	this->oMapArticlOrd->setColorarticle(color);
+	this->oMapArticlOrd->setTypearticle(type);
+	this->oMapArticlOrd->setMarginarticle(margin);
+	this->oMapArticlOrd->setReplenishmentthreshold(repl);
+	this->oMapArticlOrd->setHT(ht);
+	this->oMapArticlOrd->setNamearticle(name);
+	this->oMapArticlOrd->setDiscount(discount);
+	this->oMapArticlOrd->setTVA(tva);
+	this->oMapArticlOrd->setInventoryshrinkage(invshrink);
+	this->oMapArticlOrd->setNbstock(nbstock);
+	this->oMapOrd->setDeliverydate(delivdate);
+	this->oMapOrd->setSenddate(senddate);
+	this->oMapOrd->setReforder(reforder);
+	this->oMapOrd->setNbarticle(nbart);
+	this->oMapPay->setPaymenttype(paytype);
+	this->oMapPay->setPaymentnumber(paynb);
+	this->oMapPay->setPaymentdate(paydate);
+	
+	sql = this->oOrder->Update();
+
+	this->oCad->actionRows(sql);
+}
+
+System::String^ NS_Comp_Svc_Order::CLserviceOrder::Select() {
+	return "";
+}
+
+System::String^ NS_Comp_Svc_Order::CLserviceOrder::Insert() {
+	return "";
+}
+
+System::String^ NS_Comp_Svc_Order::CLserviceOrder::Delete() {
+	return "";
+}
+
+System::String^ NS_Comp_Svc_Order::CLserviceOrder::Update() {
+	return "";
+}
