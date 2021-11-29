@@ -19,9 +19,9 @@ namespace NS_Comp_Svc_Staf {
 	public:
 		CLservicestaff(void);
 		System::Data::DataSet^ SelectStaf(System::String^);
-		void InsertStaf(System::String^, int, System::String^, System::String^, int, System::String^, System::String^, int, System::String^, System::String^, System::String^);
+		void InsertStaf(System::String^ ,System::String^, int, System::String^, System::String^, int, System::String^, System::String^, int, System::String^, System::String^, System::String^);
 		void DeleteStaf(int);
-		void UpdateStaf(int, System::String^, int, System::String^, System::String^, int, System::String^, System::String^, int, System::String^, System::String^, System::String^);
+		void UpdateStaf(int, System::String^ ,System::String^ , int, System::String^, System::String^, int, System::String^, System::String^, int, System::String^, System::String^, System::String^);
 
 		System::String^ Select();
 		System::String^ Insert();

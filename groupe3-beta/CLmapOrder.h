@@ -1,1 +1,23 @@
 #pragma once
+
+namespace NS_Map_Order {
+	ref class CLmapOrder {
+	private:
+		int id_order;
+		System::String^ delivery_date;
+		System::String^ send_date;
+		System::String^ ref_order;
+		int nb_article;
+	public:
+		void setIdorder(int);
+		int getIdorder(void);
+		void setDeliverydate(System::String^);
+		System::String^ getDeliverydate(void);
+		void setSenddate(System::String^);
+		System::String^ getSenddate(void);
+		void setReforder(System::String^);
+		System::String^ getReforder(void);
+		void setNbarticle(int);
+		int getNbarticle(void);
+	};
+}

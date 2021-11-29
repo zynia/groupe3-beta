@@ -17,10 +17,11 @@ System::Data::DataSet^ NS_Comp_Svc_Staf::CLservicestaff::SelectStaf(System::Stri
 	return this->oCad->getRows(sql, dataTableName);
 }
 
-void  NS_Comp_Svc_Staf::CLservicestaff::InsertStaf(System::String^ streetname, int streetnumber, System::String^ residencename, System::String^ buildingname, int floornumber, System::String^ complement, System::String^ city, int postcode, System::String^ firstname, System::String^ lastname, System::String^ birthdate) {
+void  NS_Comp_Svc_Staf::CLservicestaff::InsertStaf(System::String^ hiringdate, System::String^ streetname, int streetnumber, System::String^ residencename, System::String^ buildingname, int floornumber, System::String^ complement, System::String^ city, int postcode, System::String^ firstname, System::String^ lastname, System::String^ birthdate) {
 
 	System::String^ sql;
 
+	this->oMapStaf->setHiringdate(hiringdate);
 	this->oMapAddr->setStreetname(streetname);
 	this->oMapAddr->setStreetnumber(streetnumber);
 	this->oMapAddr->setResidencename(residencename);
@@ -49,10 +50,40 @@ void NS_Comp_Svc_Staf::CLservicestaff::DeleteStaf(int id) {
 	this->oCad->actionRows(sql);
 }
 
-void NS_Comp_Svc_Staf::CLservicestaff::UpdateStaf(int id, System::String^ streetname, int streetnumber, System::String^ residencename, System::String^ buildingname, int floornumber, System::String^ complement, System::String^ city, int postcode, System::String^ firstname, System::String^ lastname, System::String^ birthdate) {
+void NS_Comp_Svc_Staf::CLservicestaff::UpdateStaf(int id, System::String^ hiringdate, System::String^ streetname, int streetnumber, System::String^ residencename, System::String^ buildingname, int floornumber, System::String^ complement, System::String^ city, int postcode, System::String^ firstname, System::String^ lastname, System::String^ birthdate) {
 
 	System::String^ sql;
+	this->oMapStaf->setidstaff(id);
+	this->oMapStaf->setHiringdate(hiringdate);
+	this->oMapAddr->setStreetname(streetname);
+	this->oMapAddr->setStreetnumber(streetnumber);
+	this->oMapAddr->setResidencename(residencename);
+	this->oMapAddr->setBuildingname(buildingname);
+	this->oMapAddr->setFloornumber(floornumber);
+	this->oMapAddr->setComplement(complement);
+	this->oMapCityStaf->setNamecity(city);
+	this->oMapPostCodeStaf->setPostcode(postcode);
+	this->oMapPersoInfoStaf->setFirstname(firstname);
+	this->oMapPersoInfoStaf->setLastname(lastname);
+	this->oMapPersoInfoStaf->setBirthdate(birthdate);
 
+	sql = this->oStaf->Update();
 
+	this->oCad->actionRows(sql);
+}
 
+System::String^ NS_Comp_Svc_Staf::CLservicestaff::Select() {
+	return "";
+}
+
+System::String^ NS_Comp_Svc_Staf::CLservicestaff::Insert() {
+	return "";
+}
+
+System::String^ NS_Comp_Svc_Staf::CLservicestaff::Delete() {
+	return "";
+}
+
+System::String^ NS_Comp_Svc_Staf::CLservicestaff::Update() {
+	return "";
 }

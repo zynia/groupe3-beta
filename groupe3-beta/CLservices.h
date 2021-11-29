@@ -12,8 +12,9 @@ namespace NS_services {
 	ref class CLservices {
 	private:
 		NS_Comp_Data::CLcad^ oCad;
-		NS_Comp_Svc_Cli::CLservicesClient^ oSvcCli
-		NS_Comp_Svc_Staf::
+		NS_Comp_Svc_Cli::CLservicesClient^ oSvcCli;
+		NS_Comp_Svc_Staf::CLservicestaff^ oSvcStaf;
+		NS_Comp_Svc_Order::CLserviceOrder^ oSvcOrder;
 	public:
 		
 	};
