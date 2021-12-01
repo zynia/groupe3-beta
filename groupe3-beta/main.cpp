@@ -1,15 +1,20 @@
 #include "pch.h"
-#include "CLmainform.h"
 
 using namespace System;
+
+//int main(array<System::String ^> ^args)
+//{
+//    return 0;
+//}
+
+#include "Mainform.h"
+
 using namespace System::Windows::Forms;
 
-
-[STAThreadAttribute]
-int __clrcall WinMain(array<String^>^ args)
-{
+[STAThread]
+int main() {
 	Application::EnableVisualStyles();
 	Application::SetCompatibleTextRenderingDefault(false);
-	groupe3beta::MyForm monFormulaire;
-	Application::Run(% monFormulaire);
+	Application::Run(gcnew Gstorg::Form1());
+	return 0;
 }

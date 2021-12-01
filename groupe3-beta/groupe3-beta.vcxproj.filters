@@ -158,7 +158,7 @@
     <ClInclude Include="CLservicestaff.h">
       <Filter>Fichiers d%27en-tête\staff</Filter>
     </ClInclude>
-    <ClInclude Include="CLstafform.h">
+    <ClInclude Include="Stafform1.h">
       <Filter>Fichiers d%27en-tête\staff\form</Filter>
     </ClInclude>
     <ClInclude Include="CLcad.h">
@@ -179,34 +179,34 @@
     <ClInclude Include="CLmapPost_codeStaf.h">
       <Filter>Fichiers d%27en-tête\staff\attributes</Filter>
     </ClInclude>
-    <ClInclude Include="CLcreatestafform.h">
+    <ClInclude Include="CreateStafForm1.h">
       <Filter>Fichiers d%27en-tête\staff\subforms</Filter>
     </ClInclude>
-    <ClInclude Include="CLreadstafform.h">
+    <ClInclude Include="ReadStafForm.h">
       <Filter>Fichiers d%27en-tête\staff\subforms</Filter>
     </ClInclude>
-    <ClInclude Include="CLupdatestafform.h">
+    <ClInclude Include="UpdateStafForm1.h">
       <Filter>Fichiers d%27en-tête\staff\subforms</Filter>
     </ClInclude>
-    <ClInclude Include="CLdeletestafform.h">
+    <ClInclude Include="DeleteStafForm.h">
       <Filter>Fichiers d%27en-tête\staff\subforms</Filter>
     </ClInclude>
-    <ClInclude Include="CLcustomerform.h">
+    <ClInclude Include="Clientform.h">
       <Filter>Fichiers d%27en-tête\client\form</Filter>
     </ClInclude>
     <ClInclude Include="CLservicesclient.h">
       <Filter>Fichiers d%27en-tête\client</Filter>
     </ClInclude>
-    <ClInclude Include="CLcreateclientform.h">
+    <ClInclude Include="CreateClientform.h">
       <Filter>Fichiers d%27en-tête\client\subforms</Filter>
     </ClInclude>
-    <ClInclude Include="CLreadclientform.h">
+    <ClInclude Include="ReadClientform.h">
       <Filter>Fichiers d%27en-tête\client\subforms</Filter>
     </ClInclude>
-    <ClInclude Include="CLupdateclientform.h">
+    <ClInclude Include="UpdateClientform.h">
       <Filter>Fichiers d%27en-tête\client\subforms</Filter>
     </ClInclude>
-    <ClInclude Include="CLdeleteclientform.h">
+    <ClInclude Include="DeleteClientform.h">
       <Filter>Fichiers d%27en-tête\client\subforms</Filter>
     </ClInclude>
     <ClInclude Include="CLmapPersonal_infoclient.h">
@@ -230,19 +230,19 @@
     <ClInclude Include="CLservicesorder.h">
       <Filter>Fichiers d%27en-tête\order</Filter>
     </ClInclude>
-    <ClInclude Include="CLorderform.h">
+    <ClInclude Include="Ordersform.h">
       <Filter>Fichiers d%27en-tête\order\form</Filter>
     </ClInclude>
-    <ClInclude Include="CLcreateorderform.h">
+    <ClInclude Include="CreateOrderForm.h">
       <Filter>Fichiers d%27en-tête\order\subforms</Filter>
     </ClInclude>
-    <ClInclude Include="CLreadorderform.h">
+    <ClInclude Include="ReadOrderForm.h">
       <Filter>Fichiers d%27en-tête\order\subforms</Filter>
     </ClInclude>
-    <ClInclude Include="CLupdateorderform.h">
+    <ClInclude Include="UpdateOrderForm.h">
       <Filter>Fichiers d%27en-tête\order\subforms</Filter>
     </ClInclude>
-    <ClInclude Include="CLdeleteorderform.h">
+    <ClInclude Include="DeleteOrderForm.h">
       <Filter>Fichiers d%27en-tête\order\subforms</Filter>
     </ClInclude>
     <ClInclude Include="CLmapOrder.h">
@@ -257,22 +257,22 @@
     <ClInclude Include="CLmapCustomer.h">
       <Filter>Fichiers d%27en-tête\order\attributes</Filter>
     </ClInclude>
-    <ClInclude Include="CLsupplyform.h">
+    <ClInclude Include="Supplyform.h">
       <Filter>Fichiers d%27en-tête\supply\form</Filter>
     </ClInclude>
     <ClInclude Include="CLmapArticleSupply.h">
       <Filter>Fichiers d%27en-tête\supply\attributes</Filter>
     </ClInclude>
-    <ClInclude Include="CLcreatesupplyform.h">
+    <ClInclude Include="CreateSupplyForm.h">
       <Filter>Fichiers d%27en-tête\supply\subforms</Filter>
     </ClInclude>
-    <ClInclude Include="CLreadsupplyform.h">
+    <ClInclude Include="ReadSupplyForm.h">
       <Filter>Fichiers d%27en-tête\supply\subforms</Filter>
     </ClInclude>
-    <ClInclude Include="CLupdatesupplyform.h">
+    <ClInclude Include="UpdateSupplyForm.h">
       <Filter>Fichiers d%27en-tête\supply\subforms</Filter>
     </ClInclude>
-    <ClInclude Include="CLdeletesupplyform.h">
+    <ClInclude Include="DeleteSupplyForm.h">
       <Filter>Fichiers d%27en-tête\supply\subforms</Filter>
     </ClInclude>
     <ClInclude Include="CLservicesupply.h">
@@ -281,7 +281,7 @@
     <ClInclude Include="CLservicesstats.h">
       <Filter>Fichiers d%27en-tête\stats</Filter>
     </ClInclude>
-    <ClInclude Include="CLstatsform.h">
+    <ClInclude Include="Statsform.h">
       <Filter>Fichiers d%27en-tête\stats\form</Filter>
     </ClInclude>
     <ClInclude Include="CLmapOrderStats.h">
@@ -290,7 +290,7 @@
     <ClInclude Include="CLmapArticleStats.h">
       <Filter>Fichiers d%27en-tête\stats\attributes</Filter>
     </ClInclude>
-    <ClInclude Include="CLmainform.h">
+    <ClInclude Include="Mainform.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
   </ItemGroup>
@@ -304,7 +304,7 @@
     <ClCompile Include="CLservices.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
-    <ClCompile Include="CLstafform.cpp">
+    <ClCompile Include="Stafform1.cpp">
       <Filter>Fichiers sources\staff\form</Filter>
     </ClCompile>
     <ClCompile Include="CLservicestaff.cpp">
@@ -328,34 +328,34 @@
     <ClCompile Include="CLmapPost_codeStaf.cpp">
       <Filter>Fichiers sources\staff\attributes</Filter>
     </ClCompile>
-    <ClCompile Include="CLcreatestafform.cpp">
+    <ClCompile Include="CreateStafForm1.cpp">
       <Filter>Fichiers sources\staff\subforms</Filter>
     </ClCompile>
-    <ClCompile Include="CLreadstafform.cpp">
+    <ClCompile Include="ReadStafForm.cpp">
       <Filter>Fichiers sources\staff\subforms</Filter>
     </ClCompile>
-    <ClCompile Include="CLupdatestafform.cpp">
+    <ClCompile Include="UpdateStafForm1.cpp">
       <Filter>Fichiers sources\staff\subforms</Filter>
     </ClCompile>
-    <ClCompile Include="CLdeletestafform.cpp">
+    <ClCompile Include="DeleteStafForm.cpp">
       <Filter>Fichiers sources\staff\subforms</Filter>
     </ClCompile>
-    <ClCompile Include="CLcustomerform.cpp">
+    <ClCompile Include="Clientform.cpp">
       <Filter>Fichiers sources\client\form</Filter>
     </ClCompile>
     <ClCompile Include="CLservicesclient.cpp">
       <Filter>Fichiers sources\client</Filter>
     </ClCompile>
-    <ClCompile Include="CLcreateclientform.cpp">
+    <ClCompile Include="CreateClientform.cpp">
       <Filter>Fichiers sources\client\subforms</Filter>
     </ClCompile>
-    <ClCompile Include="CLreadclientform.cpp">
+    <ClCompile Include="ReadClientform.cpp">
       <Filter>Fichiers sources\client\subforms</Filter>
     </ClCompile>
-    <ClCompile Include="CLupdateclientform.cpp">
+    <ClCompile Include="Updateclientform.cpp">
       <Filter>Fichiers sources\client\subforms</Filter>
     </ClCompile>
-    <ClCompile Include="CLdeleteclientform.cpp">
+    <ClCompile Include="DeleteClientform.cpp">
       <Filter>Fichiers sources\client\subforms</Filter>
     </ClCompile>
     <ClCompile Include="CLmapPersonal_infoclient.cpp">
@@ -379,19 +379,19 @@
     <ClCompile Include="CLservicesorder.cpp">
       <Filter>Fichiers sources\order</Filter>
     </ClCompile>
-    <ClCompile Include="CLorderform.cpp">
+    <ClCompile Include="Orderform.cpp">
       <Filter>Fichiers sources\order\form</Filter>
     </ClCompile>
-    <ClCompile Include="CLcreateorderform.cpp">
+    <ClCompile Include="CreateOrderForm.cpp">
       <Filter>Fichiers sources\order\subforms</Filter>
     </ClCompile>
-    <ClCompile Include="CLreadorderform.cpp">
+    <ClCompile Include="ReadOrderForm.cpp">
       <Filter>Fichiers sources\order\subforms</Filter>
     </ClCompile>
-    <ClCompile Include="CLupdateorderform.cpp">
+    <ClCompile Include="UpdateOrderForm.cpp">
       <Filter>Fichiers sources\order\subforms</Filter>
     </ClCompile>
-    <ClCompile Include="CLdeleteorderform.cpp">
+    <ClCompile Include="DeleteOrderForm.cpp">
       <Filter>Fichiers sources\order\subforms</Filter>
     </ClCompile>
     <ClCompile Include="CLmapOrder.cpp">
@@ -406,22 +406,22 @@
     <ClCompile Include="CLmapCustomer.cpp">
       <Filter>Fichiers sources\order\attributes</Filter>
     </ClCompile>
-    <ClCompile Include="CLsupplyform.cpp">
+    <ClCompile Include="Supplyform.cpp">
       <Filter>Fichiers sources\supply\form</Filter>
     </ClCompile>
     <ClCompile Include="CLmapArticleSupply.cpp">
       <Filter>Fichiers sources\supply\attributes</Filter>
     </ClCompile>
-    <ClCompile Include="CLcreatesupplyform.cpp">
+    <ClCompile Include="CreateSupplyForm.cpp">
       <Filter>Fichiers sources\supply\subforms</Filter>
     </ClCompile>
-    <ClCompile Include="CLreadsupplyform.cpp">
+    <ClCompile Include="ReadSupplyForm.cpp">
       <Filter>Fichiers sources\supply\subforms</Filter>
     </ClCompile>
-    <ClCompile Include="CLupdatesupplyform.cpp">
+    <ClCompile Include="UpdateSupplyForm.cpp">
       <Filter>Fichiers sources\supply\subforms</Filter>
     </ClCompile>
-    <ClCompile Include="CLdeletesupplyform.cpp">
+    <ClCompile Include="DeleteSupplyForm.cpp">
       <Filter>Fichiers sources\supply\subforms</Filter>
     </ClCompile>
     <ClCompile Include="CLservicesupply.cpp">
@@ -430,7 +430,7 @@
     <ClCompile Include="CLservicesstats.cpp">
       <Filter>Fichiers sources\stats</Filter>
     </ClCompile>
-    <ClCompile Include="CLstatsform.cpp">
+    <ClCompile Include="Statsform.cpp">
       <Filter>Fichiers sources\stats\form</Filter>
     </ClCompile>
     <ClCompile Include="CLmapOrderStats.cpp">

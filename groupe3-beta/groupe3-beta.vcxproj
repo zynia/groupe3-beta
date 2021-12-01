@@ -84,7 +84,7 @@
     <Link>
       <AdditionalDependencies />
       <SubSystem>Windows</SubSystem>
-      <EntryPointSymbol>WinMain</EntryPointSymbol>
+      <EntryPointSymbol>main</EntryPointSymbol>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -128,15 +128,15 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CLcad.h" />
-    <ClInclude Include="CLcreateclientform.h" />
-    <ClInclude Include="CLcreateorderform.h" />
-    <ClInclude Include="CLcreatestafform.h" />
-    <ClInclude Include="CLcreatesupplyform.h" />
-    <ClInclude Include="CLcustomerform.h" />
-    <ClInclude Include="CLdeleteclientform.h" />
-    <ClInclude Include="CLdeleteorderform.h" />
-    <ClInclude Include="CLdeletestafform.h" />
-    <ClInclude Include="CLdeletesupplyform.h" />
+    <ClInclude Include="CreateClientform.h" />
+    <ClInclude Include="CreateOrderForm.h" />
+    <ClInclude Include="CreateStafForm1.h" />
+    <ClInclude Include="CreateSupplyForm.h" />
+    <ClInclude Include="Clientform.h" />
+    <ClInclude Include="DeleteClientform.h" />
+    <ClInclude Include="DeleteOrderForm.h" />
+    <ClInclude Include="DeleteStafForm.h" />
+    <ClInclude Include="DeleteSupplyForm.h" />
     <ClInclude Include="CLmapAddressClient.h" />
     <ClInclude Include="CLmapAddressStaf.h" />
     <ClInclude Include="CLmapArticleStats.h" />
@@ -155,27 +155,27 @@
     <ClInclude Include="CLmapPost_codeStaf.h" />
     <ClInclude Include="CLmapPost_codeClient.h" />
     <ClInclude Include="CLmapstaff.h" />
-    <ClInclude Include="CLorderform.h" />
-    <ClInclude Include="CLreadclientform.h" />
-    <ClInclude Include="CLreadorderform.h" />
-    <ClInclude Include="CLreadstafform.h" />
-    <ClInclude Include="CLreadsupplyform.h" />
+    <ClInclude Include="Ordersform.h" />
+    <ClInclude Include="ReadClientform.h" />
+    <ClInclude Include="ReadOrderForm.h" />
+    <ClInclude Include="ReadStafForm.h" />
+    <ClInclude Include="ReadSupplyForm.h" />
     <ClInclude Include="CLservices.h" />
     <ClInclude Include="CLservicesclient.h" />
     <ClInclude Include="CLservicesorder.h" />
     <ClInclude Include="CLservicesstats.h" />
     <ClInclude Include="CLservicestaff.h" />
     <ClInclude Include="CLservicesupply.h" />
-    <ClInclude Include="CLstafform.h">
+    <ClInclude Include="Stafform1.h">
       <FileType>CppForm</FileType>
     </ClInclude>
-    <ClInclude Include="CLstatsform.h" />
-    <ClInclude Include="CLsupplyform.h" />
-    <ClInclude Include="CLupdateclientform.h" />
-    <ClInclude Include="CLupdateorderform.h" />
-    <ClInclude Include="CLupdatestafform.h" />
-    <ClInclude Include="CLupdatesupplyform.h" />
-    <ClInclude Include="CLmainform.h">
+    <ClInclude Include="Statsform.h" />
+    <ClInclude Include="Supplyform.h" />
+    <ClInclude Include="UpdateClientform.h" />
+    <ClInclude Include="UpdateOrderForm.h" />
+    <ClInclude Include="UpdateStafForm1.h" />
+    <ClInclude Include="UpdateSupplyForm.h" />
+    <ClInclude Include="Mainform.h">
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="pch.h" />
@@ -184,15 +184,15 @@
   <ItemGroup>
     <ClCompile Include="AssemblyInfo.cpp" />
     <ClCompile Include="CLcad.cpp" />
-    <ClCompile Include="CLcreateclientform.cpp" />
-    <ClCompile Include="CLcreateorderform.cpp" />
-    <ClCompile Include="CLcreatestafform.cpp" />
-    <ClCompile Include="CLcreatesupplyform.cpp" />
-    <ClCompile Include="CLcustomerform.cpp" />
-    <ClCompile Include="CLdeleteclientform.cpp" />
-    <ClCompile Include="CLdeleteorderform.cpp" />
-    <ClCompile Include="CLdeletestafform.cpp" />
-    <ClCompile Include="CLdeletesupplyform.cpp" />
+    <ClCompile Include="CreateClientform.cpp" />
+    <ClCompile Include="CreateOrderForm.cpp" />
+    <ClCompile Include="CreateStafForm1.cpp" />
+    <ClCompile Include="CreateSupplyForm.cpp" />
+    <ClCompile Include="Clientform.cpp" />
+    <ClCompile Include="DeleteClientform.cpp" />
+    <ClCompile Include="DeleteOrderForm.cpp" />
+    <ClCompile Include="DeleteStafForm.cpp" />
+    <ClCompile Include="DeleteSupplyForm.cpp" />
     <ClCompile Include="CLmapAddressClient.cpp" />
     <ClCompile Include="CLmapAddressStaf.cpp" />
     <ClCompile Include="CLmapArticleOrder.cpp" />
@@ -211,24 +211,24 @@
     <ClCompile Include="CLmapPost_codeStaf.cpp" />
     <ClCompile Include="CLmapPost_codeClient.cpp" />
     <ClCompile Include="CLmapstaff.cpp" />
-    <ClCompile Include="CLorderform.cpp" />
-    <ClCompile Include="CLreadclientform.cpp" />
-    <ClCompile Include="CLreadorderform.cpp" />
-    <ClCompile Include="CLreadstafform.cpp" />
-    <ClCompile Include="CLreadsupplyform.cpp" />
+    <ClCompile Include="Orderform.cpp" />
+    <ClCompile Include="ReadClientform.cpp" />
+    <ClCompile Include="ReadOrderForm.cpp" />
+    <ClCompile Include="ReadStafForm.cpp" />
+    <ClCompile Include="ReadSupplyForm.cpp" />
     <ClCompile Include="CLservices.cpp" />
     <ClCompile Include="CLservicesclient.cpp" />
     <ClCompile Include="CLservicesorder.cpp" />
     <ClCompile Include="CLservicesstats.cpp" />
     <ClCompile Include="CLservicestaff.cpp" />
     <ClCompile Include="CLservicesupply.cpp" />
-    <ClCompile Include="CLstafform.cpp" />
-    <ClCompile Include="CLstatsform.cpp" />
-    <ClCompile Include="CLsupplyform.cpp" />
-    <ClCompile Include="CLupdateclientform.cpp" />
-    <ClCompile Include="CLupdateorderform.cpp" />
-    <ClCompile Include="CLupdatestafform.cpp" />
-    <ClCompile Include="CLupdatesupplyform.cpp" />
+    <ClCompile Include="Stafform1.cpp" />
+    <ClCompile Include="Statsform.cpp" />
+    <ClCompile Include="Supplyform.cpp" />
+    <ClCompile Include="Updateclientform.cpp" />
+    <ClCompile Include="UpdateOrderForm.cpp" />
+    <ClCompile Include="UpdateStafForm1.cpp" />
+    <ClCompile Include="UpdateSupplyForm.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
