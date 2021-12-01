@@ -58,9 +58,33 @@ void NS_Comp_Svc_Order::CLserviceOrder::DeleteOrder(int id) {
 	this->oCad->actionRows(sql);
 }
 
-void NS_Comp_Svc_Order::CLserviceOrder::UpdateOrder() {
+void NS_Comp_Svc_Order::CLserviceOrder::UpdateOrder(int idord, int idcust, int postcode, System::String^ cityname, System::String^ streetname, int streetnb, System::String^ residence, System::String^ building, int floornb, System::String^ complement, float tva, float ht, float discount, float margin, int nbart, System::String^ paytype, int paynb, System::String^ paydate, System::String^ delivdate, System::String^ senddate, int idart, int idartchange) {
 
 	System::String^ sql;
+
+	this->oMapOrd->setIdorder(idord);
+	this->oMapCust->setIdcustomer(idcust);
+	this->oMapPostcode->setPostcode(postcode);
+	this->oMapCity->setNamecity(cityname);
+	this->oMapAddr->setStreetname(streetname);
+	this->oMapAddr->setStreetnumber(streetnb);
+	this->oMapAddr->setResidencename(residence);
+	this->oMapAddr->setBuildingname(building);
+	this->oMapAddr->setFloornumber(floornb);
+	this->oMapAddr->setComplement(complement);
+	this->oMapArticlOrd->setTVA(tva);
+	this->oMapArticlOrd->setHT(ht);
+	this->oMapArticlOrd->setDiscount(discount);
+	this->oMapArticlOrd->setMarginarticle(margin);
+	this->oMapOrd->setNbarticle(nbart);
+	this->oMapPay->setPaymenttype(paytype);
+	this->oMapPay->setPaymentnumber(paynb);
+	this->oMapPay->setPaymentdate(paydate);
+	this->oMapOrd->setDeliverydate(delivdate);
+	this->oMapOrd->setSenddate(senddate);
+	this->oMapArticlOrd->setidarticle(idart);
+	this->oMapArticlOrd->setidarticlechanged(idartchange);
+
 	
 	sql = this->oOrder->Update();
 

@@ -6,8 +6,10 @@ NS_Comp_Svc_Supply::CLservicesupply::CLservicesupply(void) {
 	this->oMapArtSup = gcnew NS_Map_Article_Supply::CLmapArticleSupply();
 }
 
-System::Data::DataSet^ NS_Comp_Svc_Supply::CLservicesupply::SelectSupply(System::String^ dataTableName) {
+System::Data::DataSet^ NS_Comp_Svc_Supply::CLservicesupply::SelectSupply(System::String^ dataTableName, int idsupply) {
 	System::String^ sql;
+
+	this->oMapArtSup->setidarticle(idsupply);
 
 	sql = this->oSupply->Select();
 

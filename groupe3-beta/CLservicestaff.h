@@ -18,10 +18,10 @@ namespace NS_Comp_Svc_Staf {
 		NS_Map_Staf::CLmapstaff^ oMapStaf;
 	public:
 		CLservicestaff(void);
-		System::Data::DataSet^ SelectStaf(System::String^);
-		void InsertStaf(System::String^ ,System::String^, int, System::String^, System::String^, int, System::String^, System::String^, int, System::String^, System::String^, System::String^);
+		System::Data::DataSet^ SelectStaf(System::String^, int);
+		void InsertStaf(System::String^ ,System::String^, int, System::String^, System::String^, int, System::String^, System::String^, int, System::String^, System::String^, System::String^, int);
 		void DeleteStaf(int);
-		void UpdateStaf(int, System::String^ ,System::String^ , int, System::String^, System::String^, int, System::String^, System::String^, int, System::String^, System::String^, System::String^);
+		void UpdateStaf(int, System::String^ ,System::String^ , int, System::String^, System::String^, int, System::String^, System::String^, int, System::String^, System::String^, System::String^, int);
 
 		System::String^ Select();
 		System::String^ Insert();

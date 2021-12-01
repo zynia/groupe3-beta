@@ -10,7 +10,7 @@ namespace NS_Comp_Svc_Supply {
 		NS_Map_Article_Supply::CLmapArticleSupply^ oMapArtSup;
 	public:
 		CLservicesupply();
-		System::Data::DataSet^ SelectSupply(System::String^);
+		System::Data::DataSet^ SelectSupply(System::String^, int);
 		void InsertSupply(System::String^, System::String^, float, int, float, System::String^, float, float, float, int);
 		void DeleteSupply(int);
 		void UpdateSupply(int, System::String^, System::String^, float, int, float, System::String^, float, float, float, int);
