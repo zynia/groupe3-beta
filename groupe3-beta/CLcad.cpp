@@ -4,7 +4,7 @@
 
 NS_Comp_Data::CLcad::CLcad(void)
 {
-	this->sCnx = "Data Source = MSI\\MSSQL_ANTOINE; Initial Catalog = Gstorg; Integrated Security = True";
+	this->sCnx = "Data Source = MSI\\MSSQL_ANTOINE; Initial Catalog = Gstorg; User ID = Groupe3_Antoine; Password=root";
 	this->sSql = "Rien";
 
 	this->oCnx = gcnew System::Data::SqlClient::SqlConnection(this->sCnx);

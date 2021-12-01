@@ -19,7 +19,7 @@ System::Data::DataSet^ NS_Comp_Svc_Cli::CLservicesClient::SelectClient(System::S
 
 	this->oMapCust->setIdcustomer(idcust);
 
-	sql = this->oSvc->Select();
+	sql = this->oCli->Select();
 	return this->oCad->getRows(sql, dataTableName);
 }
 
@@ -49,7 +49,7 @@ void NS_Comp_Svc_Cli::CLservicesClient::InsertClient(System::String^ streetname,
 	this->oMapPersoInfo->setLastname(lastname);
 	this->oMapPersoInfo->setBirthdate(birthdate);
 
-	sql = this->oSvc->Insert();
+	sql = this->oCli->Insert();
 
 	this->oCad->actionRows(sql);
 }
@@ -60,7 +60,7 @@ void NS_Comp_Svc_Cli::CLservicesClient::DeleteClient(int idperso) {
 
 	this->oMapPersoInfo->setidperso(idperso);
 
-	sql = this->oSvc->Delete();
+	sql = this->oCli->Delete();
 
 	this->oCad->actionRows(sql);
 }
@@ -92,7 +92,7 @@ void NS_Comp_Svc_Cli::CLservicesClient::UpdateClient(int idcust, System::String^
 	this->oMapBill->setidaddress(idaddrbill);
 	this->oMapDeliv->setidaddress(idaddrdeliv);
 
-	sql = this->oSvc->Update();
+	sql = this->oCli->Update();
 
 	this->oCad->actionRows(sql);
 }
@@ -103,12 +103,12 @@ System::String^ NS_Comp_Svc_Cli::CLservicesClient::Select() {
 
 System::String^ NS_Comp_Svc_Cli::CLservicesClient::Insert() 
 {
-	System::String^ firstname = this->oMapPersoInfo->getFirstname();
-	System::String^ lastname = this->oMapPersoInfo->getLastname();
-	System::String^ birthdate = this->oMapPersoInfo->getBirthdate();
-	System::String^ postcodebill = this->oMapBill->getPostcodeBilling().ToString();
-	System::String^ citybill = this->oMapBill->getCitybilling();
-	System::String^ streetnamebill = this->oMapBill->getStreetnameBilling();
+	System::String^ firstname = oMapPersoInfo->getFirstname();
+	System::String^ lastname = oMapPersoInfo->getLastname();
+	System::String^ birthdate = oMapPersoInfo->getBirthdate();
+	System::String^ postcodebill = oMapBill->getPostcodeBilling().ToString();
+	System::String^ citybill = oMapBill->getCitybilling();
+	System::String^ streetnamebill = oMapBill->getStreetnameBilling();
 	System::String^ streetnumberbill = this->oMapBill->getStreetnumberBilling().ToString();
 	System::String^ residencebill = this->oMapBill->getResidencenameBilling();
 	System::String^ buildingbill = this->oMapBill->getBuildingnameBilling();
