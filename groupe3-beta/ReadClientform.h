@@ -120,13 +120,13 @@ namespace Gstorg {
 			this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None;
 			this->Name = L"ReadClientForm";
 			this->Text = L"ReadClientForm";
-			this->Load += gcnew System::EventHandler(this, &ReadClientForm::ReadClientForm_Load);
+			this->Load += gcnew System::EventHandler(this, &ReadClientForm::ReadClientForm_Click);
 			this->ResumeLayout(false);
 			this->PerformLayout();
 			this->BackColor = ColorTranslator::FromHtml("#f3f3f3");
 		}
 #pragma endregion
-	private: System::Void ReadClientForm_Load(System::Object^ sender, System::EventArgs^ e) {
+	private: System::Void ReadClientForm_Click(System::Object^ sender, System::EventArgs^ e) {
 	}
 	private: System::Void textBox1_TextChanged(System::Object^ sender, System::EventArgs^ e) {
 	}

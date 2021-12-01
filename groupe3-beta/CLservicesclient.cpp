@@ -101,8 +101,49 @@ System::String^ NS_Comp_Svc_Cli::CLservicesClient::Select() {
 	return "EXEC SP_SC @id_customer ="+this->oMapOrder->getIdcustomer().ToString();
 }
 
-System::String^ NS_Comp_Svc_Cli::CLservicesClient::Insert() {
-	return "EXEC SP_CC @first_name ="+this->oMapPersoInfo->getFirstname()+", @last_name ="+this->oMapPersoInfo->getLastname()+", @birth_date ="+this->oMapPersoInfo->getBirthdate()+", @Post_code_billing_address ="+this->oMapBill->getPostcodeBilling().ToString()+", @name_city_billing_address ="+this->oMapBill->getCitybilling()+", @Street_name_billing_address ="+this->oMapBill->getStreetnameBilling()+", @Street_number_billing_address ="+this->oMapBill->getStreetnumberBilling().ToString()+", @Residency_name_billing_address ="+this->oMapBill->getResidencenameBilling()+", @Building_name_billing_address ="+this->oMapBill->getBuildingnameBilling()+", @Floor_number_billing_address ="+this->oMapBill->getFloornumberBilling().ToString()+", @Complement_billing_address ="+this->oMapBill->getComplementBilling()+", @Post_code_delivering_address ="+this->oMapPostCode->getPostcode().ToString()+", @name_city_delivering_address ="+this->oMapCityClient->getNamecity()+", @Street_name_delivering_address ="+this->oMapAddr->getStreetname()+", @Street_number_delivering_address ="+this->oMapAddr->getStreetnumber().ToString()+", @Residency_name_delivering_address ="+this->oMapAddr->getResidencename()+", @Building_name_delivering_address ="+this->oMapAddr->getBuildingname()+", @Floor_number_delivering_address ="+this->oMapAddr->getFloornumber().ToString()+", @Complement_delivering_address ="+this->oMapAddr->getComplement();
+System::String^ NS_Comp_Svc_Cli::CLservicesClient::Insert() 
+{
+	System::String^ firstname = this->oMapPersoInfo->getFirstname();
+	System::String^ lastname = this->oMapPersoInfo->getLastname();
+	System::String^ birthdate = this->oMapPersoInfo->getBirthdate();
+	System::String^ postcodebill = this->oMapBill->getPostcodeBilling().ToString();
+	System::String^ citybill = this->oMapBill->getCitybilling();
+	System::String^ streetnamebill = this->oMapBill->getStreetnameBilling();
+	System::String^ streetnumberbill = this->oMapBill->getStreetnumberBilling().ToString();
+	System::String^ residencebill = this->oMapBill->getResidencenameBilling();
+	System::String^ buildingbill = this->oMapBill->getBuildingnameBilling();
+	System::String^ floornumberbill = this->oMapBill->getFloornumberBilling().ToString();
+	System::String^ complementbill = this->oMapBill->getComplementBilling();
+	System::String^ postcode = this->oMapPostCode->getPostcode().ToString();
+	System::String^ cityname = this->oMapCityClient->getNamecity();
+	System::String^ streetname = this->oMapAddr->getStreetname();
+	System::String^ streetnumber = this->oMapAddr->getStreetnumber().ToString();
+	System::String^ residence = this->oMapAddr->getResidencename();
+	System::String^ building = this->oMapAddr->getBuildingname();
+	System::String^ floornumber = this->oMapAddr->getFloornumber().ToString();
+	System::String^ complement = this->oMapAddr->getComplement();
+	System::String^ temp = "EXEC SP_CC " +
+		"@first_name = " + firstname +
+		", @last_name =" + lastname +
+		", @birth_date =" + birthdate +
+		", @Post_code_billing_address =" + postcodebill+
+		", @name_city_billing_address =" +	citybill + 
+		", @Street_name_billing_address =" + streetnamebill + 
+		", @Street_number_billing_address =" + streetnumberbill + 
+		", @Residency_name_billing_address =" + residencebill + 
+		", @Building_name_billing_address =" + buildingbill + 
+		", @Floor_number_billing_address =" + floornumberbill + 
+		", @Complement_billing_address =" + complementbill + 
+		", @Post_code_delivering_address =" + postcode + 
+		", @name_city_delivering_address =" + cityname +
+		", @Street_name_delivering_address =" + streetname +
+		", @Street_number_delivering_address =" + streetnumber +
+		", @Residency_name_delivering_address =" + residence +
+		", @Building_name_delivering_address =" + building +
+		", @Floor_number_delivering_address =" + floornumber +
+		", @Complement_delivering_address =" + complement;
+	return temp;
+	//return " ";
 }
 
 System::String^ NS_Comp_Svc_Cli::CLservicesClient::Delete() {

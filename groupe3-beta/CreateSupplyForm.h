@@ -1,4 +1,5 @@
 #pragma once
+#include "CLservicesupply.h"
 
 namespace Gstorg {
 
@@ -66,7 +67,7 @@ namespace Gstorg {
 
 
 
-
+	private: NS_Comp_Svc_Supply::CLservicesupply^ oSup;
 
 
 	protected:
@@ -224,7 +225,6 @@ namespace Gstorg {
 			this->DisplayItemcolorBox->Size = System::Drawing::Size(120, 22);
 			this->DisplayItemcolorBox->TabIndex = 39;
 			this->DisplayItemcolorBox->Text = L"Item color :";
-			this->DisplayItemcolorBox->TextChanged += gcnew System::EventHandler(this, &CreateSupplyForm::textBox8_TextChanged);
 			// 
 			// DisplayItemtypebox
 			// 
@@ -354,6 +354,7 @@ namespace Gstorg {
 			this->SendButton->TabIndex = 52;
 			this->SendButton->Text = L"Send";
 			this->SendButton->UseVisualStyleBackColor = true;
+			this->SendButton->Click += gcnew System::EventHandler(this, &CreateSupplyForm::CreateSupplyForm_Click);
 			// 
 			// CreateSupplyForm
 			// 
@@ -393,14 +394,9 @@ namespace Gstorg {
 #pragma endregion
 	private: System::Void CreateSupplyForm_Load(System::Object^ sender, System::EventArgs^ e) {
 	}
-	private: System::Void textBox1_TextChanged(System::Object^ sender, System::EventArgs^ e) {
-	}
 
-	private: System::Void FirstNameBox_TextChanged(System::Object^ sender, System::EventArgs^ e) {
-	}
-	private: System::Void textBox8_TextChanged(System::Object^ sender, System::EventArgs^ e) {
-	}
-	private: System::Void textBox1_TextChanged_1(System::Object^ sender, System::EventArgs^ e) {
+	private: System::Void CreateSupplyForm_Click(System::Object^ sender, System::EventArgs^ e) {
+		//this->oSup->InsertSupply(this->ItemcolorBox->Text, this->IDitemtypeBox->Text, System::Convert::Floatthis->MarginBox->Text, this->ReplenishmenBox->Text, this->BasePriceBox->Text, this->ItemNameBox->Text, this->DiscountBox->Text, this->TVABox->Text, this->DisplayInventoryshrinkagebox->Text, this->ItemStockBox->Text);
 	}
 	};
 }

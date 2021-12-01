@@ -1,4 +1,5 @@
 #pragma once
+#include "CLservicesclient.h"
 
 namespace Gstorg {
 
@@ -65,6 +66,8 @@ namespace Gstorg {
 	private: System::Windows::Forms::TextBox^ CityNameBoxShipping;
 	private: System::Windows::Forms::TextBox^ PostCodeBoxShipping;
 	private: System::Windows::Forms::Button^ SendButton;
+
+	private: NS_Comp_Svc_Cli::CLservicesClient^ oCli;
 
 	protected:
 
@@ -466,6 +469,7 @@ namespace Gstorg {
 			this->SendButton->TabIndex = 39;
 			this->SendButton->Text = L"Send";
 			this->SendButton->UseVisualStyleBackColor = true;
+			this->SendButton->Click += gcnew System::EventHandler(this, &CreateClientForm::CreateClientForm_Click);
 			// 
 			// CreateClientForm
 			// 
@@ -514,7 +518,11 @@ namespace Gstorg {
 			this->BackColor = ColorTranslator::FromHtml("#f3f3f3");
 		}
 #pragma endregion
+	private: System::Void CreateClientForm_Click(System::Object^ sender, System::EventArgs^ e) {
+		this->oCli->InsertClient(this->StreetNameBoxShipping->Text, System::Convert::ToInt32(this->StreetNumberBoxShipping->Text), this->ResidencyNameBoxShipping->Text, this->BuildingNameBoxShipping->Text, System::Convert::ToInt32(this->FloorNumberBoxShipping->Text), this->ComplementBoxShipping->Text, this->CityNameBoxShipping->Text, System::Convert::ToInt32(this->PostCodeBoxShipping->Text), this->StreetNameBoxBilling->Text, System::Convert::ToInt32(this->StreetNumberBoxBilling->Text), this->ResidencyNameBoxBilling->Text, this->BuildingNameBoxBilling->Text, System::Convert::ToInt32(this->FloorNumberBoxBilling->Text), this->ComplementBoxBilling->Text, this->CityNameBoxBilling->Text, System::Convert::ToInt32(this->PostCodeBoxBilling->Text), this->FirstNameBox->Text, this->LastNameBox->Text, this->BirthdateBox->Text);
+	}
 	private: System::Void CreateClientForm_Load(System::Object^ sender, System::EventArgs^ e) {
+		this->oCli = gcnew NS_Comp_Svc_Cli::CLservicesClient();
 	}
 	private: System::Void textBox1_TextChanged(System::Object^ sender, System::EventArgs^ e) {
 	}
