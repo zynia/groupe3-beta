@@ -1,6 +1,7 @@
 #include "pch.h"
 #include "CLservicesclient.h"
 
+
 NS_Comp_Svc_Cli::CLservicesClient::CLservicesClient(void)
 {
 	this->oCad = gcnew NS_Comp_Data::CLcad();
@@ -10,6 +11,7 @@ NS_Comp_Svc_Cli::CLservicesClient::CLservicesClient(void)
 	this->oMapDeliv = gcnew NS_Map_Delivering::CLmapdelivering();
 	this->oMapPersoInfo = gcnew NS_Map_Personal_info_client::CLmapPersonalinfoclient();
 	this->oMapPostCode = gcnew NS_Map_Post_Code::CLmapPostcodeClient();
+	this->oMapOrder = gcnew NS_Map_Order::CLmapOrder();
 }
 System::Data::DataSet^ NS_Comp_Svc_Cli::CLservicesClient::SelectClient(System::String^ dataTableName)
 {
@@ -19,7 +21,9 @@ System::Data::DataSet^ NS_Comp_Svc_Cli::CLservicesClient::SelectClient(System::S
 	return this->oCad->getRows(sql, dataTableName);
 }
 
-void NS_Comp_Svc_Cli::CLservicesClient::InsertClient(System::String^ streetname, int streetnumber, System::String^ residencename, System::String^ buildingname, int floornumber, System::String^ complement, System::String^ city, int postcode, System::String^ firstname, System::String^ lastname, System::String^ birthdate)
+void NS_Comp_Svc_Cli::CLservicesClient::InsertClient(System::String^ streetname, int streetnumber, System::String^ residencename, System::String^ buildingname, int floornumber, System::String^ complement, System::String^ city, int postcode,
+													 System::String^ streetnamebill, int streetnbbill, System::String^ residencenamebill, System::String^ buildnamebill, int floornbbill, System::String^ complementbill, System::String^ citybill, int postcodebill,
+												     System::String^ firstname, System::String^ lastname, System::String^ birthdate)
 {
 	System::String^ sql;
 
@@ -31,6 +35,14 @@ void NS_Comp_Svc_Cli::CLservicesClient::InsertClient(System::String^ streetname,
 	this->oMapAddr->setComplement(complement);
 	this->oMapCityClient->setNamecity(city);
 	this->oMapPostCode->setPostcode(postcode);
+	this->oMapBill->setStreetnameBilling(streetnamebill);
+	this->oMapBill->setStreetnumberBilling(streetnbbill);
+	this->oMapBill->setResidencenameBilling(residencenamebill);
+	this->oMapBill->setBuildingnameBilling(buildnamebill);
+	this->oMapBill->setFloornumberBilling(floornbbill);
+	this->oMapBill->setComplementBilling(complementbill);
+	this->oMapBill->setCitybilling(citybill);
+	this->oMapBill->setPostcodeBilling(postcodebill);
 	this->oMapPersoInfo->setFirstname(firstname);
 	this->oMapPersoInfo->setLastname(lastname);
 	this->oMapPersoInfo->setBirthdate(birthdate);
@@ -51,7 +63,9 @@ void NS_Comp_Svc_Cli::CLservicesClient::DeleteClient(int idperso) {
 	this->oCad->actionRows(sql);
 }
 
-void NS_Comp_Svc_Cli::CLservicesClient::UpdateClient(int idperso, System::String^ streetname, int streetnumber, System::String^ residencename, System::String^ buildingname, int floornumber, System::String^ complement, System::String^ city, int postcode, System::String^ firstname, System::String^ lastname, System::String^ birthdate) {
+void NS_Comp_Svc_Cli::CLservicesClient::UpdateClient(int idperso, System::String^ streetname, int streetnumber, System::String^ residencename, System::String^ buildingname, int floornumber, System::String^ complement, System::String^ city, int postcode,
+												     System::String^ streetnamebill, int streetnbbill, System::String^ residencenamebill, System::String^ buildnamebill, int floornbbill, System::String^ complementbill, System::String^ citybill, int postcodebill,
+													 System::String^ firstname, System::String^ lastname, System::String^ birthdate) {
 
 	System::String^ sql;
 
@@ -64,6 +78,14 @@ void NS_Comp_Svc_Cli::CLservicesClient::UpdateClient(int idperso, System::String
 	this->oMapAddr->setComplement(complement);
 	this->oMapCityClient->setNamecity(city);
 	this->oMapPostCode->setPostcode(postcode);
+	this->oMapBill->setStreetnameBilling(streetnamebill);
+	this->oMapBill->setStreetnumberBilling(streetnbbill);
+	this->oMapBill->setResidencenameBilling(residencenamebill);
+	this->oMapBill->setBuildingnameBilling(buildnamebill);
+	this->oMapBill->setFloornumberBilling(floornbbill);
+	this->oMapBill->setComplementBilling(complementbill);
+	this->oMapBill->setCitybilling(citybill);
+	this->oMapBill->setPostcodeBilling(postcodebill);
 	this->oMapPersoInfo->setFirstname(firstname);
 	this->oMapPersoInfo->setLastname(lastname);
 	this->oMapPersoInfo->setBirthdate(birthdate);
@@ -74,17 +96,17 @@ void NS_Comp_Svc_Cli::CLservicesClient::UpdateClient(int idperso, System::String
 }
 
 System::String^ NS_Comp_Svc_Cli::CLservicesClient::Select() {
-	return "";
+	return "EXEC SP_SC @id_customer ="+this->oMapOrder->getIdcustomer().ToString();
 }
 
 System::String^ NS_Comp_Svc_Cli::CLservicesClient::Insert() {
-	return "";
+	return "EXEC SP_CC @first_name ="+this->oMapPersoInfo->getFirstname()+", @last_name ="+this->oMapPersoInfo->getLastname()+", @birth_date ="+this->oMapPersoInfo->getBirthdate()+", @Post_code_billing_address ="+this->oMapBill->getPostcodeBilling().ToString()+", @name_city_billing_address ="+this->oMapBill->getCitybilling()+", @Street_name_billing_address ="+this->oMapBill->getStreetnameBilling()+", @Street_number_billing_address ="+this->oMapBill->getStreetnumberBilling().ToString()+", @Residency_name_billing_address ="+this->oMapBill->getResidencenameBilling()+", @Building_name_billing_address ="+this->oMapBill->getBuildingnameBilling()+", @Floor_number_billing_address ="+this->oMapBill->getFloornumberBilling().ToString()+", @Complement_billing_address ="+this->oMapBill->getComplementBilling()+", @Post_code_delivering_address ="+this->oMapPostCode->getPostcode().ToString()+", @name_city_delivering_address ="+this->oMapCityClient->getNamecity()+", @Street_name_delivering_address ="+this->oMapAddr->getStreetname()+", @Street_number_delivering_address ="+this->oMapAddr->getStreetnumber().ToString()+", @Residency_name_delivering_address ="+this->oMapAddr->getResidencename()+", @Building_name_delivering_address ="+this->oMapAddr->getBuildingname()+", @Floor_number_delivering_address ="+this->oMapAddr->getFloornumber().ToString()+", @Complement_delivering_address ="+this->oMapAddr->getComplement();
 }
 
 System::String^ NS_Comp_Svc_Cli::CLservicesClient::Delete() {
-	return "";
+	return "EXEC SP_D @tab = 'customer' , @id ="+this->oMapOrder->getIdcustomer().ToString();
 }
 
 System::String^ NS_Comp_Svc_Cli::CLservicesClient::Update() {
-	return "";
+	return "EXEC SP_UC @id_customer ="+ this->oMapOrder->getIdcustomer().ToString()+", @first_name =" + this->oMapPersoInfo->getFirstname() + ", @last_name =" + this->oMapPersoInfo->getLastname() + ", @birth_date =" + this->oMapPersoInfo->getBirthdate() + ", @Street_name_billing_address ="+this->oMapBill->getStreetnameBilling()+", @Street_number_billing_address ="+this->oMapBill->getStreetnumberBilling().ToString()+", @Residency_name_billing_address ="+this->oMapBill->getResidencenameBilling()+", @Building_name_billing_address =" + this->oMapBill->getBuildingnameBilling() + ", @Floor_number_billing_address =" + this->oMapBill->getFloornumberBilling().ToString() + ", @Complement_billing_address =" + this->oMapBill->getComplementBilling() + ", @name_city_billing_address = " + this->oMapCityClient->getNamecity() + ", @post_code_billing_address ="+this->oMapBill->getPostcodeBilling().ToString()+", @Street_name_delivering_address ="+this->oMapBill->getStreetnameBilling()+", @Street_number_delivering_address ="+this->oMapAddr->getStreetnumber().ToString()+", @Residency_name_delivering_address ="+this->oMapAddr->getResidencename()+", @Building_name_delivering_address ="+this->oMapAddr->getBuildingname()+", @Floor_number_delivering_address ="+this->oMapAddr->getFloornumber().ToString()+", @Complement_delivering_address ="+this->oMapAddr->getComplement()+", @name_city_delivering_address ="+this->oMapCityClient->getNamecity()+", @post_code_delivering_address ="+this->oMapPostCode->getPostcode().ToString()+", @id_billing_address_changed ="+this->oMapBill->getidaddress().ToString()+", @id_delivering_address_changed ="+this->oMapDeliv->getidaddress().ToString();
 }

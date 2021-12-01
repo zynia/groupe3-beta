@@ -13,6 +13,7 @@ namespace NS_Map_Addr_Client
 		int Floor_number;
 		System::String^ Complement;
 
+
 	public:
 
 		void setIdaddress(int);
@@ -29,6 +30,7 @@ namespace NS_Map_Addr_Client
 		int getFloornumber(void);
 		void setComplement(System::String^);
 		System::String^ getComplement(void);
+
 
 	};
 }

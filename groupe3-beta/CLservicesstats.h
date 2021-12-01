@@ -6,11 +6,15 @@
 namespace NS_Comp_Svc_Stats {
 	ref class CLservicesstats {
 	private:
+		int month;
 		NS_Comp_Svc_Stats::CLservicesstats^ oStats;
 		NS_Comp_Data::CLcad^ oCad;
 		NS_Map_Article_Stats::CLmapArticleStats^ oMapArticleStats;
 		NS_Map_Order_Stats::CLmapOrderStats^ oMapOrderStats;
 	public:
+		void setmonth(int);
+		int getmonth(void);
+
 		CLservicesstats(void);
 		System::Data::DataSet^ CalcStatsavgCartAfterDiscount(System::String^);
 		System::Data::DataSet^ CalcStatsturnoverOfMonth(System::String^);

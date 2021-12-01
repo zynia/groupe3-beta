@@ -4,6 +4,7 @@ namespace NS_Map_Article_Order {
 	ref class CLmapArticleOrder {
 	private:
 		int id_article;
+		int id_article_changed;
 		System::String^ color_article;
 		System::String^ type_article;
 		float margin_article;
@@ -17,6 +18,8 @@ namespace NS_Map_Article_Order {
 	public:
 		void setidarticle(int);
 		int getidarticle(void);
+		void setidarticlechanged(int);
+		int getidarticlechanged(void);
 		void setColorarticle(System::String^);
 		System::String^ getColorarticle(void);
 		void setTypearticle(System::String^);

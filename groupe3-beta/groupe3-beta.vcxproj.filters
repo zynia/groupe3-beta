@@ -19,9 +19,6 @@
     <Filter Include="Fichiers d%27en-tête\staff\form">
       <UniqueIdentifier>{8654c0e2-7513-425e-bba8-db9b176c5296}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Fichiers d%27en-tête\staff\SQLcommands">
-      <UniqueIdentifier>{c73928c7-ae89-4555-9a94-f6aa9ab1d8e8}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Fichiers d%27en-tête\staff\attributes">
       <UniqueIdentifier>{7cbc3139-f692-4ba1-9de0-fd53786aabc4}</UniqueIdentifier>
     </Filter>
@@ -39,9 +36,6 @@
     </Filter>
     <Filter Include="Fichiers sources\staff\attributes">
       <UniqueIdentifier>{dbff359d-296c-4cc2-9d17-6aa7d84fb03c}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Fichiers sources\staff\SQLcommands">
-      <UniqueIdentifier>{fbc1c848-0e93-4756-90d5-0705478db209}</UniqueIdentifier>
     </Filter>
     <Filter Include="Fichiers d%27en-tête\client">
       <UniqueIdentifier>{7259387d-58b3-42e2-acf6-5a1d396a55dd}</UniqueIdentifier>
@@ -61,9 +55,6 @@
     <Filter Include="Fichiers sources\client\attributes">
       <UniqueIdentifier>{8bc69b4b-552c-4261-871f-2a474f1af9cb}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Fichiers sources\client\SQLcommands">
-      <UniqueIdentifier>{dcf37788-5fdd-4a59-8acd-43311ba27ff0}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Fichiers d%27en-tête\order">
       <UniqueIdentifier>{2ad769d2-b301-4425-8a08-317672a73941}</UniqueIdentifier>
     </Filter>
@@ -76,17 +67,11 @@
     <Filter Include="Fichiers d%27en-tête\order\attributes">
       <UniqueIdentifier>{7f9cce6d-dbd3-4648-ae3e-4216dcbc19a7}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Fichiers d%27en-tête\order\SQLcommands">
-      <UniqueIdentifier>{95c333cb-ebeb-4078-b902-ce15a88d61cc}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Fichiers sources\order\form">
       <UniqueIdentifier>{a70e3d1f-9e37-4c18-a0a5-6548f5c7b6db}</UniqueIdentifier>
     </Filter>
     <Filter Include="Fichiers sources\order\attributes">
       <UniqueIdentifier>{85777ce1-35c4-4dd2-8385-b2b96de8a126}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Fichiers sources\order\SQLcommands">
-      <UniqueIdentifier>{bf65a58c-14f6-417f-a8a4-346550735955}</UniqueIdentifier>
     </Filter>
     <Filter Include="Fichiers d%27en-tête\supply">
       <UniqueIdentifier>{8ca7f626-270f-4088-b034-a066615bb23e}</UniqueIdentifier>
@@ -100,17 +85,11 @@
     <Filter Include="Fichiers d%27en-tête\supply\attributes">
       <UniqueIdentifier>{248255d1-f6b0-400e-ada4-3a0f3de829f7}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Fichiers d%27en-tête\supply\SQLcommands">
-      <UniqueIdentifier>{33f9ec9b-d238-4d87-9a58-0c1b0c4dc986}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Fichiers sources\supply\form">
       <UniqueIdentifier>{b4d7393a-5c92-44e8-97b9-d21b71a58d2e}</UniqueIdentifier>
     </Filter>
     <Filter Include="Fichiers sources\supply\attributes">
       <UniqueIdentifier>{a6f42a59-9254-4430-9cf4-7ecf72e92767}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Fichiers sources\supply\SQLcommands">
-      <UniqueIdentifier>{78415a52-51f6-41d0-9996-03c47efafa95}</UniqueIdentifier>
     </Filter>
     <Filter Include="Fichiers d%27en-tête\stats">
       <UniqueIdentifier>{18db8471-4b67-4b61-9266-affb87636808}</UniqueIdentifier>
@@ -130,8 +109,35 @@
     <Filter Include="Fichiers d%27en-tête\stats\attributes">
       <UniqueIdentifier>{71e82f4e-969d-4c12-bcce-a43146346ce6}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Fichiers d%27en-tête\client\FormsCOMMANDS">
+    <Filter Include="Fichiers d%27en-tête\client\subforms">
       <UniqueIdentifier>{1d7e02c9-634e-4b38-9349-787423844e0c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers d%27en-tête\order\subforms">
+      <UniqueIdentifier>{95c333cb-ebeb-4078-b902-ce15a88d61cc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers d%27en-tête\staff\subforms">
+      <UniqueIdentifier>{c73928c7-ae89-4555-9a94-f6aa9ab1d8e8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers d%27en-tête\stats\subforms">
+      <UniqueIdentifier>{92ae350b-aef9-42f4-9f10-e8a9845b51a5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers d%27en-tête\supply\subforms">
+      <UniqueIdentifier>{33f9ec9b-d238-4d87-9a58-0c1b0c4dc986}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers sources\client\subforms">
+      <UniqueIdentifier>{dcf37788-5fdd-4a59-8acd-43311ba27ff0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers sources\order\subforms">
+      <UniqueIdentifier>{bf65a58c-14f6-417f-a8a4-346550735955}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers sources\staff\subforms">
+      <UniqueIdentifier>{fbc1c848-0e93-4756-90d5-0705478db209}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers sources\stats\subforms">
+      <UniqueIdentifier>{41205c0e-cfdf-4827-a303-e94e3b5254c0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers sources\supply\subforms">
+      <UniqueIdentifier>{78415a52-51f6-41d0-9996-03c47efafa95}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -174,16 +180,16 @@
       <Filter>Fichiers d%27en-tête\staff\attributes</Filter>
     </ClInclude>
     <ClInclude Include="CLcreatestafform.h">
-      <Filter>Fichiers d%27en-tête\staff\SQLcommands</Filter>
+      <Filter>Fichiers d%27en-tête\staff\subforms</Filter>
     </ClInclude>
     <ClInclude Include="CLreadstafform.h">
-      <Filter>Fichiers d%27en-tête\staff\SQLcommands</Filter>
+      <Filter>Fichiers d%27en-tête\staff\subforms</Filter>
     </ClInclude>
     <ClInclude Include="CLupdatestafform.h">
-      <Filter>Fichiers d%27en-tête\staff\SQLcommands</Filter>
+      <Filter>Fichiers d%27en-tête\staff\subforms</Filter>
     </ClInclude>
     <ClInclude Include="CLdeletestafform.h">
-      <Filter>Fichiers d%27en-tête\staff\SQLcommands</Filter>
+      <Filter>Fichiers d%27en-tête\staff\subforms</Filter>
     </ClInclude>
     <ClInclude Include="CLcustomerform.h">
       <Filter>Fichiers d%27en-tête\client\form</Filter>
@@ -192,16 +198,16 @@
       <Filter>Fichiers d%27en-tête\client</Filter>
     </ClInclude>
     <ClInclude Include="CLcreateclientform.h">
-      <Filter>Fichiers d%27en-tête\client\FormsCOMMANDS</Filter>
+      <Filter>Fichiers d%27en-tête\client\subforms</Filter>
     </ClInclude>
     <ClInclude Include="CLreadclientform.h">
-      <Filter>Fichiers d%27en-tête\client\FormsCOMMANDS</Filter>
+      <Filter>Fichiers d%27en-tête\client\subforms</Filter>
     </ClInclude>
     <ClInclude Include="CLupdateclientform.h">
-      <Filter>Fichiers d%27en-tête\client\FormsCOMMANDS</Filter>
+      <Filter>Fichiers d%27en-tête\client\subforms</Filter>
     </ClInclude>
     <ClInclude Include="CLdeleteclientform.h">
-      <Filter>Fichiers d%27en-tête\client\FormsCOMMANDS</Filter>
+      <Filter>Fichiers d%27en-tête\client\subforms</Filter>
     </ClInclude>
     <ClInclude Include="CLmapPersonal_infoclient.h">
       <Filter>Fichiers d%27en-tête\client\attributes</Filter>
@@ -228,16 +234,16 @@
       <Filter>Fichiers d%27en-tête\order\form</Filter>
     </ClInclude>
     <ClInclude Include="CLcreateorderform.h">
-      <Filter>Fichiers d%27en-tête\order\SQLcommands</Filter>
+      <Filter>Fichiers d%27en-tête\order\subforms</Filter>
     </ClInclude>
     <ClInclude Include="CLreadorderform.h">
-      <Filter>Fichiers d%27en-tête\order\SQLcommands</Filter>
+      <Filter>Fichiers d%27en-tête\order\subforms</Filter>
     </ClInclude>
     <ClInclude Include="CLupdateorderform.h">
-      <Filter>Fichiers d%27en-tête\order\SQLcommands</Filter>
+      <Filter>Fichiers d%27en-tête\order\subforms</Filter>
     </ClInclude>
     <ClInclude Include="CLdeleteorderform.h">
-      <Filter>Fichiers d%27en-tête\order\SQLcommands</Filter>
+      <Filter>Fichiers d%27en-tête\order\subforms</Filter>
     </ClInclude>
     <ClInclude Include="CLmapOrder.h">
       <Filter>Fichiers d%27en-tête\order\attributes</Filter>
@@ -258,16 +264,16 @@
       <Filter>Fichiers d%27en-tête\supply\attributes</Filter>
     </ClInclude>
     <ClInclude Include="CLcreatesupplyform.h">
-      <Filter>Fichiers d%27en-tête\supply\SQLcommands</Filter>
+      <Filter>Fichiers d%27en-tête\supply\subforms</Filter>
     </ClInclude>
     <ClInclude Include="CLreadsupplyform.h">
-      <Filter>Fichiers d%27en-tête\supply\SQLcommands</Filter>
+      <Filter>Fichiers d%27en-tête\supply\subforms</Filter>
     </ClInclude>
     <ClInclude Include="CLupdatesupplyform.h">
-      <Filter>Fichiers d%27en-tête\supply\SQLcommands</Filter>
+      <Filter>Fichiers d%27en-tête\supply\subforms</Filter>
     </ClInclude>
     <ClInclude Include="CLdeletesupplyform.h">
-      <Filter>Fichiers d%27en-tête\supply\SQLcommands</Filter>
+      <Filter>Fichiers d%27en-tête\supply\subforms</Filter>
     </ClInclude>
     <ClInclude Include="CLservicesupply.h">
       <Filter>Fichiers d%27en-tête\supply</Filter>
@@ -323,16 +329,16 @@
       <Filter>Fichiers sources\staff\attributes</Filter>
     </ClCompile>
     <ClCompile Include="CLcreatestafform.cpp">
-      <Filter>Fichiers sources\staff\SQLcommands</Filter>
+      <Filter>Fichiers sources\staff\subforms</Filter>
     </ClCompile>
     <ClCompile Include="CLreadstafform.cpp">
-      <Filter>Fichiers sources\staff\SQLcommands</Filter>
+      <Filter>Fichiers sources\staff\subforms</Filter>
     </ClCompile>
     <ClCompile Include="CLupdatestafform.cpp">
-      <Filter>Fichiers sources\staff\SQLcommands</Filter>
+      <Filter>Fichiers sources\staff\subforms</Filter>
     </ClCompile>
     <ClCompile Include="CLdeletestafform.cpp">
-      <Filter>Fichiers sources\staff\SQLcommands</Filter>
+      <Filter>Fichiers sources\staff\subforms</Filter>
     </ClCompile>
     <ClCompile Include="CLcustomerform.cpp">
       <Filter>Fichiers sources\client\form</Filter>
@@ -341,16 +347,16 @@
       <Filter>Fichiers sources\client</Filter>
     </ClCompile>
     <ClCompile Include="CLcreateclientform.cpp">
-      <Filter>Fichiers sources\client\SQLcommands</Filter>
+      <Filter>Fichiers sources\client\subforms</Filter>
     </ClCompile>
     <ClCompile Include="CLreadclientform.cpp">
-      <Filter>Fichiers sources\client\SQLcommands</Filter>
+      <Filter>Fichiers sources\client\subforms</Filter>
     </ClCompile>
     <ClCompile Include="CLupdateclientform.cpp">
-      <Filter>Fichiers sources\client\SQLcommands</Filter>
+      <Filter>Fichiers sources\client\subforms</Filter>
     </ClCompile>
     <ClCompile Include="CLdeleteclientform.cpp">
-      <Filter>Fichiers sources\client\SQLcommands</Filter>
+      <Filter>Fichiers sources\client\subforms</Filter>
     </ClCompile>
     <ClCompile Include="CLmapPersonal_infoclient.cpp">
       <Filter>Fichiers sources\client\attributes</Filter>
@@ -377,16 +383,16 @@
       <Filter>Fichiers sources\order\form</Filter>
     </ClCompile>
     <ClCompile Include="CLcreateorderform.cpp">
-      <Filter>Fichiers sources\order\SQLcommands</Filter>
+      <Filter>Fichiers sources\order\subforms</Filter>
     </ClCompile>
     <ClCompile Include="CLreadorderform.cpp">
-      <Filter>Fichiers sources\order\SQLcommands</Filter>
+      <Filter>Fichiers sources\order\subforms</Filter>
     </ClCompile>
     <ClCompile Include="CLupdateorderform.cpp">
-      <Filter>Fichiers sources\order\SQLcommands</Filter>
+      <Filter>Fichiers sources\order\subforms</Filter>
     </ClCompile>
     <ClCompile Include="CLdeleteorderform.cpp">
-      <Filter>Fichiers sources\order\SQLcommands</Filter>
+      <Filter>Fichiers sources\order\subforms</Filter>
     </ClCompile>
     <ClCompile Include="CLmapOrder.cpp">
       <Filter>Fichiers sources\order\attributes</Filter>
@@ -407,16 +413,16 @@
       <Filter>Fichiers sources\supply\attributes</Filter>
     </ClCompile>
     <ClCompile Include="CLcreatesupplyform.cpp">
-      <Filter>Fichiers sources\supply\SQLcommands</Filter>
+      <Filter>Fichiers sources\supply\subforms</Filter>
     </ClCompile>
     <ClCompile Include="CLreadsupplyform.cpp">
-      <Filter>Fichiers sources\supply\SQLcommands</Filter>
+      <Filter>Fichiers sources\supply\subforms</Filter>
     </ClCompile>
     <ClCompile Include="CLupdatesupplyform.cpp">
-      <Filter>Fichiers sources\supply\SQLcommands</Filter>
+      <Filter>Fichiers sources\supply\subforms</Filter>
     </ClCompile>
     <ClCompile Include="CLdeletesupplyform.cpp">
-      <Filter>Fichiers sources\supply\SQLcommands</Filter>
+      <Filter>Fichiers sources\supply\subforms</Filter>
     </ClCompile>
     <ClCompile Include="CLservicesupply.cpp">
       <Filter>Fichiers sources\supply</Filter>

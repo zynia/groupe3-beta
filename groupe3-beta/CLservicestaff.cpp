@@ -73,17 +73,17 @@ void NS_Comp_Svc_Staf::CLservicestaff::UpdateStaf(int id, System::String^ hiring
 }
 
 System::String^ NS_Comp_Svc_Staf::CLservicestaff::Select() {
-	return "";
+	return "EXEC SP_SS @id_staff ="+this->oMapStaf->getidstaff().ToString();
 }
 
 System::String^ NS_Comp_Svc_Staf::CLservicestaff::Insert() {
-	return "";
+	return "EXEC SP_CS @first_name ="+this->oMapPersoInfoStaf->getFirstname()+", @last_name ="+this->oMapPersoInfoStaf->getLastname()+", @birth_date ="+this->oMapPersoInfoStaf->getBirthdate()+", @Post_code ="+this->oMapPostCodeStaf->getPostcode().ToString()+", @name_city ="+this->oMapCityStaf->getNamecity()+", @Street_name ="+this->oMapAddr->getStreetname()+", @Street_number ="+this->oMapAddr->getStreetnumber().ToString()+", @Residency_name ="+this->oMapAddr->getResidencename()+", @Building_name ="+this->oMapAddr->getBuildingname()+", @Floor_number ="+this->oMapAddr->getFloornumber().ToString()+", @Complement ="+this->oMapAddr->getComplement()+", @hiring_date ="+this->oMapStaf->getHiringdate()+", @id_staff_supervise ="+this->oMapStaf->getidstaffsupervise().ToString();
 }
 
 System::String^ NS_Comp_Svc_Staf::CLservicestaff::Delete() {
-	return "";
+	return "EXEC SP_D @tab = 'Staff' , @id ="+this->oMapStaf->getidstaff().ToString();
 }
 
 System::String^ NS_Comp_Svc_Staf::CLservicestaff::Update() {
-	return "";
+	return "EXEC SP_US @id_staff =" + this->oMapStaf->getidstaff().ToString() +", @hiring_date ="+this->oMapStaf->getHiringdate()+", @id_staff_supervise ="+this->oMapStaf->getidstaffsupervise().ToString()+", @first_name =" + this->oMapPersoInfoStaf->getFirstname() + ", @last_name =" + this->oMapPersoInfoStaf->getLastname() + ", @birth_date =" + this->oMapPersoInfoStaf->getBirthdate() + ", @Street_name =" + this->oMapAddr->getStreetname() + ", @Street_number =" + this->oMapAddr->getStreetnumber().ToString() + ", @Residency_name =" + this->oMapAddr->getResidencename() + ", @Building_name =" + this->oMapAddr->getBuildingname() + ", @Floor_number =" + this->oMapAddr->getFloornumber().ToString() + ", @Complement =" + this->oMapAddr->getComplement() + ", @name_city ="+this->oMapCityStaf->getNamecity()+", @post_code ="+this->oMapPostCodeStaf->getPostcode().ToString();
 }

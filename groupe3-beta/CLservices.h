@@ -18,6 +18,6 @@ namespace NS_services {
 		NS_Comp_Svc_Supply::CLservicesupply^ oSvcSupply;
 		NS_Comp_Svc_Stats::CLservicesstats^ oSvcStats;
 	public:
-		
+		CLservices();
 	};
 }

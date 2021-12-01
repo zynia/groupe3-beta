@@ -1,6 +1,15 @@
 #include "pch.h"
 #include "CLmapOrder.h"
 
+void NS_Map_Order::CLmapOrder::setIdcustomer(int id) {
+	this->id_customer = id;
+}
+
+int NS_Map_Order::CLmapOrder::getIdcustomer(void) {
+	return id_customer;
+}
+
+
 void NS_Map_Order::CLmapOrder::setIdorder(int id) {
 	this->id_order = id;
 }

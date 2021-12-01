@@ -16,3 +16,11 @@ void NS_Map_Staf::CLmapstaff::setHiringdate(System::String^ hiringdate) {
 System::String^ NS_Map_Staf::CLmapstaff::getHiringdate(void) {
 	return hiring_date;
 }
+
+void NS_Map_Staf::CLmapstaff::setidstaffsupervise(int id) {
+	this->id_staff_supervise = id;
+}
+
+int NS_Map_Staf::CLmapstaff::getidstaffsupervise(void) {
+	return id_staff_supervise;
+}

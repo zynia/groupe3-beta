@@ -6,6 +6,8 @@
 #include "CLmapdelivering.h"
 #include "CLmapPersonal_infoclient.h"
 #include "CLmapPost_codeClient.h"
+#include "CLmapOrder.h"
+#include "CLmapArticleOrder.h"
 
 namespace NS_Comp_Svc_Cli
 {
@@ -20,13 +22,15 @@ namespace NS_Comp_Svc_Cli
 		NS_Map_Delivering::CLmapdelivering^ oMapDeliv;
 		NS_Map_Personal_info_client::CLmapPersonalinfoclient^ oMapPersoInfo;
 		NS_Map_Post_Code::CLmapPostcodeClient^ oMapPostCode;
+		NS_Map_Order::CLmapOrder^ oMapOrder;
+		NS_Map_Article_Order::CLmapArticleOrder^ oMapArtOrd;
 	public:
 
 		CLservicesClient(void);
 		System::Data::DataSet^ SelectClient(System::String^);
-		void InsertClient(System::String^, int, System::String^, System::String^, int, System::String^, System::String^, int, System::String^, System::String^, System::String^);
+		void InsertClient(System::String^, int, System::String^, System::String^, int, System::String^, System::String^, int, System::String^, int, System::String^, System::String^, int, System::String^, System::String^, int, System::String^, System::String^, System::String^);
 		void DeleteClient(int);
-		void UpdateClient(int, System::String^, int, System::String^, System::String^, int, System::String^, System::String^, int , System::String^, System::String^, System::String^);
+		void UpdateClient(int, System::String^, int, System::String^, System::String^, int, System::String^, System::String^, int, System::String^, int, System::String^, System::String^, int, System::String^, System::String^, int, System::String^, System::String^, System::String^);
 
 		System::String^ Select();
 		System::String^ Insert();

@@ -9,6 +9,14 @@ int NS_Map_Article_Order::CLmapArticleOrder::getidarticle(void) {
 	return id_article;
 }
 
+void NS_Map_Article_Order::CLmapArticleOrder::setidarticlechanged(int id) {
+	this->id_article_changed = id;
+}
+
+int NS_Map_Article_Order::CLmapArticleOrder::getidarticlechanged(void) {
+	return id_article_changed;
+}
+
 void NS_Map_Article_Order::CLmapArticleOrder::setColorarticle(System::String^ color) {
 	this->color_article = color;
 }

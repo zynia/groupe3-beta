@@ -64,17 +64,17 @@ void NS_Comp_Svc_Supply::CLservicesupply::UpdateSupply(int id, System::String^ c
 }
 
 System::String^ NS_Comp_Svc_Supply::CLservicesupply::Select() {
-	return "";
+	return "EXEC SP_SA @id_article ="+this->oMapArtSup->getidarticle();
 }
 
 System::String^ NS_Comp_Svc_Supply::CLservicesupply::Insert() {
-	return "";
+	return "EXEC SP_CA @color_article =" + this->oMapArtSup->getColorarticle() + ", @type_article =" + this->oMapArtSup->getTypearticle() + ", @margin_article =" + this->oMapArtSup->getMarginarticle().ToString() + ", @replenishment_threshold =" + this->oMapArtSup->getReplenishmentthreshold().ToString() + ", @HT =" + this->oMapArtSup->getHT().ToString() + ", @name_article =" + this->oMapArtSup->getNamearticle() + ", @discount =" + this->oMapArtSup->getDiscount().ToString() + ", @TVA =" + this->oMapArtSup->getTVA().ToString() + ", @Inventory_shrinkage =" + this->oMapArtSup->getInventoryshrinkage().ToString() + ", @nb_stock =" + this->oMapArtSup->getNbstock().ToString();
 }
 
 System::String^ NS_Comp_Svc_Supply::CLservicesupply::Delete() {
-	return "";
+	return "EXEC SP_D @tab = 'Article' , @id ="+this->oMapArtSup->getidarticle().ToString();
 }
 
 System::String^ NS_Comp_Svc_Supply::CLservicesupply::Update() {
-	return "";
+	return "EXEC SP_UA "+this->oMapArtSup->getidarticle().ToString()+", @color_article ="+this->oMapArtSup->getColorarticle()+", @type_article ="+this->oMapArtSup->getTypearticle()+", @margin_article ="+this->oMapArtSup->getMarginarticle().ToString()+", @replenishment_threshold ="+this->oMapArtSup->getReplenishmentthreshold().ToString()+", @HT ="+this->oMapArtSup->getHT().ToString()+", @name_article ="+this->oMapArtSup->getNamearticle()+", @discount ="+this->oMapArtSup->getDiscount().ToString()+", @TVA ="+this->oMapArtSup->getTVA().ToString()+", @inventory_shrinkage ="+this->oMapArtSup->getInventoryshrinkage().ToString()+", @nb_stock ="+this->oMapArtSup->getNbstock().ToString();
 }

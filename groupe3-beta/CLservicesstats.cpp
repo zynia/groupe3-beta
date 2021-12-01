@@ -1,6 +1,15 @@
 #include "pch.h"
 #include "CLservicesstats.h"
 
+void NS_Comp_Svc_Stats::CLservicesstats::setmonth(int month) {
+	this->month = month;
+}
+
+int NS_Comp_Svc_Stats::CLservicesstats::getmonth(void) {
+	return month;
+}
+
+
 NS_Comp_Svc_Stats::CLservicesstats::CLservicesstats(void) {
 	this->oCad = gcnew NS_Comp_Data::CLcad();
 	this->oMapArticleStats = gcnew NS_Map_Article_Stats::CLmapArticleStats();
@@ -80,29 +89,29 @@ System::Data::DataSet^ NS_Comp_Svc_Stats::CLservicesstats::SimVarComValue(System
 }
 
 System::String^ NS_Comp_Svc_Stats::CLservicesstats::avgCartAfterDiscount() {
-	return "";
+	return "EXEC SP_Q1_AVG_Basket";
 }
 System::String^ NS_Comp_Svc_Stats::CLservicesstats::turnoverOfMonth() {
-	return "";
+	return "EXEC SP_Q2_sales_turnover_by_month @nb_month ="+this->month.ToString();
 }
 System::String^ NS_Comp_Svc_Stats::CLservicesstats::totalBuyOfClient() {
-	return "";
+	return "EXEC SP_Q4_customer_purchases @id_customer =" + this->oMapOrderStats->getIdcustomer().ToString();
 }
 System::String^ NS_Comp_Svc_Stats::CLservicesstats::commercialStockValue() {
-	return "";
+	return "EXEC SP_Q7_stock_commercial_value";
 }
 System::String^ NS_Comp_Svc_Stats::CLservicesstats::buyStockValue() {
-	return "";
+	return "EXEC SP_Q8_stock_value";
 }
 System::String^ NS_Comp_Svc_Stats::CLservicesstats::underThreshold() {
-	return "";
+	return "EXEC SP_Q3_under_replenishment_threshold";
 }
 System::String^ NS_Comp_Svc_Stats::CLservicesstats::tenMostSold() {
-	return "";
+	return "EXEC SP_Q5_best_sold";
 }
 System::String^ NS_Comp_Svc_Stats::CLservicesstats::tenLessSold() {
-	return "";
+	return "EXEC SP_Q6_least_sold";
 }
 System::String^ NS_Comp_Svc_Stats::CLservicesstats::varComValue() {
-	return "";
+	return "EXEC SP_Q9_stock_variations @TVA ="+this->oMapArticleStats->getTVA().ToString()+", @margin_article ="+this->oMapArticleStats->getMarginarticle().ToString()+", @discount ="+this->oMapArticleStats->getDiscount().ToString()+", @inventory_shrinkage ="+this->oMapArticleStats->getInventoryshrinkage();
 }

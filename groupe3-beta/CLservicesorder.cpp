@@ -7,37 +7,41 @@ NS_Comp_Svc_Order::CLserviceOrder::CLserviceOrder(void) {
 	this->oMapCust = gcnew NS_Map_Customer::CLmapCustomer();
 	this->oMapOrd = gcnew NS_Map_Order::CLmapOrder();
 	this->oMapPay = gcnew NS_Map_Payment::CLmapPayment();
+	this->oMapPostcode = gcnew NS_Map_Post_Code::CLmapPostcodeClient();
+	this->oMapCity = gcnew NS_Map_City_Client::CLmapCityCLient();
+	this->oMapAddr = gcnew NS_Map_Addr_Client::CLmapAddressClient();
 }
 
-System::Data::DataSet^ NS_Comp_Svc_Order::CLserviceOrder::SelectOrder(System::String^ dataTableName) {
+System::Data::DataSet^ NS_Comp_Svc_Order::CLserviceOrder::SelectOrder(System::String^ dataTableName, int id) {
 	System::String^ sql;
 
+	this->oMapOrd->setIdorder(id);
 	sql = this->oOrder->Select();
 	return this->oCad->getRows(sql, dataTableName);
 }
 
-void NS_Comp_Svc_Order::CLserviceOrder::InsertOrder(System::String^ color, System::String^ type, float margin, int repl, float ht, System::String^ name, float discount, float tva, float invshrink, int nbstock, System::String^ delivdate, System::String^ senddate, System::String^ reforder, int nbart, System::String^ paytype, int paynb, System::String^ paydate) {
+void NS_Comp_Svc_Order::CLserviceOrder::InsertOrder(int postcode, System::String^ cityname, System::String^ streetname, int streetnb, System::String^ residence, System::String^ building, int floornb, System::String^ complement, System::String^ deliverydate, System::String^ senddate, int idcust, int idart, float tva, float ht, float discount, float invshrink, int nbart) {
 
 	System::String^ sql;
 
-	this->oMapArticlOrd->setColorarticle(color);
-	this->oMapArticlOrd->setTypearticle(type);
-	this->oMapArticlOrd->setMarginarticle(margin);
-	this->oMapArticlOrd->setReplenishmentthreshold(repl);
-	this->oMapArticlOrd->setHT(ht);
-	this->oMapArticlOrd->setNamearticle(name);
-	this->oMapArticlOrd->setDiscount(discount);
-	this->oMapArticlOrd->setTVA(tva);
-	this->oMapArticlOrd->setInventoryshrinkage(invshrink);
-	this->oMapArticlOrd->setNbstock(nbstock);
-	this->oMapOrd->setDeliverydate(delivdate);
+	this->oMapPostcode->setPostcode(postcode);
+	this->oMapCity->setNamecity(cityname);
+	this->oMapAddr->setStreetname(streetname);
+	this->oMapAddr->setStreetnumber(streetnb);
+	this->oMapAddr->setResidencename(residence);
+	this->oMapAddr->setBuildingname(building);
+	this->oMapAddr->setFloornumber(floornb);
+	this->oMapAddr->setComplement(complement);
+	this->oMapOrd->setDeliverydate(deliverydate);
 	this->oMapOrd->setSenddate(senddate);
-	this->oMapOrd->setReforder(reforder);
-	this->oMapOrd->setNbarticle(nbart);
-	this->oMapPay->setPaymenttype(paytype);
-	this->oMapPay->setPaymentnumber(paynb);
-	this->oMapPay->setPaymentdate(paydate);
-	
+	this->oMapCust->setIdcustomer(idcust);
+	this->oMapArticlOrd->setidarticle(idart);
+	this->oMapArticlOrd->setTVA(tva);
+	this->oMapArticlOrd->setHT(ht);
+	this->oMapArticlOrd->setDiscount(discount);
+	this->oMapArticlOrd->setInventoryshrinkage(invshrink);
+
+
 	sql = this->oOrder->Insert();
 
 	this->oCad->actionRows(sql);
@@ -54,28 +58,9 @@ void NS_Comp_Svc_Order::CLserviceOrder::DeleteOrder(int id) {
 	this->oCad->actionRows(sql);
 }
 
-void NS_Comp_Svc_Order::CLserviceOrder::UpdateOrder(int id, System::String^ color, System::String^ type, float margin, int repl, float ht, System::String^ name, float discount, float tva, float invshrink, int nbstock, System::String^ delivdate, System::String^ senddate, System::String^ reforder, int nbart, System::String^ paytype, int paynb, System::String^ paydate) {
+void NS_Comp_Svc_Order::CLserviceOrder::UpdateOrder() {
 
 	System::String^ sql;
-
-	this->oMapOrd->setIdorder(id);
-	this->oMapArticlOrd->setColorarticle(color);
-	this->oMapArticlOrd->setTypearticle(type);
-	this->oMapArticlOrd->setMarginarticle(margin);
-	this->oMapArticlOrd->setReplenishmentthreshold(repl);
-	this->oMapArticlOrd->setHT(ht);
-	this->oMapArticlOrd->setNamearticle(name);
-	this->oMapArticlOrd->setDiscount(discount);
-	this->oMapArticlOrd->setTVA(tva);
-	this->oMapArticlOrd->setInventoryshrinkage(invshrink);
-	this->oMapArticlOrd->setNbstock(nbstock);
-	this->oMapOrd->setDeliverydate(delivdate);
-	this->oMapOrd->setSenddate(senddate);
-	this->oMapOrd->setReforder(reforder);
-	this->oMapOrd->setNbarticle(nbart);
-	this->oMapPay->setPaymenttype(paytype);
-	this->oMapPay->setPaymentnumber(paynb);
-	this->oMapPay->setPaymentdate(paydate);
 	
 	sql = this->oOrder->Update();
 
@@ -83,17 +68,17 @@ void NS_Comp_Svc_Order::CLserviceOrder::UpdateOrder(int id, System::String^ colo
 }
 
 System::String^ NS_Comp_Svc_Order::CLserviceOrder::Select() {
-	return "";
+	return "EXEC SP_SO @id_order =" + this->oMapOrd->getIdorder().ToString();
 }
 
 System::String^ NS_Comp_Svc_Order::CLserviceOrder::Insert() {
-	return "";
+	return "EXEC SP_CO @Post_code = " + this->oMapPostcode->getPostcode().ToString() + ", @name_city = " + this->oMapCity->getNamecity() + ", @Street_name =" + this->oMapAddr->getStreetname() + ", @Street_number =" + this->oMapAddr->getStreetnumber().ToString() + ", @Residency_name =" + this->oMapAddr->getResidencename() + ", @Building_name = " + this->oMapAddr->getBuildingname() + ", @Floor_number =" + this->oMapAddr->getFloornumber().ToString() + ", @Complement =" + this->oMapAddr->getComplement() + ", @delivery_date = " + this->oMapOrd->getDeliverydate() + ", @send_date =" + this->oMapOrd->getSenddate() + ", @id_customer =" + this->oMapOrd->getIdcustomer().ToString() + ", @id_article =" + this->oMapArticlOrd->getidarticle().ToString() + ", @TVA =" + this->oMapArticlOrd->getTVA().ToString() + ", @HT =" + this->oMapArticlOrd->getHT().ToString() + ", @discount =" + this->oMapArticlOrd->getDiscount().ToString() + ", @inventory_shrinkage =" + this->oMapArticlOrd->getInventoryshrinkage() + ", @nb_article =" + this->oMapOrd->getNbarticle() + ";";
 }
 
 System::String^ NS_Comp_Svc_Order::CLserviceOrder::Delete() {
-	return "";
+	return "EXEC SP_D @tab = 'Order' , @id ="+this->oMapOrd->getIdorder().ToString();
 }
 
 System::String^ NS_Comp_Svc_Order::CLserviceOrder::Update() {
-	return "";
+	return "EXEC SP_UO @id_order =" + this->oMapOrd->getIdorder().ToString()+", @id_customer ="+this->oMapCust->getIdcustomer().ToString()+", @post_code =" + this->oMapPostcode->getPostcode().ToString() + ", @name_city =" + this->oMapCity->getNamecity() + ", @street_name =" + this->oMapAddr->getStreetnumber().ToString() + ", @street_number ="+ this->oMapAddr->getStreetnumber().ToString()+", @residency_name =" + this->oMapAddr->getResidencename() + ", @building_name =" + this->oMapAddr->getBuildingname() + ", @floor_number =" + this->oMapAddr->getFloornumber().ToString() + ", @complement =" + this->oMapAddr->getComplement() + ", @TVA =" + this->oMapArticlOrd->getTVA().ToString() + ", @HT =" + this->oMapArticlOrd->getHT().ToString() + ", @discount =" + this->oMapArticlOrd->getDiscount().ToString() + ", @margin_article ="+this->oMapArticlOrd->getMarginarticle().ToString()+", @nb_article =" + this->oMapOrd->getNbarticle() + ", @Payment_type ="+this->oMapPay->getPaymenttype()+", @nb_payment ="+this->oMapPay->getPaymentnumber().ToString()+", @Payment_date ="+this->oMapPay->getPaymentdate()+", @delivery_date ="+this->oMapOrd->getDeliverydate()+", @send_date ="+this->oMapOrd->getSenddate()+", @id_article ="+this->oMapArticlOrd->getidarticle().ToString()+", @id_article_changed ="+this->oMapArticlOrd->getidarticlechanged().ToString();
 }
