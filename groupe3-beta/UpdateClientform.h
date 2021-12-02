@@ -412,7 +412,7 @@ namespace Gstorg {
 			this->DisplayIDaddress->ReadOnly = true;
 			this->DisplayIDaddress->Size = System::Drawing::Size(110, 22);
 			this->DisplayIDaddress->TabIndex = 30;
-			this->DisplayIDaddress->Text = L"Post code  :";
+			this->DisplayIDaddress->Text = L"Addresses id :";
 			// 
 			// StreetNameBoxShipping
 			// 
@@ -584,6 +584,28 @@ namespace Gstorg {
 	}
 	private: System::Void UpdateClientForm_Click(System::Object^ sender, System::EventArgs^ e) {
 		//this->oCli->UpdateClient(this->IDBox->Text, this->FirstNameBox->Text, this->LastNameBox->Text, this->BirthdateBox->Text, this->StreetNameBoxBilling->Text, this->StreetNumberBoxBilling->Text, this->ResidencyNameBoxBilling->Text, this->BuildingNameBoxBilling->Text, this->FloorNumberBoxBilling->Text, this->ComplementBoxBilling->Text, this->CityNameBoxBilling->Text, this->PostCodeBoxBilling->Text, this->StreetNameBoxShipping->Text, this->StreetNumberBoxBilling->Text, this->ResidencyNameBoxShipping->Text, this->BuildingNameBoxShipping->Text, this->FloorNumberBoxShipping->Text, this->ComplementBoxShipping->Text, this->CityNameBoxShipping->Text, this->PostCodeBoxShipping->Text, this->); //todo add cases
+		this->IDBox->Clear();
+		this->FirstNameBox->Clear();
+		this->LastNameBox->Clear();
+		this->BirthdateBox->Clear();
+		this->StreetNameBoxBilling->Clear();
+		this->StreetNameBoxShipping->Clear();
+		this->StreetNumberBoxBilling->Clear();
+		this->StreetNameBoxShipping->Clear();
+		this->ResidencyNameBoxBilling->Clear();
+		this->ResidencyNameBoxShipping->Clear();
+		this->BuildingNameBoxBilling->Clear();
+		this->BuildingNameBoxShipping->Clear();
+		this->FloorNumberBoxBilling->Clear();
+		this->FloorNumberBoxShipping->Clear();
+		this->ComplementBoxBilling->Clear();
+		this->ComplementBoxShipping->Clear();
+		this->CityNameBoxBilling->Clear();
+		this->CityNameBoxShipping->Clear();
+		this->PostCodeBoxBilling->Clear();
+		this->PostCodeBoxShipping->Clear();
+		this->IdaddressBoxBilling->Clear();
+		this->IdaddressBoxShipping->Clear();
 	}
 	};
 }
