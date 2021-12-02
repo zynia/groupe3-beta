@@ -44,6 +44,7 @@ namespace Gstorg {
 	private: System::Windows::Forms::Button^ LessSoldItems;
 	private: System::Windows::Forms::Button^ BaseSuppliesCost;
 	private: NS_Comp_Svc_Stats::CLservicesstats^ oStat;
+	private: System::Data::DataSet^ oDs;
 	private:
 		/// <summary>
 		/// Required designer variable.
@@ -246,6 +247,10 @@ namespace Gstorg {
 		this->SimulateVariations->Visible = false;
 		this->DatagridStats->Visible = true;
 		this->DatagridStats->Refresh();
+		this->oDs = this->oStat->CalcStatsavgCartAfterDiscount("consist_of");
+		this->DatagridStats->DataSource = this->oDs;
+		this->DatagridStats->DataMember = "consist_of";
+		
 	}
 	private: System::Void MonthTurnover_Click(System::Object^ sender, System::EventArgs^ e) {
 		this->Statstextbox->Text = L"Statistics > Month turnover";
@@ -346,6 +351,7 @@ namespace Gstorg {
 		this->DatagridStats->Refresh();
 	}
 	private: System::Void Statsform_Load(System::Object^ sender, System::EventArgs^ e) {
+		this->oStat = gcnew NS_Comp_Svc_Stats::CLservicesstats();
 	}
 	};
 }
