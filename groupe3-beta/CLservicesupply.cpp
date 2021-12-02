@@ -40,7 +40,7 @@ void NS_Comp_Svc_Supply::CLservicesupply::DeleteSupply(int id) {
 
 	this->oMapArtSup->setidarticle(id);
 
-	sql = this->oSupply->Delete();
+	sql = Delete();
 
 	this->oCad->actionRows(sql);
 }
