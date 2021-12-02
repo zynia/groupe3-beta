@@ -63,9 +63,9 @@ namespace Gstorg {
 			// DatagridClient
 			// 
 			this->DatagridClient->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
-			this->DatagridClient->Location = System::Drawing::Point(100, 200);
+			this->DatagridClient->Location = System::Drawing::Point(50, 200);
 			this->DatagridClient->Name = L"DatagridClient";
-			this->DatagridClient->Size = System::Drawing::Size(400, 200);
+			this->DatagridClient->Size = System::Drawing::Size(550, 150);
 			this->DatagridClient->TabIndex = 0;
 			this->DatagridClient->Visible = false;
 			// 
