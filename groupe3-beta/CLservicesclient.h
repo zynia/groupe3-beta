@@ -34,7 +34,7 @@ namespace NS_Comp_Svc_Cli
 		void DeleteClient(int);
 		void UpdateClient(int, System::String^, System::String^, System::String^, System::String^, int, System::String^, System::String^, int, System::String^, System::String^, int , System::String^ , int, System::String^, System::String^, int, System::String^, System::String^, int, int, int);
 
-		System::String^ Select();
+		System::String^ Select(int);
 		System::String^ Insert();
 		System::String^ Delete();
 		System::String^ Update();

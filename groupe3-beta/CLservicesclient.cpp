@@ -18,9 +18,8 @@ System::Data::DataSet^ NS_Comp_Svc_Cli::CLservicesClient::SelectClient(System::S
 {
 	System::String^ sql;
 
-	this->oMapCust->setIdcustomer(idcust);
+	sql = Select(idcust);
 
-	sql = this->oCli->Select();
 	return this->oCad->getRows(sql, dataTableName);
 }
 
@@ -98,8 +97,8 @@ void NS_Comp_Svc_Cli::CLservicesClient::UpdateClient(int idcust, System::String^
 	this->oCad->actionRows(sql);
 }
 
-System::String^ NS_Comp_Svc_Cli::CLservicesClient::Select() {
-	return "EXEC SP_SC @id_customer ="+ this->oMapCust->getIdcustomer().ToString()+";";
+System::String^ NS_Comp_Svc_Cli::CLservicesClient::Select(int idcustomer) {
+	return "EXEC SP_SC @id_customer ="+idcustomer.ToString()+";";
 }
 
 System::String^ NS_Comp_Svc_Cli::CLservicesClient::Insert() 
@@ -144,7 +143,7 @@ System::String^ NS_Comp_Svc_Cli::CLservicesClient::Insert()
 		"', @Floor_number_delivering_address =" + floornumber +
 		", @Complement_delivering_address ='" + complement + "';";
 	return temp;
-	//return " ";
+	
 }
 
 System::String^ NS_Comp_Svc_Cli::CLservicesClient::Delete() {
