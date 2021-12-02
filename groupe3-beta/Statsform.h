@@ -463,6 +463,9 @@ namespace Gstorg {
 		this->oStat = gcnew NS_Comp_Svc_Stats::CLservicesstats();
 	}
 	private: System::Void TurnoverButton_Click(System::Object^ sender, System::EventArgs^ e) {
+		this->oDs = this->oStat->CalcStatsturnoverOfMonth("consist_of", System::Convert::ToInt32(this->TurnoverBox->Text));
+		this->DatagridStats->DataSource = this->oDs;
+		this->DatagridStats->DataMember = "consist_of";
 		this->TurnoverBox->Clear();
 		//Add querry with the input of TurnoverBox
 	}
