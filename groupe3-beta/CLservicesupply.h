@@ -15,7 +15,7 @@ namespace NS_Comp_Svc_Supply {
 		void DeleteSupply(int);
 		void UpdateSupply(int, System::String^, System::String^, System::String^, int, System::String^, System::String^, System::String^, System::String^, System::String^, int);
 
-		System::String^ Select();
+		System::String^ Select(int);
 		System::String^ Insert();
 		System::String^ Delete();
 		System::String^ Update();

@@ -1,4 +1,5 @@
 #pragma once
+#include "CLservicesupply.h"
 
 namespace Gstorg {
 
@@ -36,7 +37,8 @@ namespace Gstorg {
 	private: System::Windows::Forms::TextBox^ DisplayID;
 	private: System::Windows::Forms::Button^ SendButton;
 	private: System::Windows::Forms::DataGridView^ DatagridSupply;
-
+	private: NS_Comp_Svc_Supply::CLservicesupply^ oSup;
+	private: System::Data::DataSet^ oDs;
 
 	private:
 		/// <summary>
@@ -134,8 +136,12 @@ namespace Gstorg {
 		}
 #pragma endregion
 	private: System::Void ReadSupplyForm_load(System::Object^ sender, System::EventArgs^ e) {
+		this->oSup = gcnew NS_Comp_Svc_Supply::CLservicesupply();
 	}
 	private: System::Void SendButton_Click(System::Object^ sender, System::EventArgs^ e) {
+		this->oDs = this->oSup->SelectSupply("article", System::Convert::ToInt32(this->IDbox->Text));
+		this->DatagridSupply->DataSource = this->oDs;
+		this->DatagridSupply->DataMember = "article";
 		this->IDbox->Clear();
 		this->DatagridSupply->Visible = true;
 		this->DatagridSupply->Refresh();

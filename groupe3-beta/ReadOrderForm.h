@@ -1,4 +1,5 @@
 #pragma once
+#include "CLservicesorder.h"
 
 namespace Gstorg {
 
@@ -36,6 +37,8 @@ namespace Gstorg {
 	private: System::Windows::Forms::TextBox^ DisplayID;
 	private: System::Windows::Forms::Button^ SendButton;
 	private: System::Windows::Forms::DataGridView^ DatagridOrder;
+	private: NS_Comp_Svc_Order::CLserviceOrder^ oOrd;
+	private: System::Data::DataSet^ oDs;
 
 	private:
 		/// <summary>
@@ -98,7 +101,7 @@ namespace Gstorg {
 			this->DisplayID->Location = System::Drawing::Point(230, 70);
 			this->DisplayID->Name = L"DisplayID";
 			this->DisplayID->ReadOnly = true;
-			this->DisplayID->Size = System::Drawing::Size(90, 22);
+			this->DisplayID->Size = System::Drawing::Size(70, 22);
 			this->DisplayID->TabIndex = 15;
 			this->DisplayID->Text = L"ID Order :";
 			// 
@@ -133,8 +136,13 @@ namespace Gstorg {
 		}
 #pragma endregion
 	private: System::Void ReadOrderForm_load(System::Object^ sender, System::EventArgs^ e) {
+		this->oOrd = gcnew NS_Comp_Svc_Order::CLserviceOrder();
 	}
 	private: System::Void SendButton_Click(System::Object^ sender, System::EventArgs^ e) {
+		this->oDs = this->oOrd->SelectOrder("orders", System::Convert::ToInt32(this->IDbox->Text));
+		this->DatagridOrder->DataSource = this->oDs;
+		this->DatagridOrder->DataMember = "orders";
+		this->IDbox->Clear();
 		this->DatagridOrder->Visible = true;
 		this->DatagridOrder->Refresh();
 	}
