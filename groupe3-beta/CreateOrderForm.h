@@ -676,6 +676,26 @@ namespace Gstorg {
 	}
 	private: System::Void CreateOrderForm_Click(System::Object^ sender, System::EventArgs^ e) {
 		this->oOrd->InsertOrder(System::Convert::ToInt32(this->PostCodeBox->Text), this->CityNameBox->Text, this->StreetNameBox->Text, System::Convert::ToInt32(this->StreetNumberBox->Text), this->ResidencyNameBox->Text, this->BuildingNameBox->Text, System::Convert::ToInt32(this->FloorNumberBox->Text), this->ComplementBox->Text, this->DeliveryDateBox->Text, this->SendDateBox->Text, System::Convert::ToInt32(this->PaymentNumberBox->Text), System::Convert::ToInt32(this->IDCustomerBox->Text), System::Convert::ToInt32(this->IDitemBox->Text), this->TVABox->Text, this->HTCostBox->Text, this->DiscountBox->Text, this->MarginBox->Text, System::Convert::ToInt32(this->NbItemsBox->Text), this->PaymentTypeBox->Text, this->PaymentDateBox->Text);
+		this->IDitemBox->Clear();
+		this->IDCustomerBox->Clear();
+		this->NbItemsBox->Clear();
+		this->SendDateBox->Clear();
+		this->DeliveryDateBox->Clear();
+		this->HTCostBox->Clear();
+		this->TVABox->Clear();
+		this->MarginBox->Clear();
+		this->DiscountBox->Clear();
+		this->PaymentTypeBox->Clear();
+		this->StreetNameBox->Clear();
+		this->StreetNumberBox->Clear();
+		this->ResidencyNameBox->Clear();
+		this->BuildingNameBox->Clear();
+		this->FloorNumberBox->Clear();
+		this->ComplementBox->Clear();
+		this->CityNameBox->Clear();
+		this->PostCodeBox->Clear();
+		this->PaymentDateBox->Clear();
+		this->PaymentNumberBox->Clear();
 	}
 	};
 }
