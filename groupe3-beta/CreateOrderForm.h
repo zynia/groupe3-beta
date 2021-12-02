@@ -823,6 +823,6 @@ namespace Gstorg {
 		this->IdOrder->Visible = true;
 	}
 	private: System::Void SendItem_Click(System::Object^ sender, System::EventArgs^ e) {
-	}
+		}
 	};
 }
