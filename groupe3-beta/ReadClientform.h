@@ -1,4 +1,5 @@
 #pragma once
+#include "CLservicesclient.h"
 
 namespace Gstorg {
 
@@ -36,7 +37,8 @@ namespace Gstorg {
 	private: System::Windows::Forms::TextBox^ DisplayID;
 	private: System::Windows::Forms::Button^ SendButton;
 	private: System::Windows::Forms::DataGridView^ DatagridClient;
-
+	private: NS_Comp_Svc_Cli::CLservicesClient^ oCli;
+	private: System::Data::DataSet^ oDs;
 	private:
 		/// <summary>
 		/// Required designer variable.
@@ -62,7 +64,7 @@ namespace Gstorg {
 			// 
 			this->DatagridClient->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
 			this->DatagridClient->Location = System::Drawing::Point(400, 80);
-			this->DatagridClient->Name = L"dgv_enr";
+			this->DatagridClient->Name = L"DatagridClient";
 			this->DatagridClient->Size = System::Drawing::Size(200, 200);
 			this->DatagridClient->TabIndex = 0;
 			this->DatagridClient->Visible = false;
@@ -133,8 +135,12 @@ namespace Gstorg {
 		}
 #pragma endregion
 	private: System::Void ReadClientForm_Load(System::Object^ sender, System::EventArgs^ e) {
+		this->oCli = gcnew NS_Comp_Svc_Cli::CLservicesClient();
 	}
 	private: System::Void SendButton_Click(System::Object^ sender, System::EventArgs^ e) {
+		this->oDs = this->oCli->SelectClient("consist_of", System::Convert::ToInt32(this->IdBox->Text));
+		this->DatagridClient->DataSource = this->oDs;
+		this->DatagridClient->DataMember = "consist_of";
 		this->IdBox->Clear();
 		this->DatagridClient->Visible = true;
 		this->DatagridClient->Refresh();
