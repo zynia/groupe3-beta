@@ -1,4 +1,5 @@
 #pragma once
+#include "CLservicesorder.h"
 
 namespace Gstorg {
 
@@ -89,7 +90,8 @@ namespace Gstorg {
 	private: System::Windows::Forms::TextBox^ PaymentNumberBox;
 	private: System::Windows::Forms::TextBox^ DisplayNewIdItem;
 	private: System::Windows::Forms::TextBox^ NewIdItemBox;
-	protected:
+	
+	private: NS_Comp_Svc_Order::CLserviceOrder^ oOrd;
 
 	private:
 		/// <summary>
@@ -586,6 +588,7 @@ namespace Gstorg {
 			this->SendButton->TabIndex = 52;
 			this->SendButton->Text = L"Send";
 			this->SendButton->UseVisualStyleBackColor = true;
+			this->SendButton->Click += gcnew System::EventHandler(this, &UpdateOrderForm::UpdateOrderForm_Click);
 			// 
 			// DisplayPaymentType
 			// 
@@ -737,7 +740,13 @@ namespace Gstorg {
 		}
 #pragma endregion
 	private: System::Void UpdateOrderForm_load(System::Object^ sender, System::EventArgs^ e) {
+		this->oOrd = gcnew NS_Comp_Svc_Order::CLserviceOrder();
 	}
+	private: System::Void UpdateOrderForm_Click(System::Object^ sender, System::EventArgs^ e) {
+		this->oOrd->UpdateOrder(System::Convert::ToInt32(this->IDOrderbox->Text), System::Convert::ToInt32(this->IDCustomerBox->Text), System::Convert::ToInt32(this->PostCodeBox->Text), this->CityNameBox->Text, this->StreetNameBox->Text, System::Convert::ToInt32(this->StreetNumberBox->Text), this->ResidencyNameBox->Text, this->BuildingNameBox->Text, System::Convert::ToInt32(this->FloorNumberBox->Text), this->ComplementBox->Text, this->TVABox->Text, this->HTCostBox->Text, this->DiscountBox->Text, this->MarginBox->Text, System::Convert::ToInt32(this->NbItemsBox->Text), this->PaymentTypeBox->Text, System::Convert::ToInt32(this->PaymentNumberBox->Text), this->PaymentDateBox->Text, this->DeliveryDateBox->Text, this->SendDateBox->Text, System::Convert::ToInt32(this->OldIditemBox->Text), System::Convert::ToInt32(this->NewIdItemBox->Text));
+	}
+
+
 	private: System::Void textBox1_TextChanged(System::Object^ sender, System::EventArgs^ e) {
 	}
 
