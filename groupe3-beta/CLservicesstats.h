@@ -6,18 +6,15 @@
 namespace NS_Comp_Svc_Stats {
 	ref class CLservicesstats {
 	private:
-		int month;
 		NS_Comp_Svc_Stats::CLservicesstats^ oStats;
 		NS_Comp_Data::CLcad^ oCad;
 		NS_Map_Article_Stats::CLmapArticleStats^ oMapArticleStats;
 		NS_Map_Order_Stats::CLmapOrderStats^ oMapOrderStats;
 	public:
-		void setmonth(int);
-		int getmonth(void);
 
 		CLservicesstats(void);
 		System::Data::DataSet^ CalcStatsavgCartAfterDiscount(System::String^);
-		System::Data::DataSet^ CalcStatsturnoverOfMonth(System::String^);
+		System::Data::DataSet^ CalcStatsturnoverOfMonth(System::String^, int);
 		System::Data::DataSet^ CalcStatstotalBuyOfClient(System::String^);
 		System::Data::DataSet^ CalcStatscommercialStockValue(System::String^);
 		System::Data::DataSet^ CalcStatsbuyStockValue(System::String^);
@@ -29,7 +26,7 @@ namespace NS_Comp_Svc_Stats {
 		System::Data::DataSet^ SimVarComValue(System::String^);
 
 		System::String^ avgCartAfterDiscount();
-		System::String^ turnoverOfMonth();
+		System::String^ turnoverOfMonth(int nbmonth);
 		System::String^ totalBuyOfClient();
 		System::String^ commercialStockValue();
 		System::String^ buyStockValue();

@@ -1,14 +1,6 @@
 #include "pch.h"
 #include "CLservicesstats.h"
 
-void NS_Comp_Svc_Stats::CLservicesstats::setmonth(int month) {
-	this->month = month;
-}
-
-int NS_Comp_Svc_Stats::CLservicesstats::getmonth(void) {
-	return month;
-}
-
 
 NS_Comp_Svc_Stats::CLservicesstats::CLservicesstats(void) {
 	this->oCad = gcnew NS_Comp_Data::CLcad();
@@ -24,10 +16,10 @@ System::Data::DataSet^ NS_Comp_Svc_Stats::CLservicesstats::CalcStatsavgCartAfter
 	return this->oCad->getRows(sql, dataTableName);
 }
 
-System::Data::DataSet^ NS_Comp_Svc_Stats::CLservicesstats::CalcStatsturnoverOfMonth(System::String^ dataTableName) {
+System::Data::DataSet^ NS_Comp_Svc_Stats::CLservicesstats::CalcStatsturnoverOfMonth(System::String^ dataTableName, int nbmonth) {
 	System::String^ sql;
 
-	sql = this->oStats->turnoverOfMonth();
+	sql = this->oStats->turnoverOfMonth(nbmonth);
 
 	return this->oCad->getRows(sql, dataTableName);
 }
@@ -91,8 +83,8 @@ System::Data::DataSet^ NS_Comp_Svc_Stats::CLservicesstats::SimVarComValue(System
 System::String^ NS_Comp_Svc_Stats::CLservicesstats::avgCartAfterDiscount() {
 	return "EXEC SP_Q1_AVG_Basket";
 }
-System::String^ NS_Comp_Svc_Stats::CLservicesstats::turnoverOfMonth() {
-	return "EXEC SP_Q2_sales_turnover_by_month @nb_month ="+this->month.ToString();
+System::String^ NS_Comp_Svc_Stats::CLservicesstats::turnoverOfMonth(int nbmonth) {
+	return "EXEC SP_Q2_sales_turnover_by_month @nb_month ="+nbmonth.ToString();
 }
 System::String^ NS_Comp_Svc_Stats::CLservicesstats::totalBuyOfClient() {
 	return "EXEC SP_Q4_customer_purchases @id_customer =" + this->oMapOrderStats->getIdcustomer().ToString();
