@@ -1,4 +1,5 @@
 #pragma once
+#include "CLservicesstats.h"
 
 namespace Gstorg {
 
@@ -56,11 +57,7 @@ namespace Gstorg {
 
 	private: System::Windows::Forms::Button^ BaseSuppliesCost;
 
-
-
-	protected:
-
-	protected:
+	private: NS_Comp_Svc_Stats::CLservicesstats^ oStat;
 
 	private:
 		/// <summary>
