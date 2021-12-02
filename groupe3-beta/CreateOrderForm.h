@@ -1,5 +1,6 @@
 #pragma once
 #include "CLservicesorder.h"
+#include "CLcad.h"
 
 namespace Gstorg {
 
@@ -83,6 +84,7 @@ namespace Gstorg {
 	protected:
 
 	private: NS_Comp_Svc_Order::CLserviceOrder^ oOrd;
+	private: System::Data::DataSet^ oDs;
 
 	private:
 		/// <summary>
@@ -769,6 +771,15 @@ namespace Gstorg {
 		this->PaymentNumberBox->Clear();
 	}
 	private: System::Void SendAndAddItem_Click(System::Object^ sender, System::EventArgs^ e) {
+		
+		this->oOrd->InsertOrder(System::Convert::ToInt32(this->PostCodeBox->Text), this->CityNameBox->Text, this->StreetNameBox->Text, System::Convert::ToInt32(this->StreetNumberBox->Text), this->ResidencyNameBox->Text, this->BuildingNameBox->Text, System::Convert::ToInt32(this->FloorNumberBox->Text), this->ComplementBox->Text, this->DeliveryDateBox->Text, this->SendDateBox->Text, System::Convert::ToInt32(this->PaymentNumberBox->Text), System::Convert::ToInt32(this->IDCustomerBox->Text), System::Convert::ToInt32(this->IDitemBox->Text), this->TVABox->Text, this->HTCostBox->Text, this->DiscountBox->Text, this->MarginBox->Text, System::Convert::ToInt32(this->NbItemsBox->Text), this->PaymentTypeBox->Text, this->PaymentDateBox->Text);
+
+		this->IDitemBox->Clear();
+		this->NbItemsBox->Clear();
+		this->MarginBox->Clear();
+		this->DiscountBox->Clear();
+		this->HTCostBox->Clear();
+		this->TVABox->Clear();
 		this->DisplayPaymentType->Visible = false;
 		this->PaymentTypeBox->Visible = false;
 		this->StreetNameBox->Visible = false;
