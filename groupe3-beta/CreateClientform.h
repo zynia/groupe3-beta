@@ -520,6 +520,27 @@ namespace Gstorg {
 #pragma endregion
 	private: System::Void CreateClientForm_Click(System::Object^ sender, System::EventArgs^ e) {
 		this->oCli->InsertClient(this->StreetNameBoxShipping->Text, System::Convert::ToInt32(this->StreetNumberBoxShipping->Text), this->ResidencyNameBoxShipping->Text, this->BuildingNameBoxShipping->Text, System::Convert::ToInt32(this->FloorNumberBoxShipping->Text), this->ComplementBoxShipping->Text, this->CityNameBoxShipping->Text, System::Convert::ToInt32(this->PostCodeBoxShipping->Text), this->StreetNameBoxBilling->Text, System::Convert::ToInt32(this->StreetNumberBoxBilling->Text), this->ResidencyNameBoxBilling->Text, this->BuildingNameBoxBilling->Text, System::Convert::ToInt32(this->FloorNumberBoxBilling->Text), this->ComplementBoxBilling->Text, this->CityNameBoxBilling->Text, System::Convert::ToInt32(this->PostCodeBoxBilling->Text), this->FirstNameBox->Text, this->LastNameBox->Text, this->BirthdateBox->Text);
+		this->StreetNameBoxBilling->Clear();
+		this->StreetNumberBoxBilling->Clear();
+		this->ResidencyNameBoxBilling->Clear();
+		this->BuildingNameBoxBilling->Clear();
+		this->FloorNumberBoxBilling->Clear();
+		this->ComplementBoxBilling->Clear();
+		this->CityNameBoxBilling->Clear();
+		this->PostCodeBoxBilling->Clear();
+		this->StreetNameBoxShipping->Clear();
+		this->StreetNumberBoxShipping->Clear();
+		this->ResidencyNameBoxShipping->Clear();
+		this->BuildingNameBoxShipping->Clear();
+		this->FloorNumberBoxShipping->Clear();
+		this->ComplementBoxShipping->Clear();
+		this->CityNameBoxShipping->Clear();
+		this->PostCodeBoxShipping->Clear();
+		this->FirstNameBox->Clear();
+		this->LastNameBox->Clear();
+		this->BirthdateBox->Clear();
+
+
 	}
 	private: System::Void CreateClientForm_Load(System::Object^ sender, System::EventArgs^ e) {
 		this->oCli = gcnew NS_Comp_Svc_Cli::CLservicesClient();
