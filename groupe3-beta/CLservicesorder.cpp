@@ -95,6 +95,27 @@ void NS_Comp_Svc_Order::CLserviceOrder::UpdateOrder(int idord, int idcust, int p
 	this->oCad->actionRows(sql);
 }
 
+void NS_Comp_Svc_Order::CLserviceOrder::AddnewitemOrder(int idarticle, int idorder, System::String^ tva, System::String^ ht, System::String^ discount, System::String^ margin, int nbarticle) {
+	System::String^ sql;
+
+	sql = Addnewitem(idarticle,idorder,tva,ht,discount,margin,nbarticle);
+
+	this->oCad->actionRows(sql);
+}
+
+
+System::String^ NS_Comp_Svc_Order::CLserviceOrder::Addnewitem(int idarticle, int idorder, System::String^ tva, System::String^ ht, System::String^ discount, System::String^ margin, int nbarticle) {
+	return "EXEC SP_ADD_ARTICLE_ORDER"+
+		" @id_article ="+idarticle.ToString()+
+		", @id_order ="+idorder.ToString()+
+		", @TVA ="+tva+
+		", @HT ="+ht+
+		", @discount ="+discount+
+		", @margin_article ="+margin+
+		", @nb_article ="+nbarticle+";";
+}
+
+
 System::String^ NS_Comp_Svc_Order::CLserviceOrder::Select(int id) {
 	return "EXEC SP_SO @id_order =" + id.ToString();
 }

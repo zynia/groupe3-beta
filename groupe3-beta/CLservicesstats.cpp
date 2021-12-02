@@ -72,10 +72,10 @@ System::Data::DataSet^ NS_Comp_Svc_Stats::CLservicesstats::IdentifyStatstenLessS
 	return this->oCad->getRows(sql, dataTableName);
 }
 
-System::Data::DataSet^ NS_Comp_Svc_Stats::CLservicesstats::SimVarComValue(System::String^ dataTableName) {
+System::Data::DataSet^ NS_Comp_Svc_Stats::CLservicesstats::SimVarComValue(System::String^ dataTableName, System::String^ tva, System::String^ margin, System::String^ discount, System::String^ invshrink) {
 	System::String^ sql;
 
-	sql = this->oStats->varComValue();
+	sql = this->oStats->varComValue(tva,margin,discount,invshrink);
 
 	return this->oCad->getRows(sql, dataTableName);
 }
@@ -104,6 +104,6 @@ System::String^ NS_Comp_Svc_Stats::CLservicesstats::tenMostSold() {
 System::String^ NS_Comp_Svc_Stats::CLservicesstats::tenLessSold() {
 	return "EXEC SP_Q6_least_sold";
 }
-System::String^ NS_Comp_Svc_Stats::CLservicesstats::varComValue() {
-	return "EXEC SP_Q9_stock_variations @TVA ="+this->oMapArticleStats->getTVA().ToString()+", @margin_article ="+this->oMapArticleStats->getMarginarticle().ToString()+", @discount ="+this->oMapArticleStats->getDiscount().ToString()+", @inventory_shrinkage ="+this->oMapArticleStats->getInventoryshrinkage();
+System::String^ NS_Comp_Svc_Stats::CLservicesstats::varComValue(System::String^ tva, System::String^ margin, System::String^ discount, System::String^ invshrink) {
+	return "EXEC SP_Q9_stock_variations @TVA ="+tva+", @margin_article ="+margin+", @discount ="+discount+", @inventory_shrinkage ="+invshrink;
 }

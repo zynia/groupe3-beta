@@ -23,7 +23,7 @@ namespace NS_Comp_Svc_Stats {
 		System::Data::DataSet^ IdentifyStatstenMostSold(System::String^);
 		System::Data::DataSet^ IdentifyStatstenLessSold(System::String^);
 
-		System::Data::DataSet^ SimVarComValue(System::String^);
+		System::Data::DataSet^ SimVarComValue(System::String^, System::String^, System::String^, System::String^, System::String^);
 
 		System::String^ avgCartAfterDiscount();
 		System::String^ turnoverOfMonth(int);
@@ -35,7 +35,7 @@ namespace NS_Comp_Svc_Stats {
 		System::String^ tenMostSold();
 		System::String^ tenLessSold();
 
-		System::String^ varComValue();
+		System::String^ varComValue(System::String^, System::String^, System::String^, System::String^);
 
 	};
 }

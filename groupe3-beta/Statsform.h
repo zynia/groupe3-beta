@@ -615,6 +615,9 @@ namespace Gstorg {
 		this->IdCustomerBox->Clear();
 	}
 	private: System::Void VariationsButton_Click(System::Object^ sender, System::EventArgs^ e) {
+		this->oDs = this->oStat->SimVarComValue("article", this->TVABox->Text, this->MarginBox->Text, this->DiscountBox->Text, this->InventoryBox->Text);
+		this->DatagridStats->DataSource = this->oDs;
+		this->DatagridStats->DataMember = "article";
 		this->TVABox->Clear();
 		this->MarginBox->Clear();
 		this->DiscountBox->Clear();
