@@ -1,4 +1,5 @@
 #pragma once
+#include "CLservicesupply.h"
 
 namespace Gstorg {
 
@@ -36,7 +37,7 @@ namespace Gstorg {
 		}
 	private: System::Windows::Forms::TextBox^ DisplayIteminfoBox;
 	private: System::Windows::Forms::TextBox^ DisplayBasepriceBox;
-	private: System::Windows::Forms::TextBox^ SendDateBox;
+	private: System::Windows::Forms::TextBox^ ItemQuantityBox;
 	private: System::Windows::Forms::TextBox^ DisplayTVABox;
 	private: System::Windows::Forms::TextBox^ DisplayMarginBox;
 	private: System::Windows::Forms::TextBox^ DisplayInventoryshrinkagebox;
@@ -47,21 +48,20 @@ namespace Gstorg {
 	private: System::Windows::Forms::TextBox^ BasePriceBox;
 	private: System::Windows::Forms::TextBox^ TVABox;
 	private: System::Windows::Forms::TextBox^ MarginBox;
-	private: System::Windows::Forms::TextBox^ ItemStockBox;
+	private: System::Windows::Forms::TextBox^ InventoryShrinkageBox;
 	private: System::Windows::Forms::TextBox^ ItemNameBox;
 	private: System::Windows::Forms::TextBox^ ItemcolorBox;
 	private: System::Windows::Forms::TextBox^ IDitemtypeBox;
 	private: System::Windows::Forms::TextBox^ DisplayDiscountBox;
 	private: System::Windows::Forms::TextBox^ DiscountBox;
-
 	private: System::Windows::Forms::TextBox^ DisplayReplenishmentBox;
 	private: System::Windows::Forms::TextBox^ ReplenishmenBox;
 	private: System::Windows::Forms::TextBox^ DisplayItemIDBox;
 	private: System::Windows::Forms::TextBox^ ItemIDBox;
 	private: System::Windows::Forms::Button^ SendButton;
+	private: NS_Comp_Svc_Supply::CLservicesupply^ oSup;
 
 
-	protected:
 
 	private:
 		/// <summary>
@@ -78,7 +78,7 @@ namespace Gstorg {
 		{
 			this->DisplayIteminfoBox = (gcnew System::Windows::Forms::TextBox());
 			this->DisplayBasepriceBox = (gcnew System::Windows::Forms::TextBox());
-			this->SendDateBox = (gcnew System::Windows::Forms::TextBox());
+			this->ItemQuantityBox = (gcnew System::Windows::Forms::TextBox());
 			this->DisplayTVABox = (gcnew System::Windows::Forms::TextBox());
 			this->DisplayMarginBox = (gcnew System::Windows::Forms::TextBox());
 			this->DisplayInventoryshrinkagebox = (gcnew System::Windows::Forms::TextBox());
@@ -89,7 +89,7 @@ namespace Gstorg {
 			this->BasePriceBox = (gcnew System::Windows::Forms::TextBox());
 			this->TVABox = (gcnew System::Windows::Forms::TextBox());
 			this->MarginBox = (gcnew System::Windows::Forms::TextBox());
-			this->ItemStockBox = (gcnew System::Windows::Forms::TextBox());
+			this->InventoryShrinkageBox = (gcnew System::Windows::Forms::TextBox());
 			this->ItemNameBox = (gcnew System::Windows::Forms::TextBox());
 			this->ItemcolorBox = (gcnew System::Windows::Forms::TextBox());
 			this->IDitemtypeBox = (gcnew System::Windows::Forms::TextBox());
@@ -128,14 +128,14 @@ namespace Gstorg {
 			this->DisplayBasepriceBox->TabIndex = 46;
 			this->DisplayBasepriceBox->Text = L"Base price  :";
 			// 
-			// SendDateBox
+			// ItemQuantityBox
 			// 
-			this->SendDateBox->Font = (gcnew System::Drawing::Font(L"Arial", 9.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->ItemQuantityBox->Font = (gcnew System::Drawing::Font(L"Arial", 9.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->SendDateBox->Location = System::Drawing::Point(165, 215);
-			this->SendDateBox->Name = L"SendDateBox";
-			this->SendDateBox->Size = System::Drawing::Size(130, 22);
-			this->SendDateBox->TabIndex = 45;
+			this->ItemQuantityBox->Location = System::Drawing::Point(165, 215);
+			this->ItemQuantityBox->Name = L"ItemQuantityBox";
+			this->ItemQuantityBox->Size = System::Drawing::Size(130, 22);
+			this->ItemQuantityBox->TabIndex = 45;
 			// 
 			// DisplayTVABox
 			// 
@@ -214,7 +214,6 @@ namespace Gstorg {
 			this->DisplayItemcolorBox->Size = System::Drawing::Size(120, 22);
 			this->DisplayItemcolorBox->TabIndex = 39;
 			this->DisplayItemcolorBox->Text = L"Item color :";
-			this->DisplayItemcolorBox->TextChanged += gcnew System::EventHandler(this, &UpdateSupplyForm::textBox8_TextChanged);
 			// 
 			// DisplayItemtypebox
 			// 
@@ -256,14 +255,14 @@ namespace Gstorg {
 			this->MarginBox->Size = System::Drawing::Size(130, 22);
 			this->MarginBox->TabIndex = 35;
 			// 
-			// ItemStockBox
+			// InventoryShrinkageBox
 			// 
-			this->ItemStockBox->Font = (gcnew System::Drawing::Font(L"Arial", 9.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->InventoryShrinkageBox->Font = (gcnew System::Drawing::Font(L"Arial", 9.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->ItemStockBox->Location = System::Drawing::Point(165, 247);
-			this->ItemStockBox->Name = L"ItemStockBox";
-			this->ItemStockBox->Size = System::Drawing::Size(130, 22);
-			this->ItemStockBox->TabIndex = 34;
+			this->InventoryShrinkageBox->Location = System::Drawing::Point(165, 247);
+			this->InventoryShrinkageBox->Name = L"InventoryShrinkageBox";
+			this->InventoryShrinkageBox->Size = System::Drawing::Size(130, 22);
+			this->InventoryShrinkageBox->TabIndex = 34;
 			// 
 			// ItemNameBox
 			// 
@@ -348,7 +347,6 @@ namespace Gstorg {
 			this->DisplayItemIDBox->Size = System::Drawing::Size(120, 22);
 			this->DisplayItemIDBox->TabIndex = 53;
 			this->DisplayItemIDBox->Text = L"Item ID  :";
-			this->DisplayItemIDBox->TextChanged += gcnew System::EventHandler(this, &UpdateSupplyForm::textBox1_TextChanged_2);
 			// 
 			// ItemIDBox
 			// 
@@ -367,6 +365,7 @@ namespace Gstorg {
 			this->SendButton->TabIndex = 54;
 			this->SendButton->Text = L"Send";
 			this->SendButton->UseVisualStyleBackColor = true;
+			this->SendButton->Click += gcnew System::EventHandler(this, &UpdateSupplyForm::UpdateSupplyForm_Click);
 			// 
 			// UpdateSupplyForm
 			// 
@@ -381,7 +380,7 @@ namespace Gstorg {
 			this->Controls->Add(this->DisplayDiscountBox);
 			this->Controls->Add(this->DiscountBox);
 			this->Controls->Add(this->DisplayBasepriceBox);
-			this->Controls->Add(this->SendDateBox);
+			this->Controls->Add(this->ItemQuantityBox);
 			this->Controls->Add(this->DisplayTVABox);
 			this->Controls->Add(this->DisplayMarginBox);
 			this->Controls->Add(this->DisplayInventoryshrinkagebox);
@@ -392,7 +391,7 @@ namespace Gstorg {
 			this->Controls->Add(this->BasePriceBox);
 			this->Controls->Add(this->TVABox);
 			this->Controls->Add(this->MarginBox);
-			this->Controls->Add(this->ItemStockBox);
+			this->Controls->Add(this->InventoryShrinkageBox);
 			this->Controls->Add(this->ItemNameBox);
 			this->Controls->Add(this->ItemcolorBox);
 			this->Controls->Add(this->IDitemtypeBox);
@@ -407,17 +406,21 @@ namespace Gstorg {
 		}
 #pragma endregion
 	private: System::Void UpdateSupplyForm_Load(System::Object^ sender, System::EventArgs^ e) {
+		this->oSup = gcnew NS_Comp_Svc_Supply::CLservicesupply();
+		this->ItemIDBox->Clear();
+		this->IDitemtypeBox->Clear();
+		this->ItemcolorBox->Clear();
+		this->ItemNameBox->Clear();
+		this->ItemQuantityBox->Clear();
+		this->InventoryShrinkageBox->Clear();
+		this->BasePriceBox->Clear();
+		this->TVABox->Clear();
+		this->MarginBox->Clear();
+		this->DiscountBox->Clear();
+		this->ReplenishmenBox->Clear();
 	}
-	private: System::Void textBox1_TextChanged(System::Object^ sender, System::EventArgs^ e) {
-	}
-
-	private: System::Void FirstNameBox_TextChanged(System::Object^ sender, System::EventArgs^ e) {
-	}
-	private: System::Void textBox8_TextChanged(System::Object^ sender, System::EventArgs^ e) {
-	}
-	private: System::Void textBox1_TextChanged_1(System::Object^ sender, System::EventArgs^ e) {
-	}
-	private: System::Void textBox1_TextChanged_2(System::Object^ sender, System::EventArgs^ e) {
+	private: System::Void UpdateSupplyForm_Click(System::Object^ sender, System::EventArgs^ e) {
+		this->oSup->UpdateSupply(System::Convert::ToInt32(this->ItemIDBox->Text), this->ItemcolorBox->Text, this->IDitemtypeBox->Text, this->MarginBox->Text, System::Convert::ToInt32(this->ReplenishmenBox->Text), this->BasePriceBox->Text, this->ItemNameBox->Text, this->DiscountBox->Text, this->TVABox->Text, this->InventoryShrinkageBox->Text, System::Convert::ToInt32(this->ItemQuantityBox->Text));
 	}
 	};
 }
