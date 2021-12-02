@@ -19,9 +19,6 @@ namespace Gstorg {
 		Statsform(void)
 		{
 			InitializeComponent();
-			//
-			//TODO: Add the constructor code here
-			//
 		}
 
 	protected:
@@ -35,30 +32,18 @@ namespace Gstorg {
 				delete components;
 			}
 		}
+	private: System::Windows::Forms::DataGridView^ DatagridStats;
 	private: System::Windows::Forms::Button^ SimulateVariations;
 	private: System::Windows::Forms::Button^ AvgBasket;
 	private: System::Windows::Forms::Button^ MonthTurnover;
-
-	protected:
-
-
-
 	private: System::Windows::Forms::TextBox^ Statstextbox;
 	private: System::Windows::Forms::Button^ CostForClient;
 	private: System::Windows::Forms::Button^ MostSoldItems;
-
-
-
 	private: System::Windows::Forms::Button^ MinThreshold;
-
 	private: System::Windows::Forms::Button^ SuppliesSellValue;
 	private: System::Windows::Forms::Button^ LessSoldItems;
-
-
 	private: System::Windows::Forms::Button^ BaseSuppliesCost;
-
 	private: NS_Comp_Svc_Stats::CLservicesstats^ oStat;
-
 	private:
 		/// <summary>
 		/// Required designer variable.
@@ -72,6 +57,7 @@ namespace Gstorg {
 		/// </summary>
 		void InitializeComponent(void)
 		{
+			this->DatagridStats = (gcnew System::Windows::Forms::DataGridView());
 			this->SimulateVariations = (gcnew System::Windows::Forms::Button());
 			this->AvgBasket = (gcnew System::Windows::Forms::Button());
 			this->MonthTurnover = (gcnew System::Windows::Forms::Button());
@@ -82,7 +68,17 @@ namespace Gstorg {
 			this->SuppliesSellValue = (gcnew System::Windows::Forms::Button());
 			this->LessSoldItems = (gcnew System::Windows::Forms::Button());
 			this->BaseSuppliesCost = (gcnew System::Windows::Forms::Button());
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->DatagridStats))->BeginInit();
 			this->SuspendLayout();
+			// 
+			// DatagridStats
+			// 
+			this->DatagridStats->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
+			this->DatagridStats->Location = System::Drawing::Point(80, 80);
+			this->DatagridStats->Name = L"dgv_enr";
+			this->DatagridStats->Size = System::Drawing::Size(470, 200);
+			this->DatagridStats->TabIndex = 0;
+			this->DatagridStats->Visible = false;
 			// 
 			// SimulateVariations
 			// 
@@ -173,7 +169,7 @@ namespace Gstorg {
 			this->SuppliesSellValue->UseVisualStyleBackColor = true;
 			this->SuppliesSellValue->Click += gcnew System::EventHandler(this, &Statsform::SuppliesSellValue_Click);
 			// 
-			// LessSoldItems<
+			// LessSoldItems
 			// 
 			this->LessSoldItems->BackColor = ColorTranslator::FromHtml("#f3f3f3");
 			this->LessSoldItems->Location = System::Drawing::Point(325, 385);
@@ -200,6 +196,7 @@ namespace Gstorg {
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(640, 480);
+			this->Controls->Add(this->DatagridStats);
 			this->Controls->Add(this->LessSoldItems);
 			this->Controls->Add(this->BaseSuppliesCost);
 			this->Controls->Add(this->MostSoldItems);
@@ -214,6 +211,7 @@ namespace Gstorg {
 			this->Name = L"Statsform";
 			this->Text = L"Statsform";
 			this->Load += gcnew System::EventHandler(this, &Statsform::Statsform_Load);
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->DatagridStats))->EndInit();
 			this->ResumeLayout(false);
 			this->PerformLayout();
 			this->BackColor = ColorTranslator::FromHtml("#f3f3f3");
@@ -221,33 +219,131 @@ namespace Gstorg {
 #pragma endregion
 	private: System::Void SimulateVariations_Click(System::Object^ sender, System::EventArgs^ e) {
 		this->Statstextbox->Text = L"Statistics > Variations";
+		this->AvgBasket->Visible = false;
+		this->MonthTurnover->Visible = false;
+		this->CostForClient->Visible = false;
+		this->MostSoldItems->Visible = false;
+		this->MinThreshold->Visible = false;
+		this->LessSoldItems->Visible = false;
+		this->BaseSuppliesCost->Visible = false;
+		this->SuppliesSellValue->Visible = false;
+		this->SimulateVariations->Visible = false;
+		this->DatagridStats->Visible = true;
+		this->DatagridStats->Refresh();
+
+
 	}
 	private: System::Void AvgBasket_Click(System::Object^ sender, System::EventArgs^ e) {
 		this->Statstextbox->Text = L"Statistics > Average basket";
+		this->AvgBasket->Visible = false;
+		this->MonthTurnover->Visible = false;
+		this->CostForClient->Visible = false;
+		this->MostSoldItems->Visible = false;
+		this->MinThreshold->Visible = false;
+		this->LessSoldItems->Visible = false;
+		this->BaseSuppliesCost->Visible = false;
+		this->SuppliesSellValue->Visible = false;
+		this->SimulateVariations->Visible = false;
+		this->DatagridStats->Visible = true;
+		this->DatagridStats->Refresh();
 	}
 	private: System::Void MonthTurnover_Click(System::Object^ sender, System::EventArgs^ e) {
 		this->Statstextbox->Text = L"Statistics > Month turnover";
+		this->AvgBasket->Visible = false;
+		this->MonthTurnover->Visible = false;
+		this->CostForClient->Visible = false;
+		this->MostSoldItems->Visible = false;
+		this->MinThreshold->Visible = false;
+		this->LessSoldItems->Visible = false;
+		this->BaseSuppliesCost->Visible = false;
+		this->SuppliesSellValue->Visible = false;
+		this->SimulateVariations->Visible = false;
+		this->DatagridStats->Visible = true;
+		this->DatagridStats->Refresh();
 	}
 	private: System::Void BaseSuppliesCost_Click(System::Object^ sender, System::EventArgs^ e) {
 		this->Statstextbox->Text = L"Statistics > Base supplies cost";
+		this->AvgBasket->Visible = false;
+		this->MonthTurnover->Visible = false;
+		this->CostForClient->Visible = false;
+		this->MostSoldItems->Visible = false;
+		this->MinThreshold->Visible = false;
+		this->LessSoldItems->Visible = false;
+		this->BaseSuppliesCost->Visible = false;
+		this->SuppliesSellValue->Visible = false;
+		this->SimulateVariations->Visible = false;
+		this->DatagridStats->Visible = true;
+		this->DatagridStats->Refresh();
 	}
 	private: System::Void CostForClient_Click(System::Object^ sender, System::EventArgs^ e) {
 		this->Statstextbox->Text = L"Statistics > Cost for client";
+		this->AvgBasket->Visible = false;
+		this->MonthTurnover->Visible = false;
+		this->CostForClient->Visible = false;
+		this->MostSoldItems->Visible = false;
+		this->MinThreshold->Visible = false;
+		this->LessSoldItems->Visible = false;
+		this->BaseSuppliesCost->Visible = false;
+		this->SuppliesSellValue->Visible = false;
+		this->SimulateVariations->Visible = false;
+		this->DatagridStats->Visible = true;
+		this->DatagridStats->Refresh();
 	}
 	private: System::Void MostSoldItems_Click(System::Object^ sender, System::EventArgs^ e) {
 		this->Statstextbox->Text = L"Statistics > Most sold items";
+		this->AvgBasket->Visible = false;
+		this->MonthTurnover->Visible = false;
+		this->CostForClient->Visible = false;
+		this->MostSoldItems->Visible = false;
+		this->MinThreshold->Visible = false;
+		this->LessSoldItems->Visible = false;
+		this->BaseSuppliesCost->Visible = false;
+		this->SuppliesSellValue->Visible = false;
+		this->SimulateVariations->Visible = false;
+		this->DatagridStats->Visible = true;
+		this->DatagridStats->Refresh();
 	}
 	private: System::Void MinThreshold_Click(System::Object^ sender, System::EventArgs^ e) {
 		this->Statstextbox->Text = L"Statistics > Minimum threshold limit";
+		this->AvgBasket->Visible = false;
+		this->MonthTurnover->Visible = false;
+		this->CostForClient->Visible = false;
+		this->MostSoldItems->Visible = false;
+		this->MinThreshold->Visible = false;
+		this->LessSoldItems->Visible = false;
+		this->BaseSuppliesCost->Visible = false;
+		this->SuppliesSellValue->Visible = false;
+		this->SimulateVariations->Visible = false;
+		this->DatagridStats->Visible = true;
+		this->DatagridStats->Refresh();
 	}
 	private: System::Void SuppliesSellValue_Click(System::Object^ sender, System::EventArgs^ e) {
 		this->Statstextbox->Text = L"Statistics > Supplies sell value";
+		this->AvgBasket->Visible = false;
+		this->MonthTurnover->Visible = false;
+		this->CostForClient->Visible = false;
+		this->MostSoldItems->Visible = false;
+		this->MinThreshold->Visible = false;
+		this->LessSoldItems->Visible = false;
+		this->BaseSuppliesCost->Visible = false;
+		this->SuppliesSellValue->Visible = false;
+		this->SimulateVariations->Visible = false;
+		this->DatagridStats->Visible = true;
+		this->DatagridStats->Refresh();
 	}
 	private: System::Void LessSoldItems_Click(System::Object^ sender, System::EventArgs^ e) {
 		this->Statstextbox->Text = L"Statistics > Less sold items";
-	}
-
-	private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
+		this->AvgBasket->Visible = false;
+		this->MonthTurnover->Visible = false;
+		this->CostForClient->Visible = false;
+		this->MostSoldItems->Visible = false;
+		this->MinThreshold->Visible = false;
+		this->LessSoldItems->Visible = false;
+		this->BaseSuppliesCost->Visible = false;
+		this->SuppliesSellValue->Visible = false;
+		this->SimulateVariations->Visible = false;
+		this->DatagridStats->Visible = true;
+		this->DatagridStats->Refresh();
 	}
 	private: System::Void Statsform_Load(System::Object^ sender, System::EventArgs^ e) {
 	}
