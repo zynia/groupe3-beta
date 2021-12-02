@@ -1,4 +1,5 @@
 #pragma once
+#include "CLservicesorder.h"
 
 namespace Gstorg {
 
@@ -39,11 +40,7 @@ namespace Gstorg {
 	private: System::Windows::Forms::TextBox^ DisplayID;
 	private: System::Windows::Forms::Button^ SendButton;
 
-	protected:
-
-	protected:
-
-	protected:
+	private: NS_Comp_Svc_Order::CLserviceOrder^ oOrd;
 
 	private:
 		/// <summary>
@@ -107,6 +104,7 @@ namespace Gstorg {
 			this->SendButton->TabIndex = 41;
 			this->SendButton->Text = L"Send";
 			this->SendButton->UseVisualStyleBackColor = true;
+			this->SendButton->Click += gcnew System::EventHandler(this, &DeleteOrderForm::DeleteOrderForm_Click);
 			// 
 			// DeleteOrderForm
 			// 
@@ -127,8 +125,10 @@ namespace Gstorg {
 		}
 #pragma endregion
 	private: System::Void DeleteOrderForm_Load(System::Object^ sender, System::EventArgs^ e) {
+		this->oOrd = gcnew NS_Comp_Svc_Order::CLserviceOrder();
 	}
-	private: System::Void textBox1_TextChanged(System::Object^ sender, System::EventArgs^ e) {
+	private: System::Void DeleteOrderForm_Click(System::Object^ sender, System::EventArgs^ e) {
+		this->oOrd->DeleteOrder(System::Convert::ToInt32(this->IDbox->Text));
 	}
 
 	};

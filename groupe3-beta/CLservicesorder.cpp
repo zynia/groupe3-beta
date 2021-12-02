@@ -117,7 +117,7 @@ System::String^ NS_Comp_Svc_Order::CLserviceOrder::Insert() {
 }
 
 System::String^ NS_Comp_Svc_Order::CLserviceOrder::Delete() {
-	return "EXEC SP_D @tab = 'Order' , @id ="+this->oMapOrd->getIdorder().ToString();
+	return "EXEC SP_DO @id ="+this->oMapOrd->getIdorder().ToString()+";";
 }
 
 System::String^ NS_Comp_Svc_Order::CLserviceOrder::Update() {
