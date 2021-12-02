@@ -19,9 +19,6 @@ namespace Gstorg {
 		UpdateClientForm(void)
 		{
 			InitializeComponent();
-			//
-			//TODO: Add the constructor code here
-			//
 		}
 
 	protected:
@@ -38,8 +35,6 @@ namespace Gstorg {
 	private: System::Windows::Forms::TextBox^ FirstNameBox;
 	private: System::Windows::Forms::TextBox^ LastNameBox;
 	private: System::Windows::Forms::TextBox^ BirthdateBox;
-
-
 	private: System::Windows::Forms::TextBox^ StreetNameBoxBilling;
 	private: System::Windows::Forms::TextBox^ StreetNumberBoxBilling;
 	private: System::Windows::Forms::TextBox^ ResidencyNameBoxBilling;
@@ -47,22 +42,12 @@ namespace Gstorg {
 	private: System::Windows::Forms::TextBox^ ComplementBoxBilling;
 	private: System::Windows::Forms::TextBox^ CityNameBoxBilling;
 	private: System::Windows::Forms::TextBox^ PostCodeBoxBilling;
-
-
-
-
-
-
-
-
-
+	private: System::Windows::Forms::TextBox^ IdaddressBoxBilling;
 	private: System::Windows::Forms::TextBox^ DisplayAdressBox;
 	private: System::Windows::Forms::TextBox^ DisplayPersonnalinfoBox;
 	private: System::Windows::Forms::TextBox^ DisplayFirstName;
 	private: System::Windows::Forms::TextBox^ DisplayLastname;
 	private: System::Windows::Forms::TextBox^ DisplayBirthDate;
-
-
 	private: System::Windows::Forms::TextBox^ DisplayStreetName;
 	private: System::Windows::Forms::TextBox^ DisplayStreetNumber;
 	private: System::Windows::Forms::TextBox^ DisplayResidencyname;
@@ -71,10 +56,8 @@ namespace Gstorg {
 	private: System::Windows::Forms::TextBox^ DisplayComplement;
 	private: System::Windows::Forms::TextBox^ DisplayCityName;
 	private: System::Windows::Forms::TextBox^ BuildingNameBoxBilling;
-
-
-
 	private: System::Windows::Forms::TextBox^ DisplayPostcode;
+	private: System::Windows::Forms::TextBox^ DisplayIDaddress;
 	private: System::Windows::Forms::TextBox^ StreetNameBoxShipping;
 	private: System::Windows::Forms::TextBox^ StreetNumberBoxShipping;
 	private: System::Windows::Forms::TextBox^ ResidencyNameBoxShipping;
@@ -83,21 +66,11 @@ namespace Gstorg {
 	private: System::Windows::Forms::TextBox^ ComplementBoxShipping;
 	private: System::Windows::Forms::TextBox^ CityNameBoxShipping;
 	private: System::Windows::Forms::TextBox^ PostCodeBoxShipping;
-
+	private: System::Windows::Forms::TextBox^ IdaddressBoxShipping;
 	private: System::Windows::Forms::TextBox^ DisplayIDBox;
 	private: System::Windows::Forms::TextBox^ IDBox;
 	private: System::Windows::Forms::Button^ SendButton;
-
-
 	private: NS_Comp_Svc_Cli::CLservicesClient^ oCli;
-
-
-	protected:
-
-	protected:
-
-	protected:
-
 	private:
 		/// <summary>
 		/// Required designer variable.
@@ -121,6 +94,7 @@ namespace Gstorg {
 			this->ComplementBoxBilling = (gcnew System::Windows::Forms::TextBox());
 			this->CityNameBoxBilling = (gcnew System::Windows::Forms::TextBox());
 			this->PostCodeBoxBilling = (gcnew System::Windows::Forms::TextBox());
+			this->IdaddressBoxBilling = (gcnew System::Windows::Forms::TextBox());
 			this->DisplayAdressBox = (gcnew System::Windows::Forms::TextBox());
 			this->DisplayPersonnalinfoBox = (gcnew System::Windows::Forms::TextBox());
 			this->DisplayFirstName = (gcnew System::Windows::Forms::TextBox());
@@ -135,6 +109,7 @@ namespace Gstorg {
 			this->DisplayCityName = (gcnew System::Windows::Forms::TextBox());
 			this->BuildingNameBoxBilling = (gcnew System::Windows::Forms::TextBox());
 			this->DisplayPostcode = (gcnew System::Windows::Forms::TextBox());
+			this->DisplayIDaddress = (gcnew System::Windows::Forms::TextBox());
 			this->StreetNameBoxShipping = (gcnew System::Windows::Forms::TextBox());
 			this->StreetNumberBoxShipping = (gcnew System::Windows::Forms::TextBox());
 			this->ResidencyNameBoxShipping = (gcnew System::Windows::Forms::TextBox());
@@ -143,6 +118,7 @@ namespace Gstorg {
 			this->ComplementBoxShipping = (gcnew System::Windows::Forms::TextBox());
 			this->CityNameBoxShipping = (gcnew System::Windows::Forms::TextBox());
 			this->PostCodeBoxShipping = (gcnew System::Windows::Forms::TextBox());
+			this->IdaddressBoxShipping = (gcnew System::Windows::Forms::TextBox());
 			this->DisplayIDBox = (gcnew System::Windows::Forms::TextBox());
 			this->IDBox = (gcnew System::Windows::Forms::TextBox());
 			this->SendButton = (gcnew System::Windows::Forms::Button());
@@ -156,7 +132,6 @@ namespace Gstorg {
 			this->FirstNameBox->Name = L"FirstNameBox";
 			this->FirstNameBox->Size = System::Drawing::Size(100, 22);
 			this->FirstNameBox->TabIndex = 0;
-			this->FirstNameBox->TextChanged += gcnew System::EventHandler(this, &UpdateClientForm::FirstNameBox_TextChanged);
 			// 
 			// LastNameBox
 			// 
@@ -238,7 +213,15 @@ namespace Gstorg {
 			this->PostCodeBoxBilling->Name = L"PostCodeBoxBilling";
 			this->PostCodeBoxBilling->Size = System::Drawing::Size(130, 22);
 			this->PostCodeBoxBilling->TabIndex = 11;
-			this->PostCodeBoxBilling->TextChanged += gcnew System::EventHandler(this, &UpdateClientForm::textBox1_TextChanged);
+			// 
+			// IdaddressBoxBilling
+			// 
+			this->IdaddressBoxBilling->Font = (gcnew System::Drawing::Font(L"Arial", 9.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->IdaddressBoxBilling->Location = System::Drawing::Point(140, 340);
+			this->IdaddressBoxBilling->Name = L"IdaddressBoxBilling";
+			this->IdaddressBoxBilling->Size = System::Drawing::Size(130, 22);
+			this->IdaddressBoxBilling->TabIndex = 11;
 			// 
 			// DisplayAdressBox
 			// 
@@ -418,6 +401,19 @@ namespace Gstorg {
 			this->DisplayPostcode->TabIndex = 30;
 			this->DisplayPostcode->Text = L"Post code  :";
 			// 
+			// DisplayIDaddress
+			// 
+			this->DisplayIDaddress->Font = (gcnew System::Drawing::Font(L"Arial", 9.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->DisplayIDaddress->BorderStyle = BorderStyle::None;
+			this->DisplayIDaddress->BackColor = ColorTranslator::FromHtml("#f3f3f3");
+			this->DisplayIDaddress->Location = System::Drawing::Point(20, 340);
+			this->DisplayIDaddress->Name = L"DisplayIDaddress";
+			this->DisplayIDaddress->ReadOnly = true;
+			this->DisplayIDaddress->Size = System::Drawing::Size(110, 22);
+			this->DisplayIDaddress->TabIndex = 30;
+			this->DisplayIDaddress->Text = L"Post code  :";
+			// 
 			// StreetNameBoxShipping
 			// 
 			this->StreetNameBoxShipping->Font = (gcnew System::Drawing::Font(L"Arial", 9.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
@@ -490,6 +486,15 @@ namespace Gstorg {
 			this->PostCodeBoxShipping->Size = System::Drawing::Size(130, 22);
 			this->PostCodeBoxShipping->TabIndex = 38;
 			// 
+			// IdaddressBoxShipping
+			// 
+			this->IdaddressBoxShipping->Font = (gcnew System::Drawing::Font(L"Arial", 9.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->IdaddressBoxShipping->Location = System::Drawing::Point(276, 340);
+			this->IdaddressBoxShipping->Name = L"IdaddressBoxShipping";
+			this->IdaddressBoxShipping->Size = System::Drawing::Size(130, 22);
+			this->IdaddressBoxShipping->TabIndex = 38;
+			// 
 			// DisplayIDBox
 			// 
 			this->DisplayIDBox->Font = (gcnew System::Drawing::Font(L"Arial", 9.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
@@ -531,6 +536,7 @@ namespace Gstorg {
 			this->Controls->Add(this->DisplayIDBox);
 			this->Controls->Add(this->IDBox);
 			this->Controls->Add(this->PostCodeBoxShipping);
+			this->Controls->Add(this->IdaddressBoxShipping);
 			this->Controls->Add(this->CityNameBoxShipping);
 			this->Controls->Add(this->ComplementBoxShipping);
 			this->Controls->Add(this->FloorNumberBoxShipping);
@@ -539,6 +545,7 @@ namespace Gstorg {
 			this->Controls->Add(this->StreetNumberBoxShipping);
 			this->Controls->Add(this->StreetNameBoxShipping);
 			this->Controls->Add(this->DisplayPostcode);
+			this->Controls->Add(this->DisplayIDaddress);
 			this->Controls->Add(this->BuildingNameBoxBilling);
 			this->Controls->Add(this->DisplayCityName);
 			this->Controls->Add(this->DisplayComplement);
@@ -553,6 +560,7 @@ namespace Gstorg {
 			this->Controls->Add(this->DisplayPersonnalinfoBox);
 			this->Controls->Add(this->DisplayAdressBox);
 			this->Controls->Add(this->PostCodeBoxBilling);
+			this->Controls->Add(this->IdaddressBoxBilling);
 			this->Controls->Add(this->CityNameBoxBilling);
 			this->Controls->Add(this->ComplementBoxBilling);
 			this->Controls->Add(this->FloorNumberBoxBilling);
@@ -576,11 +584,6 @@ namespace Gstorg {
 	}
 	private: System::Void UpdateClientForm_Click(System::Object^ sender, System::EventArgs^ e) {
 		//this->oCli->UpdateClient(this->IDBox->Text, this->FirstNameBox->Text, this->LastNameBox->Text, this->BirthdateBox->Text, this->StreetNameBoxBilling->Text, this->StreetNumberBoxBilling->Text, this->ResidencyNameBoxBilling->Text, this->BuildingNameBoxBilling->Text, this->FloorNumberBoxBilling->Text, this->ComplementBoxBilling->Text, this->CityNameBoxBilling->Text, this->PostCodeBoxBilling->Text, this->StreetNameBoxShipping->Text, this->StreetNumberBoxBilling->Text, this->ResidencyNameBoxShipping->Text, this->BuildingNameBoxShipping->Text, this->FloorNumberBoxShipping->Text, this->ComplementBoxShipping->Text, this->CityNameBoxShipping->Text, this->PostCodeBoxShipping->Text, this->); //todo add cases
-	}
-	private: System::Void textBox1_TextChanged(System::Object^ sender, System::EventArgs^ e) {
-	}
-
-	private: System::Void FirstNameBox_TextChanged(System::Object^ sender, System::EventArgs^ e) {
 	}
 	};
 }
