@@ -18,9 +18,6 @@ namespace Gstorg {
 		ReadOrderForm(void)
 		{
 			InitializeComponent();
-			//
-			//TODO: Add the constructor code here
-			//
 		}
 
 	protected:
@@ -38,12 +35,7 @@ namespace Gstorg {
 	private: System::Windows::Forms::TextBox^ DisplayOrderinfoBox;
 	private: System::Windows::Forms::TextBox^ DisplayID;
 	private: System::Windows::Forms::Button^ SendButton;
-
-	protected:
-
-	protected:
-
-	protected:
+	private: System::Windows::Forms::DataGridView^ DatagridOrder;
 
 	private:
 		/// <summary>
@@ -62,13 +54,24 @@ namespace Gstorg {
 			this->DisplayOrderinfoBox = (gcnew System::Windows::Forms::TextBox());
 			this->DisplayID = (gcnew System::Windows::Forms::TextBox());
 			this->SendButton = (gcnew System::Windows::Forms::Button());
+			this->DatagridOrder = (gcnew System::Windows::Forms::DataGridView());
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->DatagridOrder))->BeginInit();
 			this->SuspendLayout();
+			// 
+			// DatagridOrder
+			// 
+			this->DatagridOrder->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
+			this->DatagridOrder->Location = System::Drawing::Point(50, 200);
+			this->DatagridOrder->Name = L"DatagridOrder";
+			this->DatagridOrder->Size = System::Drawing::Size(550, 150);
+			this->DatagridOrder->TabIndex = 0;
+			this->DatagridOrder->Visible = false;
 			// 
 			// IDbox
 			// 
 			this->IDbox->Font = (gcnew System::Drawing::Font(L"Arial", 9.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->IDbox->Location = System::Drawing::Point(315, 151);
+			this->IDbox->Location = System::Drawing::Point(315, 70);
 			this->IDbox->Name = L"IDbox";
 			this->IDbox->Size = System::Drawing::Size(100, 22);
 			this->IDbox->TabIndex = 0;
@@ -79,7 +82,7 @@ namespace Gstorg {
 				static_cast<System::Byte>(0)));
 			this->DisplayOrderinfoBox->BorderStyle = BorderStyle::None;
 			this->DisplayOrderinfoBox->BackColor = ColorTranslator::FromHtml("#f3f3f3");
-			this->DisplayOrderinfoBox->Location = System::Drawing::Point(250, 71);
+			this->DisplayOrderinfoBox->Location = System::Drawing::Point(250, 20);
 			this->DisplayOrderinfoBox->Name = L"DisplayOrderinfoBox";
 			this->DisplayOrderinfoBox->ReadOnly = true;
 			this->DisplayOrderinfoBox->Size = System::Drawing::Size(140, 29);
@@ -92,7 +95,7 @@ namespace Gstorg {
 				static_cast<System::Byte>(0)));
 			this->DisplayID->BorderStyle = BorderStyle::None;
 			this->DisplayID->BackColor = ColorTranslator::FromHtml("#f3f3f3");
-			this->DisplayID->Location = System::Drawing::Point(215, 151);
+			this->DisplayID->Location = System::Drawing::Point(230, 70);
 			this->DisplayID->Name = L"DisplayID";
 			this->DisplayID->ReadOnly = true;
 			this->DisplayID->Size = System::Drawing::Size(90, 22);
@@ -101,18 +104,20 @@ namespace Gstorg {
 			// 
 			// SendButton
 			// 
-			this->SendButton->Location = System::Drawing::Point(275, 210);
+			this->SendButton->Location = System::Drawing::Point(280, 120);
 			this->SendButton->Name = L"SendButton";
 			this->SendButton->Size = System::Drawing::Size(75, 23);
 			this->SendButton->TabIndex = 41;
 			this->SendButton->Text = L"Send";
 			this->SendButton->UseVisualStyleBackColor = true;
+			this->SendButton->Click += gcnew System::EventHandler(this, &ReadOrderForm::SendButton_Click);
 			// 
 			// ReadOrderForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(640, 380);
+			this->Controls->Add(this->DatagridOrder);
 			this->Controls->Add(this->SendButton);
 			this->Controls->Add(this->DisplayID);
 			this->Controls->Add(this->DisplayOrderinfoBox);
@@ -121,6 +126,7 @@ namespace Gstorg {
 			this->Name = L"ReadOrderForm";
 			this->Text = L"ReadOrderForm";
 			this->Load += gcnew System::EventHandler(this, &ReadOrderForm::ReadOrderForm_load);
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->DatagridOrder))->EndInit();
 			this->ResumeLayout(false);
 			this->PerformLayout();
 			this->BackColor = ColorTranslator::FromHtml("#f3f3f3");
@@ -128,7 +134,9 @@ namespace Gstorg {
 #pragma endregion
 	private: System::Void ReadOrderForm_load(System::Object^ sender, System::EventArgs^ e) {
 	}
-	private: System::Void textBox1_TextChanged(System::Object^ sender, System::EventArgs^ e) {
+	private: System::Void SendButton_Click(System::Object^ sender, System::EventArgs^ e) {
+		this->DatagridOrder->Visible = true;
+		this->DatagridOrder->Refresh();
 	}
 
 	};
