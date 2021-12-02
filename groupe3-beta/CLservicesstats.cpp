@@ -24,10 +24,10 @@ System::Data::DataSet^ NS_Comp_Svc_Stats::CLservicesstats::CalcStatsturnoverOfMo
 	return this->oCad->getRows(sql, dataTableName);
 }
 
-System::Data::DataSet^ NS_Comp_Svc_Stats::CLservicesstats::CalcStatstotalBuyOfClient(System::String^ dataTableName) {
+System::Data::DataSet^ NS_Comp_Svc_Stats::CLservicesstats::CalcStatstotalBuyOfClient(System::String^ dataTableName, int idcustomer) {
 	System::String^ sql;
 
-	sql = this->oStats->totalBuyOfClient();
+	sql = this->oStats->totalBuyOfClient(idcustomer);
 
 	return this->oCad->getRows(sql, dataTableName);
 }
@@ -86,8 +86,8 @@ System::String^ NS_Comp_Svc_Stats::CLservicesstats::avgCartAfterDiscount() {
 System::String^ NS_Comp_Svc_Stats::CLservicesstats::turnoverOfMonth(int nbmonth) {
 	return "EXEC SP_Q2_sales_turnover_by_month @nb_month ="+nbmonth.ToString();
 }
-System::String^ NS_Comp_Svc_Stats::CLservicesstats::totalBuyOfClient() {
-	return "EXEC SP_Q4_customer_purchases @id_customer =" + this->oMapOrderStats->getIdcustomer().ToString();
+System::String^ NS_Comp_Svc_Stats::CLservicesstats::totalBuyOfClient(int idcustomer) {
+	return "EXEC SP_Q4_customer_purchases @id_customer =" + idcustomer.ToString();
 }
 System::String^ NS_Comp_Svc_Stats::CLservicesstats::commercialStockValue() {
 	return "EXEC SP_Q7_stock_commercial_value";

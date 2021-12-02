@@ -15,7 +15,7 @@ namespace NS_Comp_Svc_Stats {
 		CLservicesstats(void);
 		System::Data::DataSet^ CalcStatsavgCartAfterDiscount(System::String^);
 		System::Data::DataSet^ CalcStatsturnoverOfMonth(System::String^, int);
-		System::Data::DataSet^ CalcStatstotalBuyOfClient(System::String^);
+		System::Data::DataSet^ CalcStatstotalBuyOfClient(System::String^, int);
 		System::Data::DataSet^ CalcStatscommercialStockValue(System::String^);
 		System::Data::DataSet^ CalcStatsbuyStockValue(System::String^);
 
@@ -26,8 +26,8 @@ namespace NS_Comp_Svc_Stats {
 		System::Data::DataSet^ SimVarComValue(System::String^);
 
 		System::String^ avgCartAfterDiscount();
-		System::String^ turnoverOfMonth(int nbmonth);
-		System::String^ totalBuyOfClient();
+		System::String^ turnoverOfMonth(int);
+		System::String^ totalBuyOfClient(int);
 		System::String^ commercialStockValue();
 		System::String^ buyStockValue();
 

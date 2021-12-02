@@ -470,6 +470,9 @@ namespace Gstorg {
 		//Add querry with the input of TurnoverBox
 	}
 	private: System::Void IdCustomerButton_Click(System::Object^ sender, System::EventArgs^ e) {
+		this->oDs = this->oStat->CalcStatstotalBuyOfClient("consist_of", System::Convert::ToInt32(this->IdCustomerBox->Text));
+		this->DatagridStats->DataSource = this->oDs;
+		this->DatagridStats->DataMember = "consist_of";
 		this->IdCustomerBox->Clear();
 		//Add querry with the input of cost for client
 	}
