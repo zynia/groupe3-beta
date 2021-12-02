@@ -140,6 +140,7 @@ namespace Gstorg {
 			// 
 			this->Titlebox->Font = (gcnew System::Drawing::Font(L"Calibri", 20.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
+			this->Titlebox->ReadOnly = true;
 			this->Titlebox->BorderStyle = BorderStyle::None;
 			this->Titlebox->BackColor = ColorTranslator::FromHtml("#f3f3f3");
 			this->Titlebox->Location = System::Drawing::Point(10, 20);

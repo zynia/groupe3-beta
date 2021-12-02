@@ -19,9 +19,6 @@ namespace Gstorg {
 		DeleteStaffForm(void)
 		{
 			InitializeComponent();
-			//
-			//TODO: Add the constructor code here
-			//
 		}
 
 	protected:
@@ -133,6 +130,7 @@ namespace Gstorg {
 		this->oStaf = gcnew NS_Comp_Svc_Staf::CLservicestaff();
 	}
 	private: System::Void DeleteStaffForm_Click(System::Object^ sender, System::EventArgs^ e) {
+		this->IDbox->Clear();
 		this->oStaf->DeleteStaf(System::Convert::ToInt32(this->IDbox->Text));
 	}
 	private: System::Void textBox1_TextChanged(System::Object^ sender, System::EventArgs^ e) {

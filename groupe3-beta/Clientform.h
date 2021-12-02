@@ -120,6 +120,7 @@ namespace Gstorg {
 			// 
 			this->Clienttextbox->Font = (gcnew System::Drawing::Font(L"Arial", 20.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
+			this->Clienttextbox->ReadOnly = true;
 			this->Clienttextbox->BackColor = ColorTranslator::FromHtml("#f3f3f3");
 			this->Clienttextbox->BorderStyle = BorderStyle::None;
 			this->Clienttextbox->Location = System::Drawing::Point(10, 20);

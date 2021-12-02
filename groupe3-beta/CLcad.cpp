@@ -21,7 +21,6 @@ System::Data::DataSet^ NS_Comp_Data::CLcad::getRows(System::String^ sSql, System
 	this->oCmd->CommandText = this->sSql;
 	this->oDA->SelectCommand = this->oCmd;
 	this->oDA->Fill(this->oDs, sDataTableName);
-
 	return this->oDs;
 }
 void NS_Comp_Data::CLcad::actionRows(System::String^ sSql)
