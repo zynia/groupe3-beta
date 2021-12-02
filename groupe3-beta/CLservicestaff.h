@@ -23,7 +23,7 @@ namespace NS_Comp_Svc_Staf {
 		void DeleteStaf(int);
 		void UpdateStaf(int, System::String^ ,System::String^ , int, System::String^, System::String^, int, System::String^, System::String^, int, System::String^, System::String^, System::String^, int);
 
-		System::String^ Select();
+		System::String^ Select(int);
 		System::String^ Insert();
 		System::String^ Delete();
 		System::String^ Update();

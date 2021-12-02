@@ -13,9 +13,8 @@ NS_Comp_Svc_Staf::CLservicestaff::CLservicestaff(void) {
 System::Data::DataSet^ NS_Comp_Svc_Staf::CLservicestaff::SelectStaf(System::String^ dataTableName, int idstaf) {
 	System::String^ sql;
 
-	this->oMapStaf->setidstaff(idstaf);
+	sql = Select(idstaf);
 
-	sql = this->oStaf->Select();
 	return this->oCad->getRows(sql, dataTableName);
 }
 
@@ -76,8 +75,8 @@ void NS_Comp_Svc_Staf::CLservicestaff::UpdateStaf(int id, System::String^ hiring
 	this->oCad->actionRows(sql);
 }
 
-System::String^ NS_Comp_Svc_Staf::CLservicestaff::Select() {
-	return "EXEC SP_SS @id_staff ="+this->oMapStaf->getidstaff().ToString();
+System::String^ NS_Comp_Svc_Staf::CLservicestaff::Select(int idstaf) {
+	return "EXEC SP_SS @id_staff ="+idstaf.ToString();
 }
 
 System::String^ NS_Comp_Svc_Staf::CLservicestaff::Insert() {

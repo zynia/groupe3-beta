@@ -1,4 +1,5 @@
 #pragma once
+#include "CLservicestaff.h"
 
 namespace Gstorg {
 
@@ -39,6 +40,8 @@ namespace Gstorg {
 	private: System::Windows::Forms::TextBox^ DisplayID;
 	private: System::Windows::Forms::Button^ SendButton;
 	private: System::Windows::Forms::DataGridView^ DatagridStaff;
+	private: NS_Comp_Svc_Staf::CLservicestaff^ oStaf;
+	private: System::Data::DataSet^ oDs;
 	private:
 		/// <summary>
 		/// Required designer variable.
@@ -135,8 +138,12 @@ namespace Gstorg {
 		}
 #pragma endregion
 	private: System::Void ReadStafForm_Load(System::Object^ sender, System::EventArgs^ e) {
+		this->oStaf = gcnew NS_Comp_Svc_Staf::CLservicestaff();
 	}
 	private: System::Void SendButton_Click(System::Object^ sender, System::EventArgs^ e) {
+		this->oDs = this->oStaf->SelectStaf("staff", System::Convert::ToInt32(this->StaffIdBox->Text));
+		this->DatagridStaff->DataSource = this->oDs;
+		this->DatagridStaff->DataMember = "staff";
 		this->StaffIdBox->Clear();
 		this->DatagridStaff->Visible = true;
 		this->DatagridStaff->Refresh();
