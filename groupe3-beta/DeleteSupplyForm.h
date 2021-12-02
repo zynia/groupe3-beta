@@ -1,4 +1,5 @@
 #pragma once
+#include "CLservicesupply.h"
 
 namespace Gstorg {
 
@@ -40,11 +41,7 @@ namespace Gstorg {
 	private: System::Windows::Forms::Button^ SendButton;
 
 
-	protected:
-
-	protected:
-
-	protected:
+	private: NS_Comp_Svc_Supply::CLservicesupply^ oSup;
 
 	private:
 		/// <summary>
@@ -108,6 +105,7 @@ namespace Gstorg {
 			this->SendButton->TabIndex = 41;
 			this->SendButton->Text = L"Send";
 			this->SendButton->UseVisualStyleBackColor = true;
+			this->SendButton->Click += gcnew System::EventHandler(this, &DeleteSupplyForm::DeleteSupplyForm_Click);
 			// 
 			// DeleteSupplyForm
 			// 
@@ -128,6 +126,10 @@ namespace Gstorg {
 		}
 #pragma endregion
 	private: System::Void DeleteSupplyForm_load(System::Object^ sender, System::EventArgs^ e) {
+		this->oSup = gcnew NS_Comp_Svc_Supply::CLservicesupply();
+	}
+	private: System::Void DeleteSupplyForm_Click(System::Object^ sender, System::EventArgs^ e) {
+		this->oSup->DeleteSupply(System::Convert::ToInt32(this->IDbox->Text));
 	}
 	private: System::Void textBox1_TextChanged(System::Object^ sender, System::EventArgs^ e) {
 	}
