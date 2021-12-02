@@ -279,6 +279,9 @@ namespace Gstorg {
 		this->SimulateVariations->Visible = false;
 		this->DatagridStats->Visible = true;
 		this->DatagridStats->Refresh();
+		this->oDs = this->oStat->CalcStatsbuyStockValue("article");
+		this->DatagridStats->DataSource = this->oDs;
+		this->DatagridStats->DataMember = "article";
 	}
 	private: System::Void CostForClient_Click(System::Object^ sender, System::EventArgs^ e) {
 		this->Statstextbox->Text = L"Statistics > Cost for client";
@@ -307,6 +310,9 @@ namespace Gstorg {
 		this->SimulateVariations->Visible = false;
 		this->DatagridStats->Visible = true;
 		this->DatagridStats->Refresh();
+		this->oDs = this->oStat->IdentifyStatstenMostSold("consist_of");
+		this->DatagridStats->DataSource = this->oDs;
+		this->DatagridStats->DataMember = "consist_of";
 	}
 	private: System::Void MinThreshold_Click(System::Object^ sender, System::EventArgs^ e) {
 		this->Statstextbox->Text = L"Statistics > Minimum threshold limit";
@@ -321,6 +327,9 @@ namespace Gstorg {
 		this->SimulateVariations->Visible = false;
 		this->DatagridStats->Visible = true;
 		this->DatagridStats->Refresh();
+		this->oDs = this->oStat->IdentifyStatsunderThreshold("article");
+		this->DatagridStats->DataSource = this->oDs;
+		this->DatagridStats->DataMember = "article";
 	}
 	private: System::Void SuppliesSellValue_Click(System::Object^ sender, System::EventArgs^ e) {
 		this->Statstextbox->Text = L"Statistics > Supplies sell value";
@@ -335,6 +344,9 @@ namespace Gstorg {
 		this->SimulateVariations->Visible = false;
 		this->DatagridStats->Visible = true;
 		this->DatagridStats->Refresh();
+		this->oDs = this->oStat->CalcStatscommercialStockValue("article");
+		this->DatagridStats->DataSource = this->oDs;
+		this->DatagridStats->DataMember = "article";
 	}
 	private: System::Void LessSoldItems_Click(System::Object^ sender, System::EventArgs^ e) {
 		this->Statstextbox->Text = L"Statistics > Less sold items";
@@ -349,6 +361,9 @@ namespace Gstorg {
 		this->SimulateVariations->Visible = false;
 		this->DatagridStats->Visible = true;
 		this->DatagridStats->Refresh();
+		this->oDs = this->oStat->IdentifyStatstenLessSold("consist_of");
+		this->DatagridStats->DataSource = this->oDs;
+		this->DatagridStats->DataMember = "consist_of";
 	}
 	private: System::Void Statsform_Load(System::Object^ sender, System::EventArgs^ e) {
 		this->oStat = gcnew NS_Comp_Svc_Stats::CLservicesstats();
