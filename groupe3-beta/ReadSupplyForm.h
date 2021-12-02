@@ -35,6 +35,8 @@ namespace Gstorg {
 	private: System::Windows::Forms::TextBox^ DisplaySupplyinfoBox;
 	private: System::Windows::Forms::TextBox^ DisplayID;
 	private: System::Windows::Forms::Button^ SendButton;
+	private: System::Windows::Forms::DataGridView^ DatagridSupply;
+
 
 	private:
 		/// <summary>
@@ -53,13 +55,24 @@ namespace Gstorg {
 			this->DisplaySupplyinfoBox = (gcnew System::Windows::Forms::TextBox());
 			this->DisplayID = (gcnew System::Windows::Forms::TextBox());
 			this->SendButton = (gcnew System::Windows::Forms::Button());
+			this->DatagridSupply = (gcnew System::Windows::Forms::DataGridView());
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->DatagridSupply))->BeginInit();
 			this->SuspendLayout();
+			// 
+			// DatagridSupply
+			// 
+			this->DatagridSupply->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
+			this->DatagridSupply->Location = System::Drawing::Point(50, 200);
+			this->DatagridSupply->Name = L"DatagridSupply";
+			this->DatagridSupply->Size = System::Drawing::Size(550, 150);
+			this->DatagridSupply->TabIndex = 0;
+			this->DatagridSupply->Visible = false;
 			// 
 			// IDbox
 			// 
 			this->IDbox->Font = (gcnew System::Drawing::Font(L"Arial", 9.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->IDbox->Location = System::Drawing::Point(315, 151);
+			this->IDbox->Location = System::Drawing::Point(315, 70);
 			this->IDbox->Name = L"IDbox";
 			this->IDbox->Size = System::Drawing::Size(100, 22);
 			this->IDbox->TabIndex = 0;
@@ -70,7 +83,7 @@ namespace Gstorg {
 				static_cast<System::Byte>(0)));
 			this->DisplaySupplyinfoBox->BorderStyle = BorderStyle::None;
 			this->DisplaySupplyinfoBox->BackColor = ColorTranslator::FromHtml("#f3f3f3");
-			this->DisplaySupplyinfoBox->Location = System::Drawing::Point(250, 71);
+			this->DisplaySupplyinfoBox->Location = System::Drawing::Point(250, 20);
 			this->DisplaySupplyinfoBox->Name = L"DisplaySupplyinfoBox";
 			this->DisplaySupplyinfoBox->ReadOnly = true;
 			this->DisplaySupplyinfoBox->Size = System::Drawing::Size(140, 29);
@@ -83,27 +96,29 @@ namespace Gstorg {
 				static_cast<System::Byte>(0)));
 			this->DisplayID->BorderStyle = BorderStyle::None;
 			this->DisplayID->BackColor = ColorTranslator::FromHtml("#f3f3f3");
-			this->DisplayID->Location = System::Drawing::Point(215, 151);
+			this->DisplayID->Location = System::Drawing::Point(230, 70);
 			this->DisplayID->Name = L"DisplayID";
 			this->DisplayID->ReadOnly = true;
-			this->DisplayID->Size = System::Drawing::Size(90, 22);
+			this->DisplayID->Size = System::Drawing::Size(70, 22);
 			this->DisplayID->TabIndex = 15;
 			this->DisplayID->Text = L"ID item:";
 			// 
 			// SendButton
 			// 
-			this->SendButton->Location = System::Drawing::Point(280, 215);
+			this->SendButton->Location = System::Drawing::Point(280, 120);
 			this->SendButton->Name = L"SendButton";
 			this->SendButton->Size = System::Drawing::Size(75, 23);
 			this->SendButton->TabIndex = 41;
 			this->SendButton->Text = L"Send";
 			this->SendButton->UseVisualStyleBackColor = true;
+			this->SendButton->Click += gcnew System::EventHandler(this, &ReadSupplyForm::SendButton_Click);
 			// 
 			// ReadSupplyForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(640, 380);
+			this->Controls->Add(this->DatagridSupply);
 			this->Controls->Add(this->SendButton);
 			this->Controls->Add(this->DisplayID);
 			this->Controls->Add(this->DisplaySupplyinfoBox);
@@ -112,12 +127,18 @@ namespace Gstorg {
 			this->Name = L"ReadSupplyForm";
 			this->Text = L"ReadSupplyForm";
 			this->Load += gcnew System::EventHandler(this, &ReadSupplyForm::ReadSupplyForm_load);
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->DatagridSupply))->EndInit();
 			this->ResumeLayout(false);
 			this->PerformLayout();
 			this->BackColor = ColorTranslator::FromHtml("#f3f3f3");
 		}
 #pragma endregion
 	private: System::Void ReadSupplyForm_load(System::Object^ sender, System::EventArgs^ e) {
+	}
+	private: System::Void SendButton_Click(System::Object^ sender, System::EventArgs^ e) {
+		this->IDbox->Clear();
+		this->DatagridSupply->Visible = true;
+		this->DatagridSupply->Refresh();
 	}
 	};
 }
