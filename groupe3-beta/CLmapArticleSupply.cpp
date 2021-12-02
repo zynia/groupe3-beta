@@ -25,11 +25,11 @@ System::String^ NS_Map_Article_Supply::CLmapArticleSupply::getTypearticle(void) 
 	return type_article;
 }
 
-void NS_Map_Article_Supply::CLmapArticleSupply::setMarginarticle(float margin) {
+void NS_Map_Article_Supply::CLmapArticleSupply::setMarginarticle(System::String^ margin) {
 	this->margin_article = margin;
 }
 
-float NS_Map_Article_Supply::CLmapArticleSupply::getMarginarticle(void) {
+System::String^ NS_Map_Article_Supply::CLmapArticleSupply::getMarginarticle(void) {
 	return margin_article;
 }
 
@@ -41,11 +41,11 @@ int NS_Map_Article_Supply::CLmapArticleSupply::getReplenishmentthreshold(void) {
 	return replenishment_threshold;
 }
 
-void NS_Map_Article_Supply::CLmapArticleSupply::setHT(float ht) {
+void NS_Map_Article_Supply::CLmapArticleSupply::setHT(System::String^ ht) {
 	this->HT = ht;
 }
 
-float NS_Map_Article_Supply::CLmapArticleSupply::getHT(void) {
+System::String^ NS_Map_Article_Supply::CLmapArticleSupply::getHT(void) {
 	return HT;
 }
 
@@ -57,27 +57,27 @@ System::String^ NS_Map_Article_Supply::CLmapArticleSupply::getNamearticle(void) 
 	return name_article;
 }
 
-void NS_Map_Article_Supply::CLmapArticleSupply::setDiscount(float discount) {
+void NS_Map_Article_Supply::CLmapArticleSupply::setDiscount(System::String^ discount) {
 	this->discount = discount;
 }
 
-float NS_Map_Article_Supply::CLmapArticleSupply::getDiscount(void) {
+System::String^ NS_Map_Article_Supply::CLmapArticleSupply::getDiscount(void) {
 	return discount;
 }
 
-void NS_Map_Article_Supply::CLmapArticleSupply::setTVA(float tva) {
+void NS_Map_Article_Supply::CLmapArticleSupply::setTVA(System::String^ tva) {
 	this->TVA = tva;
 }
 
-float NS_Map_Article_Supply::CLmapArticleSupply::getTVA(void) {
+System::String^ NS_Map_Article_Supply::CLmapArticleSupply::getTVA(void) {
 	return TVA;
 }
 
-void NS_Map_Article_Supply::CLmapArticleSupply::setInventoryshrinkage(float invshrink) {
+void NS_Map_Article_Supply::CLmapArticleSupply::setInventoryshrinkage(System::String^ invshrink) {
 	this->inventory_shrinkage = invshrink;
 }
 
-float NS_Map_Article_Supply::CLmapArticleSupply::getInventoryshrinkage(void) {
+System::String^ NS_Map_Article_Supply::CLmapArticleSupply::getInventoryshrinkage(void) {
 	return inventory_shrinkage;
 }
 

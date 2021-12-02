@@ -16,7 +16,7 @@ System::Data::DataSet^ NS_Comp_Svc_Supply::CLservicesupply::SelectSupply(System:
 	return this->oCad->getRows(sql, dataTableName);
 }
 
-void NS_Comp_Svc_Supply::CLservicesupply::InsertSupply(System::String^ color, System::String^ type, float margin, int repl, float ht, System::String^ name, float discount, float tva, float invshrink, int nbstock) {
+void NS_Comp_Svc_Supply::CLservicesupply::InsertSupply(System::String^ color, System::String^ type, System::String^ margin, int repl, System::String^ ht, System::String^ name, System::String^ discount, System::String^ tva, System::String^ invshrink, int nbstock) {
 	System::String^ sql;
 
 	this->oMapArtSup->setColorarticle(color);
@@ -45,7 +45,7 @@ void NS_Comp_Svc_Supply::CLservicesupply::DeleteSupply(int id) {
 	this->oCad->actionRows(sql);
 }
 
-void NS_Comp_Svc_Supply::CLservicesupply::UpdateSupply(int id, System::String^ color, System::String^ type, float margin, int repl, float ht, System::String^ name, float discount, float tva, float invshrink, int nbstock) {
+void NS_Comp_Svc_Supply::CLservicesupply::UpdateSupply(int id, System::String^ color, System::String^ type, System::String^ margin, int repl, System::String^ ht, System::String^ name, System::String^ discount, System::String^ tva, System::String^ invshrink, int nbstock) {
 	System::String^ sql;
 
 	this->oMapArtSup->setidarticle(id);
@@ -60,7 +60,7 @@ void NS_Comp_Svc_Supply::CLservicesupply::UpdateSupply(int id, System::String^ c
 	this->oMapArtSup->setInventoryshrinkage(invshrink);
 	this->oMapArtSup->setNbstock(nbstock);
 
-	sql = this->oSupply->Update();
+	sql = Update();
 
 	this->oCad->actionRows(sql);
 }
@@ -73,13 +73,13 @@ System::String^ NS_Comp_Svc_Supply::CLservicesupply::Insert() {
 	return "EXEC SP_CA "+
 		" @color_article = '" + this->oMapArtSup->getColorarticle() + 
 		"', @type_article = '" + this->oMapArtSup->getTypearticle() + 
-		"', @margin_article = " + this->oMapArtSup->getMarginarticle().ToString() + 
-		", @replenishment_threshold = " + this->oMapArtSup->getReplenishmentthreshold().ToString() + 
-		", @HT = " + this->oMapArtSup->getHT().ToString() + 
+		"', @margin_article = " + this->oMapArtSup->getMarginarticle() + 
+		", @replenishment_threshold = " + this->oMapArtSup->getReplenishmentthreshold() + 
+		", @HT = " + this->oMapArtSup->getHT() + 
 		", @name_article = '" + this->oMapArtSup->getNamearticle() + 
-		"', @discount = " + this->oMapArtSup->getDiscount().ToString() + 
-		", @TVA = " + this->oMapArtSup->getTVA().ToString() + 
-		", @Inventory_shrinkage = " + this->oMapArtSup->getInventoryshrinkage().ToString() + 
+		"', @discount = " + this->oMapArtSup->getDiscount() + 
+		", @TVA = " + this->oMapArtSup->getTVA() + 
+		", @Inventory_shrinkage = " + this->oMapArtSup->getInventoryshrinkage() + 
 		", @nb_stock = " + this->oMapArtSup->getNbstock().ToString()+";";
 }
 
@@ -88,5 +88,5 @@ System::String^ NS_Comp_Svc_Supply::CLservicesupply::Delete() {
 }
 
 System::String^ NS_Comp_Svc_Supply::CLservicesupply::Update() {
-	return "EXEC SP_UA "+this->oMapArtSup->getidarticle().ToString()+", @color_article ="+this->oMapArtSup->getColorarticle()+", @type_article ="+this->oMapArtSup->getTypearticle()+", @margin_article ="+this->oMapArtSup->getMarginarticle().ToString()+", @replenishment_threshold ="+this->oMapArtSup->getReplenishmentthreshold().ToString()+", @HT ="+this->oMapArtSup->getHT().ToString()+", @name_article ="+this->oMapArtSup->getNamearticle()+", @discount ="+this->oMapArtSup->getDiscount().ToString()+", @TVA ="+this->oMapArtSup->getTVA().ToString()+", @inventory_shrinkage ="+this->oMapArtSup->getInventoryshrinkage().ToString()+", @nb_stock ="+this->oMapArtSup->getNbstock().ToString();
+	return "";//"EXEC SP_UA "+this->oMapArtSup->getidarticle().ToString()+", @color_article ="+this->oMapArtSup->getColorarticle()+", @type_article ="+this->oMapArtSup->getTypearticle()+", @margin_article ="+this->oMapArtSup->getMarginarticle().ToString()+", @replenishment_threshold ="+this->oMapArtSup->getReplenishmentthreshold().ToString()+", @HT ="+this->oMapArtSup->getHT().ToString()+", @name_article ="+this->oMapArtSup->getNamearticle()+", @discount ="+this->oMapArtSup->getDiscount().ToString()+", @TVA ="+this->oMapArtSup->getTVA().ToString()+", @inventory_shrinkage ="+this->oMapArtSup->getInventoryshrinkage().ToString()+", @nb_stock ="+this->oMapArtSup->getNbstock().ToString();
 }

@@ -11,9 +11,9 @@ namespace NS_Comp_Svc_Supply {
 	public:
 		CLservicesupply();
 		System::Data::DataSet^ SelectSupply(System::String^, int);
-		void InsertSupply(System::String^, System::String^, float, int, float, System::String^, float, float, float, int);
+		void InsertSupply(System::String^, System::String^, System::String^, int, System::String^, System::String^, System::String^, System::String^, System::String^, int);
 		void DeleteSupply(int);
-		void UpdateSupply(int, System::String^, System::String^, float, int, float, System::String^, float, float, float, int);
+		void UpdateSupply(int, System::String^, System::String^, System::String^, int, System::String^, System::String^, System::String^, System::String^, System::String^, int);
 
 		System::String^ Select();
 		System::String^ Insert();
