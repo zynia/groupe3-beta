@@ -41,6 +41,7 @@ namespace Gstorg {
 	private: System::Windows::Forms::Button^ AvgBasket;
 	private: System::Windows::Forms::Button^ MonthTurnover;
 	private: System::Windows::Forms::Button^ IdCustomerButton;
+	private: System::Windows::Forms::Button^ VariationsButton;
 	private: System::Windows::Forms::Button^ TurnoverButton;
 	private: System::Windows::Forms::TextBox^ Statstextbox;
 	private: System::Windows::Forms::Button^ CostForClient;
@@ -49,6 +50,14 @@ namespace Gstorg {
 	private: System::Windows::Forms::Button^ SuppliesSellValue;
 	private: System::Windows::Forms::Button^ LessSoldItems;
 	private: System::Windows::Forms::Button^ BaseSuppliesCost;
+	private: System::Windows::Forms::TextBox^ DisplayTVABox;
+	private: System::Windows::Forms::TextBox^ TVABox;
+	private: System::Windows::Forms::TextBox^ DisplayMarginBox;
+	private: System::Windows::Forms::TextBox^ MarginBox;
+	private: System::Windows::Forms::TextBox^ DisplayInventoryBox;
+	private: System::Windows::Forms::TextBox^ InventoryBox;
+	private: System::Windows::Forms::TextBox^ DisplayDiscountBox;
+	private: System::Windows::Forms::TextBox^ DiscountBox;
 	private: NS_Comp_Svc_Stats::CLservicesstats^ oStat;
 	private: System::Data::DataSet^ oDs;
 	private:
@@ -66,6 +75,14 @@ namespace Gstorg {
 		{
 			this->TurnoverBox = (gcnew System::Windows::Forms::TextBox());
 			this->DisplayTurnoverBox = (gcnew System::Windows::Forms::TextBox());
+			this->DisplayTVABox = (gcnew System::Windows::Forms::TextBox());
+			this->TVABox = (gcnew System::Windows::Forms::TextBox());
+			this->DisplayMarginBox = (gcnew System::Windows::Forms::TextBox());
+			this->MarginBox = (gcnew System::Windows::Forms::TextBox());
+			this->DisplayInventoryBox = (gcnew System::Windows::Forms::TextBox());
+			this->InventoryBox = (gcnew System::Windows::Forms::TextBox());
+			this->DisplayDiscountBox = (gcnew System::Windows::Forms::TextBox());
+			this->DiscountBox = (gcnew System::Windows::Forms::TextBox());
 			this->DisplayIdCustomerBox = (gcnew System::Windows::Forms::TextBox());
 			this->IdCustomerBox = (gcnew System::Windows::Forms::TextBox());
 			this->DatagridStats = (gcnew System::Windows::Forms::DataGridView());
@@ -73,6 +90,7 @@ namespace Gstorg {
 			this->AvgBasket = (gcnew System::Windows::Forms::Button());
 			this->MonthTurnover = (gcnew System::Windows::Forms::Button());
 			this->IdCustomerButton = (gcnew System::Windows::Forms::Button());
+			this->VariationsButton = (gcnew System::Windows::Forms::Button());
 			this->TurnoverButton = (gcnew System::Windows::Forms::Button());
 			this->Statstextbox = (gcnew System::Windows::Forms::TextBox());
 			this->CostForClient = (gcnew System::Windows::Forms::Button());
@@ -119,6 +137,98 @@ namespace Gstorg {
 			this->IdCustomerBox->Size = System::Drawing::Size(100, 22);
 			this->IdCustomerBox->TabIndex = 1;
 			// 
+			// DisplayTVABox
+			// 
+			this->DisplayTVABox->Font = (gcnew System::Drawing::Font(L"Arial", 9.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->DisplayTVABox->BorderStyle = BorderStyle::None;
+			this->DisplayTVABox->BackColor = ColorTranslator::FromHtml("#f3f3f3");
+			this->DisplayTVABox->Location = System::Drawing::Point(80, 300);
+			this->DisplayTVABox->Name = L"DisplayTVABox";
+			this->DisplayTVABox->Size = System::Drawing::Size(30, 22);
+			this->DisplayTVABox->TabIndex = 0;
+			this->DisplayTVABox->Text = L"TVA : ";
+			this->DisplayTVABox->Visible = false;
+			// 
+			// TVABox
+			// 
+			this->TVABox->Font = (gcnew System::Drawing::Font(L"Arial", 9.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->TVABox->Visible = false;
+			this->TVABox->Location = System::Drawing::Point(130, 300);
+			this->TVABox->Name = L"TVABox";
+			this->TVABox->Size = System::Drawing::Size(100, 22);
+			this->TVABox->TabIndex = 1;
+			// 
+			// DisplayDiscountBox
+			// 
+			this->DisplayDiscountBox->Font = (gcnew System::Drawing::Font(L"Arial", 9.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->DisplayDiscountBox->BorderStyle = BorderStyle::None;
+			this->DisplayDiscountBox->BackColor = ColorTranslator::FromHtml("#f3f3f3");
+			this->DisplayDiscountBox->Location = System::Drawing::Point(80, 350);
+			this->DisplayDiscountBox->Name = L"DisplayDiscountBox";
+			this->DisplayDiscountBox->Size = System::Drawing::Size(60, 22);
+			this->DisplayDiscountBox->TabIndex = 0;
+			this->DisplayDiscountBox->Text = L"Discount : ";
+			this->DisplayDiscountBox->Visible = false;
+			// 
+			// DiscountBox
+			// 
+			this->DiscountBox->Font = (gcnew System::Drawing::Font(L"Arial", 9.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->DiscountBox->Visible = false;
+			this->DiscountBox->Location = System::Drawing::Point(140, 350);
+			this->DiscountBox->Name = L"DiscountBox";
+			this->DiscountBox->Size = System::Drawing::Size(100, 22);
+			this->DiscountBox->TabIndex = 1;
+			// 
+			// DisplayMarginBox
+			// 
+			this->DisplayMarginBox->Font = (gcnew System::Drawing::Font(L"Arial", 9.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->DisplayMarginBox->BorderStyle = BorderStyle::None;
+			this->DisplayMarginBox->BackColor = ColorTranslator::FromHtml("#f3f3f3");
+			this->DisplayMarginBox->Location = System::Drawing::Point(380, 300);
+			this->DisplayMarginBox->Name = L"DisplayMarginBox";
+			this->DisplayMarginBox->Size = System::Drawing::Size(50, 22);
+			this->DisplayMarginBox->TabIndex = 0;
+			this->DisplayMarginBox->Text = L"Margin : ";
+			this->DisplayMarginBox->Visible = false;
+			// 
+			// MarginBox
+			// 
+			this->MarginBox->Font = (gcnew System::Drawing::Font(L"Arial", 9.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->MarginBox->Visible = false;
+			this->MarginBox->Location = System::Drawing::Point(450, 300);
+			this->MarginBox->Name = L"MarginBox";
+			this->MarginBox->Size = System::Drawing::Size(100, 22);
+			this->MarginBox->TabIndex = 1;
+			// 
+			// DisplayInventoryBox
+			// 
+			this->DisplayInventoryBox->Font = (gcnew System::Drawing::Font(L"Arial", 9.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->DisplayInventoryBox->BorderStyle = BorderStyle::None;
+			this->DisplayInventoryBox->BackColor = ColorTranslator::FromHtml("#f3f3f3");
+			this->DisplayInventoryBox->Location = System::Drawing::Point(370, 350);
+			this->DisplayInventoryBox->Name = L"DisplayInventoryBox";
+			this->DisplayInventoryBox->Size = System::Drawing::Size(60, 22);
+			this->DisplayInventoryBox->TabIndex = 0;
+			this->DisplayInventoryBox->Text = L"Inventory : ";
+			this->DisplayInventoryBox->Visible = false;
+			// 
+			// InventoryBox
+			// 
+			this->InventoryBox->Font = (gcnew System::Drawing::Font(L"Arial", 9.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->InventoryBox->Visible = false;
+			this->InventoryBox->Location = System::Drawing::Point(450, 350);
+			this->InventoryBox->Name = L"InventoryBox";
+			this->InventoryBox->Size = System::Drawing::Size(100, 22);
+			this->InventoryBox->TabIndex = 1;
+			// 
 			// DisplayTurnoverBox
 			// 
 			this->DisplayTurnoverBox->Font = (gcnew System::Drawing::Font(L"Arial", 9.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
@@ -162,6 +272,18 @@ namespace Gstorg {
 			this->IdCustomerButton->UseVisualStyleBackColor = true;
 			this->IdCustomerButton->Visible = false;
 			this->IdCustomerButton->Click += gcnew System::EventHandler(this, &Statsform::IdCustomerButton_Click);
+			// 
+			// VariationsButton
+			// 
+			this->VariationsButton->BackColor = ColorTranslator::FromHtml("#f3f3f3");
+			this->VariationsButton->Location = System::Drawing::Point(500, 400);
+			this->VariationsButton->Name = L"VariationsButton";
+			this->VariationsButton->Size = System::Drawing::Size(50, 22);
+			this->VariationsButton->TabIndex = 3;
+			this->VariationsButton->Text = L"Send id";
+			this->VariationsButton->UseVisualStyleBackColor = true;
+			this->VariationsButton->Visible = false;
+			this->VariationsButton->Click += gcnew System::EventHandler(this, &Statsform::VariationsButton_Click);
 			// 
 			// SimulateVariations
 			// 
@@ -291,6 +413,7 @@ namespace Gstorg {
 			this->Controls->Add(this->Statstextbox);
 			this->Controls->Add(this->MonthTurnover);
 			this->Controls->Add(this->IdCustomerButton);
+			this->Controls->Add(this->VariationsButton);
 			this->Controls->Add(this->TurnoverButton);
 			this->Controls->Add(this->AvgBasket);
 			this->Controls->Add(this->SimulateVariations);
@@ -298,6 +421,14 @@ namespace Gstorg {
 			this->Controls->Add(this->TurnoverBox);
 			this->Controls->Add(this->DisplayIdCustomerBox);
 			this->Controls->Add(this->IdCustomerBox);
+			this->Controls->Add(this->DisplayTVABox);
+			this->Controls->Add(this->TVABox);
+			this->Controls->Add(this->DisplayMarginBox);
+			this->Controls->Add(this->MarginBox);
+			this->Controls->Add(this->DisplayInventoryBox);
+			this->Controls->Add(this->InventoryBox);
+			this->Controls->Add(this->DisplayDiscountBox);
+			this->Controls->Add(this->DiscountBox);
 			this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None;
 			this->Name = L"Statsform";
 			this->Text = L"Statsform";
@@ -319,6 +450,15 @@ namespace Gstorg {
 		this->BaseSuppliesCost->Visible = false;
 		this->SuppliesSellValue->Visible = false;
 		this->SimulateVariations->Visible = false;
+		this->VariationsButton->Visible = true;
+		this->TVABox->Visible = true;
+		this->DisplayTVABox->Visible = true;
+		this->MarginBox->Visible = true;
+		this->DisplayMarginBox->Visible = true;
+		this->InventoryBox->Visible = true;
+		this->DisplayInventoryBox->Visible = true;
+		this->DiscountBox->Visible = true;
+		this->DisplayDiscountBox->Visible = true;
 		this->DatagridStats->Visible = true;
 		this->DatagridStats->Refresh();
 	}
@@ -467,16 +607,18 @@ namespace Gstorg {
 		this->DatagridStats->DataSource = this->oDs;
 		this->DatagridStats->DataMember = "consist_of";
 		this->TurnoverBox->Clear();
-		//Add querry with the input of TurnoverBox
 	}
 	private: System::Void IdCustomerButton_Click(System::Object^ sender, System::EventArgs^ e) {
 		this->oDs = this->oStat->CalcStatstotalBuyOfClient("consist_of", System::Convert::ToInt32(this->IdCustomerBox->Text));
 		this->DatagridStats->DataSource = this->oDs;
 		this->DatagridStats->DataMember = "consist_of";
 		this->IdCustomerBox->Clear();
-		//Add querry with the input of cost for client
 	}
-	private: System::Void VariationsSend_Click(System::Object^ sender, System::EventArgs^ e) {
+	private: System::Void VariationsButton_Click(System::Object^ sender, System::EventArgs^ e) {
+		this->TVABox->Clear();
+		this->MarginBox->Clear();
+		this->DiscountBox->Clear();
+		this->InventoryBox->Clear();
 
 	}
 	};
