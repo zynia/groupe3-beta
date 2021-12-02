@@ -19,9 +19,6 @@ namespace Gstorg {
 		DeleteSupplyForm(void)
 		{
 			InitializeComponent();
-			//
-			//TODO: Add the constructor code here
-			//
 		}
 
 	protected:
@@ -39,8 +36,6 @@ namespace Gstorg {
 	private: System::Windows::Forms::TextBox^ DisplaySupplyinfoBox;
 	private: System::Windows::Forms::TextBox^ DisplayID;
 	private: System::Windows::Forms::Button^ SendButton;
-
-
 	private: NS_Comp_Svc_Supply::CLservicesupply^ oSup;
 
 	private:
@@ -95,7 +90,7 @@ namespace Gstorg {
 			this->DisplayID->ReadOnly = true;
 			this->DisplayID->Size = System::Drawing::Size(90, 22);
 			this->DisplayID->TabIndex = 15;
-			this->DisplayID->Text = L"ID Order :";
+			this->DisplayID->Text = L"Id item :";
 			// 
 			// SendButton
 			// 
@@ -130,9 +125,7 @@ namespace Gstorg {
 	}
 	private: System::Void DeleteSupplyForm_Click(System::Object^ sender, System::EventArgs^ e) {
 		this->oSup->DeleteSupply(System::Convert::ToInt32(this->IDbox->Text));
+		this->IDbox->Clear();
 	}
-	private: System::Void textBox1_TextChanged(System::Object^ sender, System::EventArgs^ e) {
-	}
-
 	};
 }

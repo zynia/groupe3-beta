@@ -18,9 +18,6 @@ namespace Gstorg {
 		ReadSupplyForm(void)
 		{
 			InitializeComponent();
-			//
-			//TODO: Add the constructor code here
-			//
 		}
 
 	protected:
@@ -38,13 +35,6 @@ namespace Gstorg {
 	private: System::Windows::Forms::TextBox^ DisplaySupplyinfoBox;
 	private: System::Windows::Forms::TextBox^ DisplayID;
 	private: System::Windows::Forms::Button^ SendButton;
-
-
-	protected:
-
-	protected:
-
-	protected:
 
 	private:
 		/// <summary>
@@ -98,7 +88,7 @@ namespace Gstorg {
 			this->DisplayID->ReadOnly = true;
 			this->DisplayID->Size = System::Drawing::Size(90, 22);
 			this->DisplayID->TabIndex = 15;
-			this->DisplayID->Text = L"ID Order :";
+			this->DisplayID->Text = L"ID item:";
 			// 
 			// SendButton
 			// 
@@ -129,8 +119,5 @@ namespace Gstorg {
 #pragma endregion
 	private: System::Void ReadSupplyForm_load(System::Object^ sender, System::EventArgs^ e) {
 	}
-	private: System::Void textBox1_TextChanged(System::Object^ sender, System::EventArgs^ e) {
-	}
-
 	};
 }
