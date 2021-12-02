@@ -20,7 +20,7 @@ System::Data::DataSet^ NS_Comp_Svc_Order::CLserviceOrder::SelectOrder(System::St
 	return this->oCad->getRows(sql, dataTableName);
 }
 
-void NS_Comp_Svc_Order::CLserviceOrder::InsertOrder(int postcode, System::String^ cityname, System::String^ streetname, int streetnb, System::String^ residence, System::String^ building, int floornb, System::String^ complement, System::String^ deliverydate, System::String^ senddate, int idcust, int idart, System::String^ tva, System::String^ ht, System::String^ discount, System::String^ invshrink, int nbart) {
+void NS_Comp_Svc_Order::CLserviceOrder::InsertOrder(int postcode, System::String^ cityname, System::String^ streetname, int streetnb, System::String^ residence, System::String^ building, int floornb, System::String^ complement, System::String^ deliverydate, System::String^ senddate, int paymentnb, int idcust, int idart, System::String^ tva, System::String^ ht, System::String^ discount, System::String^ margin, int nbarticle, System::String^ paymenttype, System::String^ paymentdate) {
 
 	System::String^ sql;
 
@@ -34,12 +34,16 @@ void NS_Comp_Svc_Order::CLserviceOrder::InsertOrder(int postcode, System::String
 	this->oMapAddr->setComplement(complement);
 	this->oMapOrd->setDeliverydate(deliverydate);
 	this->oMapOrd->setSenddate(senddate);
+	this->oMapPay->setPaymentnumber(paymentnb);
 	this->oMapCust->setIdcustomer(idcust);
 	this->oMapArticlOrd->setidarticle(idart);
 	this->oMapArticlOrd->setTVA(tva);
 	this->oMapArticlOrd->setHT(ht);
 	this->oMapArticlOrd->setDiscount(discount);
-	this->oMapArticlOrd->setInventoryshrinkage(invshrink);
+	this->oMapArticlOrd->setMarginarticle(margin);
+	this->oMapOrd->setNbarticle(nbarticle);
+	this->oMapPay->setPaymenttype(paymenttype);
+	this->oMapPay->setPaymentdate(paymentdate);
 
 
 	sql = Insert();
@@ -96,24 +100,27 @@ System::String^ NS_Comp_Svc_Order::CLserviceOrder::Select() {
 }
 
 System::String^ NS_Comp_Svc_Order::CLserviceOrder::Insert() {
-	return "EXEC SP_CO "+
-		"@Post_code = " + this->oMapPostcode->getPostcode().ToString() + 
-		", @name_city = '" + this->oMapCity->getNamecity() + 
-		"', @Street_name ='" + this->oMapAddr->getStreetname() + 
-		"', @Street_number =" + this->oMapAddr->getStreetnumber().ToString() + 
-		", @Residency_name ='" + this->oMapAddr->getResidencename() + 
-		"', @Building_name = '" + this->oMapAddr->getBuildingname() + 
-		"', @Floor_number =" + this->oMapAddr->getFloornumber().ToString() + 
-		", @Complement ='" + this->oMapAddr->getComplement() + 
-		"', @delivery_date = '" + this->oMapOrd->getDeliverydate() + 
-		"', @send_date ='" + this->oMapOrd->getSenddate() + 
-		"', @id_customer =" + this->oMapOrd->getIdcustomer().ToString() + 
-		", @id_article =" + this->oMapArticlOrd->getidarticle().ToString() + 
-		", @TVA =" + this->oMapArticlOrd->getTVA() + 
-		", @HT =" + this->oMapArticlOrd->getHT() + 
-		", @discount =" + this->oMapArticlOrd->getDiscount() + 
-		", @inventory_shrinkage =" + this->oMapArticlOrd->getInventoryshrinkage() + 
-		", @nb_article =" + this->oMapOrd->getNbarticle().ToString() + ";";
+	return "EXEC SP_CO " +
+		"@Post_code = " + this->oMapPostcode->getPostcode().ToString() +
+		", @name_city = '" + this->oMapCity->getNamecity() +
+		"', @Street_name ='" + this->oMapAddr->getStreetname() +
+		"', @Street_number =" + this->oMapAddr->getStreetnumber().ToString() +
+		", @Residency_name ='" + this->oMapAddr->getResidencename() +
+		"', @Building_name = '" + this->oMapAddr->getBuildingname() +
+		"', @Floor_number =" + this->oMapAddr->getFloornumber().ToString() +
+		", @Complement ='" + this->oMapAddr->getComplement() +
+		"', @delivery_date = '" + this->oMapOrd->getDeliverydate() +
+		"', @send_date ='" + this->oMapOrd->getSenddate() +
+		"', @nb_payment = " + this->oMapPay->getPaymentnumber().ToString() +
+		", @id_customer =" + this->oMapCust->getIdcustomer().ToString() +
+		", @id_article =" + this->oMapArticlOrd->getidarticle().ToString() +
+		", @TVA =" + this->oMapArticlOrd->getTVA() +
+		", @HT =" + this->oMapArticlOrd->getHT() +
+		", @discount =" + this->oMapArticlOrd->getDiscount() +
+		", @margin_article =" + this->oMapArticlOrd->getMarginarticle() +
+		", @nb_article =" + this->oMapOrd->getNbarticle().ToString() +
+		", @Payment_type = '" + this->oMapPay->getPaymenttype() +
+		"', @Payment_date = '" + this->oMapPay->getPaymentdate() + "';";
 }
 
 System::String^ NS_Comp_Svc_Order::CLserviceOrder::Delete() {
