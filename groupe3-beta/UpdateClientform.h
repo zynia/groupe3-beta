@@ -583,7 +583,7 @@ namespace Gstorg {
 		this->oCli = gcnew NS_Comp_Svc_Cli::CLservicesClient();
 	}
 	private: System::Void UpdateClientForm_Click(System::Object^ sender, System::EventArgs^ e) {
-		//this->oCli->UpdateClient(this->IDBox->Text, this->FirstNameBox->Text, this->LastNameBox->Text, this->BirthdateBox->Text, this->StreetNameBoxBilling->Text, this->StreetNumberBoxBilling->Text, this->ResidencyNameBoxBilling->Text, this->BuildingNameBoxBilling->Text, this->FloorNumberBoxBilling->Text, this->ComplementBoxBilling->Text, this->CityNameBoxBilling->Text, this->PostCodeBoxBilling->Text, this->StreetNameBoxShipping->Text, this->StreetNumberBoxBilling->Text, this->ResidencyNameBoxShipping->Text, this->BuildingNameBoxShipping->Text, this->FloorNumberBoxShipping->Text, this->ComplementBoxShipping->Text, this->CityNameBoxShipping->Text, this->PostCodeBoxShipping->Text, this->); //todo add cases
+		this->oCli->UpdateClient(System::Convert::ToInt32(this->IDBox->Text), this->FirstNameBox->Text, this->LastNameBox->Text, this->BirthdateBox->Text, this->StreetNameBoxBilling->Text, System::Convert::ToInt32(this->StreetNumberBoxBilling->Text), this->ResidencyNameBoxBilling->Text, this->BuildingNameBoxBilling->Text, System::Convert::ToInt32(this->FloorNumberBoxBilling->Text), this->ComplementBoxBilling->Text, this->CityNameBoxBilling->Text, System::Convert::ToInt32(this->PostCodeBoxBilling->Text), this->StreetNameBoxShipping->Text, System::Convert::ToInt32(this->StreetNumberBoxBilling->Text), this->ResidencyNameBoxShipping->Text, this->BuildingNameBoxShipping->Text, System::Convert::ToInt32(this->FloorNumberBoxShipping->Text), this->ComplementBoxShipping->Text, this->CityNameBoxShipping->Text, System::Convert::ToInt32(this->PostCodeBoxShipping->Text), System::Convert::ToInt32(this->IdaddressBoxBilling->Text), System::Convert::ToInt32(this->IdaddressBoxShipping->Text)); //todo add cases
 		this->IDBox->Clear();
 		this->FirstNameBox->Clear();
 		this->LastNameBox->Clear();
@@ -591,7 +591,7 @@ namespace Gstorg {
 		this->StreetNameBoxBilling->Clear();
 		this->StreetNameBoxShipping->Clear();
 		this->StreetNumberBoxBilling->Clear();
-		this->StreetNameBoxShipping->Clear();
+		this->StreetNumberBoxShipping->Clear();
 		this->ResidencyNameBoxBilling->Clear();
 		this->ResidencyNameBoxShipping->Clear();
 		this->BuildingNameBoxBilling->Clear();
