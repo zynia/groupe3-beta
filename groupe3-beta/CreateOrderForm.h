@@ -19,9 +19,6 @@ namespace Gstorg {
 		CreateOrderForm(void)
 		{
 			InitializeComponent();
-			//
-			//TODO: Add the constructor code here
-			//
 		}
 
 	protected:
@@ -35,11 +32,6 @@ namespace Gstorg {
 				delete components;
 			}
 		}
-
-
-
-
-
 	private: System::Windows::Forms::TextBox^ StreetNameBox;
 	private: System::Windows::Forms::TextBox^ StreetNumberBox;
 	private: System::Windows::Forms::TextBox^ ResidencyNameBox;
@@ -76,8 +68,6 @@ namespace Gstorg {
 	private: System::Windows::Forms::TextBox^ IDitemBox;
 	private: System::Windows::Forms::TextBox^ DisplayDiscountBox;
 	private: System::Windows::Forms::TextBox^ DiscountBox;
-	private: System::Windows::Forms::TextBox^ DisplayIDOrderBox;
-	private: System::Windows::Forms::TextBox^ IDOrderbox;
 	private: System::Windows::Forms::Button^ SendButton;
 	private: System::Windows::Forms::TextBox^ DisplayPaymentType;
 	private: System::Windows::Forms::TextBox^ PaymentTypeBox;
@@ -138,8 +128,6 @@ namespace Gstorg {
 			this->IDitemBox = (gcnew System::Windows::Forms::TextBox());
 			this->DisplayDiscountBox = (gcnew System::Windows::Forms::TextBox());
 			this->DiscountBox = (gcnew System::Windows::Forms::TextBox());
-			this->DisplayIDOrderBox = (gcnew System::Windows::Forms::TextBox());
-			this->IDOrderbox = (gcnew System::Windows::Forms::TextBox());
 			this->SendButton = (gcnew System::Windows::Forms::Button());
 			this->DisplayPaymentType = (gcnew System::Windows::Forms::TextBox());
 			this->PaymentTypeBox = (gcnew System::Windows::Forms::TextBox());
@@ -357,7 +345,7 @@ namespace Gstorg {
 				static_cast<System::Byte>(0)));
 			this->DisplayMarginBox->BorderStyle = BorderStyle::None;
 			this->DisplayMarginBox->BackColor = ColorTranslator::FromHtml("#f3f3f3");
-			this->DisplayMarginBox->Location = System::Drawing::Point(30, 273);
+			this->DisplayMarginBox->Location = System::Drawing::Point(30, 246);
 			this->DisplayMarginBox->Name = L"DisplayMarginBox";
 			this->DisplayMarginBox->ReadOnly = true;
 			this->DisplayMarginBox->Size = System::Drawing::Size(110, 22);
@@ -368,7 +356,7 @@ namespace Gstorg {
 			// 
 			this->SendDateBox->Font = (gcnew System::Drawing::Font(L"Arial", 9.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->SendDateBox->Location = System::Drawing::Point(150, 165);
+			this->SendDateBox->Location = System::Drawing::Point(150, 138);
 			this->SendDateBox->Name = L"SendDateBox";
 			this->SendDateBox->Size = System::Drawing::Size(130, 22);
 			this->SendDateBox->TabIndex = 45;
@@ -380,7 +368,7 @@ namespace Gstorg {
 				static_cast<System::Byte>(0)));
 			this->DisplayTVABox->BorderStyle = BorderStyle::None;
 			this->DisplayTVABox->BackColor = ColorTranslator::FromHtml("#f3f3f3");
-			this->DisplayTVABox->Location = System::Drawing::Point(30, 246);
+			this->DisplayTVABox->Location = System::Drawing::Point(30, 219);
 			this->DisplayTVABox->Name = L"DisplayTVABox";
 			this->DisplayTVABox->ReadOnly = true;
 			this->DisplayTVABox->Size = System::Drawing::Size(110, 22);
@@ -393,7 +381,7 @@ namespace Gstorg {
 				static_cast<System::Byte>(0)));
 			this->DisplayHTBox->BorderStyle = BorderStyle::None;
 			this->DisplayHTBox->BackColor = ColorTranslator::FromHtml("#f3f3f3");
-			this->DisplayHTBox->Location = System::Drawing::Point(30, 221);
+			this->DisplayHTBox->Location = System::Drawing::Point(30, 193);
 			this->DisplayHTBox->Name = L"DisplayHTBox";
 			this->DisplayHTBox->ReadOnly = true;
 			this->DisplayHTBox->Size = System::Drawing::Size(110, 22);
@@ -406,7 +394,7 @@ namespace Gstorg {
 				static_cast<System::Byte>(0)));
 			this->DisplayDeliveryDateBox->BorderStyle = BorderStyle::None;
 			this->DisplayDeliveryDateBox->BackColor = ColorTranslator::FromHtml("#f3f3f3");
-			this->DisplayDeliveryDateBox->Location = System::Drawing::Point(30, 192);
+			this->DisplayDeliveryDateBox->Location = System::Drawing::Point(30, 165);
 			this->DisplayDeliveryDateBox->Name = L"DisplayDeliveryDateBox";
 			this->DisplayDeliveryDateBox->ReadOnly = true;
 			this->DisplayDeliveryDateBox->Size = System::Drawing::Size(110, 22);
@@ -419,7 +407,7 @@ namespace Gstorg {
 				static_cast<System::Byte>(0)));
 			this->DisplaySendDateBox->BorderStyle = BorderStyle::None;
 			this->DisplaySendDateBox->BackColor = ColorTranslator::FromHtml("#f3f3f3");
-			this->DisplaySendDateBox->Location = System::Drawing::Point(30, 165);
+			this->DisplaySendDateBox->Location = System::Drawing::Point(30, 138);
 			this->DisplaySendDateBox->Name = L"DisplaySendDateBox";
 			this->DisplaySendDateBox->ReadOnly = true;
 			this->DisplaySendDateBox->Size = System::Drawing::Size(110, 22);
@@ -432,7 +420,7 @@ namespace Gstorg {
 				static_cast<System::Byte>(0)));
 			this->DisplayNbitemsBox->BorderStyle = BorderStyle::None;
 			this->DisplayNbitemsBox->BackColor = ColorTranslator::FromHtml("#f3f3f3");
-			this->DisplayNbitemsBox->Location = System::Drawing::Point(30, 138);
+			this->DisplayNbitemsBox->Location = System::Drawing::Point(30, 111);
 			this->DisplayNbitemsBox->Name = L"DisplayNbitemsBox";
 			this->DisplayNbitemsBox->ReadOnly = true;
 			this->DisplayNbitemsBox->Size = System::Drawing::Size(110, 22);
@@ -445,7 +433,7 @@ namespace Gstorg {
 				static_cast<System::Byte>(0)));
 			this->DisplayIDCustomerBox->BorderStyle = BorderStyle::None;
 			this->DisplayIDCustomerBox->BackColor = ColorTranslator::FromHtml("#f3f3f3");
-			this->DisplayIDCustomerBox->Location = System::Drawing::Point(30, 111);
+			this->DisplayIDCustomerBox->Location = System::Drawing::Point(30, 84);
 			this->DisplayIDCustomerBox->Name = L"DisplayIDCustomerBox";
 			this->DisplayIDCustomerBox->ReadOnly = true;
 			this->DisplayIDCustomerBox->Size = System::Drawing::Size(110, 22);
@@ -458,18 +446,18 @@ namespace Gstorg {
 				static_cast<System::Byte>(0)));
 			this->DisplayIDItembox->BorderStyle = BorderStyle::None;
 			this->DisplayIDItembox->BackColor = ColorTranslator::FromHtml("#f3f3f3");
-			this->DisplayIDItembox->Location = System::Drawing::Point(30, 84);
+			this->DisplayIDItembox->Location = System::Drawing::Point(30, 57);
 			this->DisplayIDItembox->Name = L"DisplayIDItembox";
 			this->DisplayIDItembox->ReadOnly = true;
 			this->DisplayIDItembox->Size = System::Drawing::Size(110, 22);
 			this->DisplayIDItembox->TabIndex = 38;
-			this->DisplayIDItembox->Text = L"ID item (old) :";
+			this->DisplayIDItembox->Text = L"ID item :";
 			// 
 			// MarginBox
 			// 
 			this->MarginBox->Font = (gcnew System::Drawing::Font(L"Arial", 9.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->MarginBox->Location = System::Drawing::Point(150, 273);
+			this->MarginBox->Location = System::Drawing::Point(150, 246);
 			this->MarginBox->Name = L"MarginBox";
 			this->MarginBox->Size = System::Drawing::Size(130, 22);
 			this->MarginBox->TabIndex = 37;
@@ -478,7 +466,7 @@ namespace Gstorg {
 			// 
 			this->TVABox->Font = (gcnew System::Drawing::Font(L"Arial", 9.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->TVABox->Location = System::Drawing::Point(150, 246);
+			this->TVABox->Location = System::Drawing::Point(150, 219);
 			this->TVABox->Name = L"TVABox";
 			this->TVABox->Size = System::Drawing::Size(130, 22);
 			this->TVABox->TabIndex = 36;
@@ -487,7 +475,7 @@ namespace Gstorg {
 			// 
 			this->HTCostBox->Font = (gcnew System::Drawing::Font(L"Arial", 9.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->HTCostBox->Location = System::Drawing::Point(150, 221);
+			this->HTCostBox->Location = System::Drawing::Point(150, 193);
 			this->HTCostBox->Name = L"HTCostBox";
 			this->HTCostBox->Size = System::Drawing::Size(130, 22);
 			this->HTCostBox->TabIndex = 35;
@@ -496,7 +484,7 @@ namespace Gstorg {
 			// 
 			this->DeliveryDateBox->Font = (gcnew System::Drawing::Font(L"Arial", 9.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->DeliveryDateBox->Location = System::Drawing::Point(150, 192);
+			this->DeliveryDateBox->Location = System::Drawing::Point(150, 165);
 			this->DeliveryDateBox->Name = L"DeliveryDateBox";
 			this->DeliveryDateBox->Size = System::Drawing::Size(130, 22);
 			this->DeliveryDateBox->TabIndex = 34;
@@ -505,7 +493,7 @@ namespace Gstorg {
 			// 
 			this->NbItemsBox->Font = (gcnew System::Drawing::Font(L"Arial", 9.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->NbItemsBox->Location = System::Drawing::Point(150, 138);
+			this->NbItemsBox->Location = System::Drawing::Point(150, 111);
 			this->NbItemsBox->Name = L"NbItemsBox";
 			this->NbItemsBox->Size = System::Drawing::Size(130, 22);
 			this->NbItemsBox->TabIndex = 33;
@@ -514,7 +502,7 @@ namespace Gstorg {
 			// 
 			this->IDCustomerBox->Font = (gcnew System::Drawing::Font(L"Arial", 9.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->IDCustomerBox->Location = System::Drawing::Point(150, 111);
+			this->IDCustomerBox->Location = System::Drawing::Point(150, 84);
 			this->IDCustomerBox->Name = L"IDCustomerBox";
 			this->IDCustomerBox->Size = System::Drawing::Size(130, 22);
 			this->IDCustomerBox->TabIndex = 32;
@@ -523,7 +511,7 @@ namespace Gstorg {
 			// 
 			this->IDitemBox->Font = (gcnew System::Drawing::Font(L"Arial", 9.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->IDitemBox->Location = System::Drawing::Point(150, 84);
+			this->IDitemBox->Location = System::Drawing::Point(150, 57);
 			this->IDitemBox->Name = L"IDitemBox";
 			this->IDitemBox->Size = System::Drawing::Size(130, 22);
 			this->IDitemBox->TabIndex = 31;
@@ -534,7 +522,7 @@ namespace Gstorg {
 				static_cast<System::Byte>(0)));
 			this->DisplayDiscountBox->BorderStyle = BorderStyle::None;
 			this->DisplayDiscountBox->BackColor = ColorTranslator::FromHtml("#f3f3f3");
-			this->DisplayDiscountBox->Location = System::Drawing::Point(30, 300);
+			this->DisplayDiscountBox->Location = System::Drawing::Point(30, 273);
 			this->DisplayDiscountBox->Name = L"DisplayDiscountBox";
 			this->DisplayDiscountBox->ReadOnly = true;
 			this->DisplayDiscountBox->Size = System::Drawing::Size(110, 22);
@@ -545,36 +533,14 @@ namespace Gstorg {
 			// 
 			this->DiscountBox->Font = (gcnew System::Drawing::Font(L"Arial", 9.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->DiscountBox->Location = System::Drawing::Point(150, 300);
+			this->DiscountBox->Location = System::Drawing::Point(150, 273);
 			this->DiscountBox->Name = L"DiscountBox";
 			this->DiscountBox->Size = System::Drawing::Size(130, 22);
 			this->DiscountBox->TabIndex = 47;
 			// 
-			// DisplayIDOrderBox
-			// 
-			this->DisplayIDOrderBox->Font = (gcnew System::Drawing::Font(L"Arial", 9.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->DisplayIDOrderBox->BorderStyle = BorderStyle::None;
-			this->DisplayIDOrderBox->BackColor = ColorTranslator::FromHtml("#f3f3f3");
-			this->DisplayIDOrderBox->Location = System::Drawing::Point(30, 57);
-			this->DisplayIDOrderBox->Name = L"DisplayIDOrderBox";
-			this->DisplayIDOrderBox->ReadOnly = true;
-			this->DisplayIDOrderBox->Size = System::Drawing::Size(110, 22);
-			this->DisplayIDOrderBox->TabIndex = 50;
-			this->DisplayIDOrderBox->Text = L"ID order :";
-			// 
-			// IDOrderbox
-			// 
-			this->IDOrderbox->Font = (gcnew System::Drawing::Font(L"Arial", 9.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->IDOrderbox->Location = System::Drawing::Point(150, 57);
-			this->IDOrderbox->Name = L"IDOrderbox";
-			this->IDOrderbox->Size = System::Drawing::Size(130, 22);
-			this->IDOrderbox->TabIndex = 51;
-			// 
 			// SendButton
 			// 
-			this->SendButton->Location = System::Drawing::Point(429, 344);
+			this->SendButton->Location = System::Drawing::Point(300, 344);
 			this->SendButton->Name = L"SendButton";
 			this->SendButton->Size = System::Drawing::Size(75, 23);
 			this->SendButton->TabIndex = 52;
@@ -588,7 +554,7 @@ namespace Gstorg {
 				static_cast<System::Byte>(0)));
 			this->DisplayPaymentType->BorderStyle = BorderStyle::None;
 			this->DisplayPaymentType->BackColor = ColorTranslator::FromHtml("#f3f3f3");
-			this->DisplayPaymentType->Location = System::Drawing::Point(30, 328);
+			this->DisplayPaymentType->Location = System::Drawing::Point(30, 300);
 			this->DisplayPaymentType->Name = L"DisplayPaymentType";
 			this->DisplayPaymentType->ReadOnly = true;
 			this->DisplayPaymentType->Size = System::Drawing::Size(110, 22);
@@ -599,7 +565,7 @@ namespace Gstorg {
 			// 
 			this->PaymentTypeBox->Font = (gcnew System::Drawing::Font(L"Arial", 9.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->PaymentTypeBox->Location = System::Drawing::Point(150, 328);
+			this->PaymentTypeBox->Location = System::Drawing::Point(150, 300);
 			this->PaymentTypeBox->Name = L"PaymentTypeBox";
 			this->PaymentTypeBox->Size = System::Drawing::Size(130, 22);
 			this->PaymentTypeBox->TabIndex = 54;
@@ -660,8 +626,6 @@ namespace Gstorg {
 			this->Controls->Add(this->PaymentTypeBox);
 			this->Controls->Add(this->DisplayPaymentType);
 			this->Controls->Add(this->SendButton);
-			this->Controls->Add(this->IDOrderbox);
-			this->Controls->Add(this->DisplayIDOrderBox);
 			this->Controls->Add(this->DisplayDiscountBox);
 			this->Controls->Add(this->DiscountBox);
 			this->Controls->Add(this->DisplayMarginBox);
