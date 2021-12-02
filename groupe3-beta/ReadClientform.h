@@ -31,7 +31,7 @@ namespace Gstorg {
 				delete components;
 			}
 		}
-	private: System::Windows::Forms::TextBox^ FirstNameBox;
+	private: System::Windows::Forms::TextBox^ IdBox;
 	private: System::Windows::Forms::TextBox^ DisplayPersonnalinfoBox;
 	private: System::Windows::Forms::TextBox^ DisplayID;
 	private: System::Windows::Forms::Button^ SendButton;
@@ -50,7 +50,7 @@ namespace Gstorg {
 		/// </summary>
 		void InitializeComponent(void)
 		{
-			this->FirstNameBox = (gcnew System::Windows::Forms::TextBox());
+			this->IdBox = (gcnew System::Windows::Forms::TextBox());
 			this->DisplayPersonnalinfoBox = (gcnew System::Windows::Forms::TextBox());
 			this->DisplayID = (gcnew System::Windows::Forms::TextBox());
 			this->SendButton = (gcnew System::Windows::Forms::Button());
@@ -67,14 +67,14 @@ namespace Gstorg {
 			this->DatagridClient->TabIndex = 0;
 			this->DatagridClient->Visible = false;
 			// 
-			// FirstNameBox
+			// IdBox
 			// 
-			this->FirstNameBox->Font = (gcnew System::Drawing::Font(L"Arial", 9.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->IdBox->Font = (gcnew System::Drawing::Font(L"Arial", 9.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->FirstNameBox->Location = System::Drawing::Point(215, 150);
-			this->FirstNameBox->Name = L"FirstNameBox";
-			this->FirstNameBox->Size = System::Drawing::Size(100, 22);
-			this->FirstNameBox->TabIndex = 0;
+			this->IdBox->Location = System::Drawing::Point(215, 150);
+			this->IdBox->Name = L"IdBox";
+			this->IdBox->Size = System::Drawing::Size(100, 22);
+			this->IdBox->TabIndex = 0;
 			// 
 			// DisplayPersonnalinfoBox
 			// 
@@ -111,7 +111,6 @@ namespace Gstorg {
 			this->SendButton->Text = L"Send";
 			this->SendButton->UseVisualStyleBackColor = true;
 			this->SendButton->Click += gcnew System::EventHandler(this, &ReadClientForm::SendButton_Click);
-
 			// 
 			// ReadClientForm
 			// 
@@ -122,7 +121,7 @@ namespace Gstorg {
 			this->Controls->Add(this->SendButton);
 			this->Controls->Add(this->DisplayID);
 			this->Controls->Add(this->DisplayPersonnalinfoBox);
-			this->Controls->Add(this->FirstNameBox);
+			this->Controls->Add(this->IdBox);
 			this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None;
 			this->Name = L"ReadClientForm";
 			this->Text = L"ReadClientForm";
@@ -136,6 +135,7 @@ namespace Gstorg {
 	private: System::Void ReadClientForm_Load(System::Object^ sender, System::EventArgs^ e) {
 	}
 	private: System::Void SendButton_Click(System::Object^ sender, System::EventArgs^ e) {
+		this->IdBox->Clear();
 		this->DatagridClient->Visible = true;
 		this->DatagridClient->Refresh();
 	}
