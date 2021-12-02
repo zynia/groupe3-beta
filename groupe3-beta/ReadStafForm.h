@@ -66,9 +66,9 @@ namespace Gstorg {
 			// DatagridStaff
 			// 
 			this->DatagridStaff->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
-			this->DatagridStaff->Location = System::Drawing::Point(400, 80);
+			this->DatagridStaff->Location = System::Drawing::Point(50, 200);
 			this->DatagridStaff->Name = L"DatagridStaff";
-			this->DatagridStaff->Size = System::Drawing::Size(200, 200);
+			this->DatagridStaff->Size = System::Drawing::Size(550, 150);
 			this->DatagridStaff->TabIndex = 0;
 			this->DatagridStaff->Visible = false;
 			// 
@@ -76,7 +76,7 @@ namespace Gstorg {
 			// 
 			this->StaffIdBox->Font = (gcnew System::Drawing::Font(L"Arial", 9.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->StaffIdBox->Location = System::Drawing::Point(215, 150);
+			this->StaffIdBox->Location = System::Drawing::Point(315, 70);
 			this->StaffIdBox->Name = L"StaffIdBox";
 			this->StaffIdBox->Size = System::Drawing::Size(100, 22);
 			this->StaffIdBox->TabIndex = 0;
@@ -87,7 +87,7 @@ namespace Gstorg {
 				static_cast<System::Byte>(0)));
 			this->DisplayPersonnalinfoBox->BorderStyle = BorderStyle::None;
 			this->DisplayPersonnalinfoBox->BackColor = ColorTranslator::FromHtml("#f3f3f3");
-			this->DisplayPersonnalinfoBox->Location = System::Drawing::Point(150, 71);
+			this->DisplayPersonnalinfoBox->Location = System::Drawing::Point(250, 20);
 			this->DisplayPersonnalinfoBox->Name = L"DisplayPersonnalinfoBox";
 			this->DisplayPersonnalinfoBox->ReadOnly = true;
 			this->DisplayPersonnalinfoBox->Size = System::Drawing::Size(140, 29);
@@ -100,7 +100,7 @@ namespace Gstorg {
 				static_cast<System::Byte>(0)));
 			this->DisplayID->BorderStyle = BorderStyle::None;
 			this->DisplayID->BackColor = ColorTranslator::FromHtml("#f3f3f3");
-			this->DisplayID->Location = System::Drawing::Point(130, 150);
+			this->DisplayID->Location = System::Drawing::Point(230, 70);
 			this->DisplayID->Name = L"DisplayID";
 			this->DisplayID->ReadOnly = true;
 			this->DisplayID->Size = System::Drawing::Size(70, 22);
@@ -109,7 +109,7 @@ namespace Gstorg {
 			// 
 			// SendButton
 			// 
-			this->SendButton->Location = System::Drawing::Point(180, 210);
+			this->SendButton->Location = System::Drawing::Point(280, 120);
 			this->SendButton->Name = L"SendButton";
 			this->SendButton->Size = System::Drawing::Size(75, 23);
 			this->SendButton->TabIndex = 17;
