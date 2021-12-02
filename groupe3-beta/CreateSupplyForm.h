@@ -19,9 +19,6 @@ namespace Gstorg {
 		CreateSupplyForm(void)
 		{
 			InitializeComponent();
-			//
-			//TODO: Add the constructor code here
-			//
 		}
 
 	protected:
@@ -42,7 +39,7 @@ namespace Gstorg {
 
 
 
-	private: System::Windows::Forms::TextBox^ SendDateBox;
+	private: System::Windows::Forms::TextBox^ QuantityBox;
 	private: System::Windows::Forms::TextBox^ DisplayTVABox;
 	private: System::Windows::Forms::TextBox^ DisplayMarginBox;
 	private: System::Windows::Forms::TextBox^ DisplayInventoryshrinkagebox;
@@ -53,7 +50,7 @@ namespace Gstorg {
 	private: System::Windows::Forms::TextBox^ BasePriceBox;
 	private: System::Windows::Forms::TextBox^ TVABox;
 	private: System::Windows::Forms::TextBox^ MarginBox;
-	private: System::Windows::Forms::TextBox^ ItemStockBox;
+	private: System::Windows::Forms::TextBox^ InventoryShrinkageBox;
 	private: System::Windows::Forms::TextBox^ ItemNameBox;
 	private: System::Windows::Forms::TextBox^ ItemcolorBox;
 	private: System::Windows::Forms::TextBox^ IDitemtypeBox;
@@ -62,19 +59,7 @@ namespace Gstorg {
 	private: System::Windows::Forms::TextBox^ DisplayReplenishmentBox;
 	private: System::Windows::Forms::TextBox^ ReplenishmenBox;
 	private: System::Windows::Forms::Button^ SendButton;
-
-
-
-
-
 	private: NS_Comp_Svc_Supply::CLservicesupply^ oSup;
-
-
-	protected:
-
-	protected:
-
-	protected:
 
 	private:
 		/// <summary>
@@ -91,7 +76,7 @@ namespace Gstorg {
 		{
 			this->DisplayIteminfoBox = (gcnew System::Windows::Forms::TextBox());
 			this->DisplayBasepriceBox = (gcnew System::Windows::Forms::TextBox());
-			this->SendDateBox = (gcnew System::Windows::Forms::TextBox());
+			this->QuantityBox = (gcnew System::Windows::Forms::TextBox());
 			this->DisplayTVABox = (gcnew System::Windows::Forms::TextBox());
 			this->DisplayMarginBox = (gcnew System::Windows::Forms::TextBox());
 			this->DisplayInventoryshrinkagebox = (gcnew System::Windows::Forms::TextBox());
@@ -102,7 +87,7 @@ namespace Gstorg {
 			this->BasePriceBox = (gcnew System::Windows::Forms::TextBox());
 			this->TVABox = (gcnew System::Windows::Forms::TextBox());
 			this->MarginBox = (gcnew System::Windows::Forms::TextBox());
-			this->ItemStockBox = (gcnew System::Windows::Forms::TextBox());
+			this->InventoryShrinkageBox = (gcnew System::Windows::Forms::TextBox());
 			this->ItemNameBox = (gcnew System::Windows::Forms::TextBox());
 			this->ItemcolorBox = (gcnew System::Windows::Forms::TextBox());
 			this->IDitemtypeBox = (gcnew System::Windows::Forms::TextBox());
@@ -139,14 +124,14 @@ namespace Gstorg {
 			this->DisplayBasepriceBox->TabIndex = 46;
 			this->DisplayBasepriceBox->Text = L"Base price  :";
 			// 
-			// SendDateBox
+			// QuantityBox
 			// 
-			this->SendDateBox->Font = (gcnew System::Drawing::Font(L"Arial", 9.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->QuantityBox->Font = (gcnew System::Drawing::Font(L"Arial", 9.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->SendDateBox->Location = System::Drawing::Point(165, 199);
-			this->SendDateBox->Name = L"SendDateBox";
-			this->SendDateBox->Size = System::Drawing::Size(130, 22);
-			this->SendDateBox->TabIndex = 45;
+			this->QuantityBox->Location = System::Drawing::Point(165, 199);
+			this->QuantityBox->Name = L"QuantityBox";
+			this->QuantityBox->Size = System::Drawing::Size(130, 22);
+			this->QuantityBox->TabIndex = 45;
 			// 
 			// DisplayTVABox
 			// 
@@ -266,14 +251,14 @@ namespace Gstorg {
 			this->MarginBox->Size = System::Drawing::Size(130, 22);
 			this->MarginBox->TabIndex = 35;
 			// 
-			// ItemStockBox
+			// InventoryShrinkageBox
 			// 
-			this->ItemStockBox->Font = (gcnew System::Drawing::Font(L"Arial", 9.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->InventoryShrinkageBox->Font = (gcnew System::Drawing::Font(L"Arial", 9.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->ItemStockBox->Location = System::Drawing::Point(165, 231);
-			this->ItemStockBox->Name = L"ItemStockBox";
-			this->ItemStockBox->Size = System::Drawing::Size(130, 22);
-			this->ItemStockBox->TabIndex = 34;
+			this->InventoryShrinkageBox->Location = System::Drawing::Point(165, 231);
+			this->InventoryShrinkageBox->Name = L"InventoryShrinkageBox";
+			this->InventoryShrinkageBox->Size = System::Drawing::Size(130, 22);
+			this->InventoryShrinkageBox->TabIndex = 34;
 			// 
 			// ItemNameBox
 			// 
@@ -367,7 +352,7 @@ namespace Gstorg {
 			this->Controls->Add(this->DisplayDiscountBox);
 			this->Controls->Add(this->DiscountBox);
 			this->Controls->Add(this->DisplayBasepriceBox);
-			this->Controls->Add(this->SendDateBox);
+			this->Controls->Add(this->QuantityBox);
 			this->Controls->Add(this->DisplayTVABox);
 			this->Controls->Add(this->DisplayMarginBox);
 			this->Controls->Add(this->DisplayInventoryshrinkagebox);
@@ -378,7 +363,7 @@ namespace Gstorg {
 			this->Controls->Add(this->BasePriceBox);
 			this->Controls->Add(this->TVABox);
 			this->Controls->Add(this->MarginBox);
-			this->Controls->Add(this->ItemStockBox);
+			this->Controls->Add(this->InventoryShrinkageBox);
 			this->Controls->Add(this->ItemNameBox);
 			this->Controls->Add(this->ItemcolorBox);
 			this->Controls->Add(this->IDitemtypeBox);
@@ -398,6 +383,16 @@ namespace Gstorg {
 
 	private: System::Void CreateSupplyForm_Click(System::Object^ sender, System::EventArgs^ e) {
 		this->oSup->InsertSupply(this->ItemcolorBox->Text, this->IDitemtypeBox->Text, System::Convert::ToDouble(this->MarginBox->Text), System::Convert::ToInt32(this->ReplenishmenBox->Text), System::Convert::ToDouble(this->BasePriceBox->Text), this->ItemNameBox->Text, System::Convert::ToDouble(this->DiscountBox->Text), System::Convert::ToDouble(this->TVABox->Text), System::Convert::ToDouble(this->DisplayInventoryshrinkagebox->Text), System::Convert::ToInt32(this->ItemStockBox->Text));
+		this->ItemcolorBox->Clear();
+		this->IDitemtypeBox->Clear();
+		this->MarginBox->Clear();
+		this->ReplenishmenBox->Clear();
+		this->BasePriceBox->Clear();
+		this->ItemNameBox->Clear();
+		this->DiscountBox->Clear();
+		this->TVABox->Clear();
+		this->InventoryShrinkageBox->Clear();
+		this->QuantityBox->Clear();
 	}
 	};
 }
