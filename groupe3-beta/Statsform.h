@@ -38,10 +38,10 @@ namespace Gstorg {
 	private: System::Windows::Forms::TextBox^ IdCustomerBox;
 	private: System::Windows::Forms::DataGridView^ DatagridStats;
 	private: System::Windows::Forms::Button^ SimulateVariations;
-	private: System::Windows::Forms::Button^ TurnoverSend;
 	private: System::Windows::Forms::Button^ AvgBasket;
 	private: System::Windows::Forms::Button^ MonthTurnover;
 	private: System::Windows::Forms::Button^ IdCustomerButton;
+	private: System::Windows::Forms::Button^ TurnoverButton;
 	private: System::Windows::Forms::TextBox^ Statstextbox;
 	private: System::Windows::Forms::Button^ CostForClient;
 	private: System::Windows::Forms::Button^ MostSoldItems;
@@ -70,10 +70,10 @@ namespace Gstorg {
 			this->IdCustomerBox = (gcnew System::Windows::Forms::TextBox());
 			this->DatagridStats = (gcnew System::Windows::Forms::DataGridView());
 			this->SimulateVariations = (gcnew System::Windows::Forms::Button());
-			this->TurnoverSend = (gcnew System::Windows::Forms::Button());
 			this->AvgBasket = (gcnew System::Windows::Forms::Button());
 			this->MonthTurnover = (gcnew System::Windows::Forms::Button());
 			this->IdCustomerButton = (gcnew System::Windows::Forms::Button());
+			this->TurnoverButton = (gcnew System::Windows::Forms::Button());
 			this->Statstextbox = (gcnew System::Windows::Forms::TextBox());
 			this->CostForClient = (gcnew System::Windows::Forms::Button());
 			this->MostSoldItems = (gcnew System::Windows::Forms::Button());
@@ -84,17 +84,17 @@ namespace Gstorg {
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->DatagridStats))->BeginInit();
 			this->SuspendLayout();
 			// 
-			// IdCustomerButton
+			// TurnoverButton
 			// 
-			this->IdCustomerButton->BackColor = ColorTranslator::FromHtml("#f3f3f3");
-			this->IdCustomerButton->Location = System::Drawing::Point(500, 400);
-			this->IdCustomerButton->Name = L"IdCustomerButton";
-			this->IdCustomerButton->Size = System::Drawing::Size(50, 22);
-			this->IdCustomerButton->TabIndex = 3;
-			this->IdCustomerButton->Text = L"Send id";
-			this->IdCustomerButton->UseVisualStyleBackColor = true;
-			this->IdCustomerButton->Visible = false;
-			this->IdCustomerButton->Click += gcnew System::EventHandler(this, &Statsform::IdCustomerButton_Click);
+			this->TurnoverButton->BackColor = ColorTranslator::FromHtml("#f3f3f3");
+			this->TurnoverButton->Location = System::Drawing::Point(500, 400);
+			this->TurnoverButton->Name = L"TurnoverButton";
+			this->TurnoverButton->Size = System::Drawing::Size(50, 22);
+			this->TurnoverButton->TabIndex = 3;
+			this->TurnoverButton->Text = L"Send id";
+			this->TurnoverButton->UseVisualStyleBackColor = true;
+			this->TurnoverButton->Visible = false;
+			this->TurnoverButton->Click += gcnew System::EventHandler(this, &Statsform::TurnoverButton_Click);
 			// 
 			// DisplayIdCustomerBox
 			// 
@@ -115,7 +115,7 @@ namespace Gstorg {
 				static_cast<System::Byte>(0)));
 			this->IdCustomerBox->Visible = false;
 			this->IdCustomerBox->Location = System::Drawing::Point(290, 400);
-			this->IdCustomerBox->Name = L"TurnoverBox";
+			this->IdCustomerBox->Name = L"IdCustomerBox";
 			this->IdCustomerBox->Size = System::Drawing::Size(100, 22);
 			this->IdCustomerBox->TabIndex = 1;
 			// 
@@ -151,16 +151,17 @@ namespace Gstorg {
 			this->DatagridStats->TabIndex = 0;
 			this->DatagridStats->Visible = false;
 			// 
-			// TurnoverSend
+			// IdCustomerButton
 			// 
-			this->TurnoverSend->BackColor = ColorTranslator::FromHtml("#f3f3f3");
-			this->TurnoverSend->Location = System::Drawing::Point(65, 105);
-			this->TurnoverSend->Name = L"TurnoverSend";
-			this->TurnoverSend->Size = System::Drawing::Size(510, 60);
-			this->TurnoverSend->TabIndex = 1;
-			this->TurnoverSend->Text = L"Tva, Margin, Discounts, Inventory Shrinkage Variations ";
-			this->TurnoverSend->UseVisualStyleBackColor = true;
-			this->TurnoverSend->Click += gcnew System::EventHandler(this, &Statsform::SimulateVariations_Click);
+			this->IdCustomerButton->BackColor = ColorTranslator::FromHtml("#f3f3f3");
+			this->IdCustomerButton->Location = System::Drawing::Point(500, 400);
+			this->IdCustomerButton->Name = L"IdCustomerButton";
+			this->IdCustomerButton->Size = System::Drawing::Size(50, 22);
+			this->IdCustomerButton->TabIndex = 3;
+			this->IdCustomerButton->Text = L"Send id";
+			this->IdCustomerButton->UseVisualStyleBackColor = true;
+			this->IdCustomerButton->Visible = false;
+			this->IdCustomerButton->Click += gcnew System::EventHandler(this, &Statsform::IdCustomerButton_Click);
 			// 
 			// SimulateVariations
 			// 
@@ -193,7 +194,7 @@ namespace Gstorg {
 			this->MonthTurnover->TabIndex = 3;
 			this->MonthTurnover->Text = L"Month turnover";
 			this->MonthTurnover->UseVisualStyleBackColor = true;
-			this->MonthTurnover->Click += gcnew System::EventHandler(this, &Statsform::TurnoverSend_Click);
+			this->MonthTurnover->Click += gcnew System::EventHandler(this, &Statsform::MonthTurnover_Click);
 			// 
 			// Statstextbox
 			// 
@@ -290,6 +291,7 @@ namespace Gstorg {
 			this->Controls->Add(this->Statstextbox);
 			this->Controls->Add(this->MonthTurnover);
 			this->Controls->Add(this->IdCustomerButton);
+			this->Controls->Add(this->TurnoverButton);
 			this->Controls->Add(this->AvgBasket);
 			this->Controls->Add(this->SimulateVariations);
 			this->Controls->Add(this->DisplayTurnoverBox);
@@ -349,6 +351,7 @@ namespace Gstorg {
 		this->BaseSuppliesCost->Visible = false;
 		this->SuppliesSellValue->Visible = false;
 		this->SimulateVariations->Visible = false;
+		this->TurnoverButton->Visible = true;
 		this->DatagridStats->Visible = true;
 		this->DisplayTurnoverBox->Visible = true;
 		this->TurnoverBox->Visible = true;
@@ -459,7 +462,7 @@ namespace Gstorg {
 	private: System::Void Statsform_Load(System::Object^ sender, System::EventArgs^ e) {
 		this->oStat = gcnew NS_Comp_Svc_Stats::CLservicesstats();
 	}
-	private: System::Void TurnoverSend_Click(System::Object^ sender, System::EventArgs^ e) {
+	private: System::Void TurnoverButton_Click(System::Object^ sender, System::EventArgs^ e) {
 		this->TurnoverBox->Clear();
 		//Add querry with the input of TurnoverBox
 	}
