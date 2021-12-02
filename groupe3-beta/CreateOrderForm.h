@@ -74,7 +74,7 @@ namespace Gstorg {
 	private: System::Windows::Forms::TextBox^ DiscountBox;
 	private: System::Windows::Forms::Button^ SendButton;
 	private: System::Windows::Forms::Button^ SendItem;
-	private: System::Windows::Forms::Button^ SendAndAddItemButton;
+	private: System::Windows::Forms::Button^ NewItemToOrder;
 	private: System::Windows::Forms::TextBox^ DisplayPaymentType;
 	private: System::Windows::Forms::TextBox^ PaymentTypeBox;
 	private: System::Windows::Forms::TextBox^ DisplayPaymentDate;
@@ -140,7 +140,7 @@ namespace Gstorg {
 			this->DiscountBox = (gcnew System::Windows::Forms::TextBox());
 			this->SendButton = (gcnew System::Windows::Forms::Button());
 			this->SendItem = (gcnew System::Windows::Forms::Button());
-			this->SendAndAddItemButton = (gcnew System::Windows::Forms::Button());
+			this->NewItemToOrder = (gcnew System::Windows::Forms::Button());
 			this->DisplayPaymentType = (gcnew System::Windows::Forms::TextBox());
 			this->PaymentTypeBox = (gcnew System::Windows::Forms::TextBox());
 			this->DisplayPaymentDate = (gcnew System::Windows::Forms::TextBox());
@@ -605,15 +605,15 @@ namespace Gstorg {
 			this->SendItem->UseVisualStyleBackColor = true;
 			this->SendItem->Click += gcnew System::EventHandler(this, &CreateOrderForm::SendItem_Click);
 			// 
-			// SendAndAddItemButton
+			// NewItemToOrder
 			// 
-			this->SendAndAddItemButton->Location = System::Drawing::Point(424, 340);
-			this->SendAndAddItemButton->Name = L"SendAndAddItemButton";
-			this->SendAndAddItemButton->Size = System::Drawing::Size(176, 40);
-			this->SendAndAddItemButton->TabIndex = 52;
-			this->SendAndAddItemButton->Text = L"Send & add new item";
-			this->SendAndAddItemButton->UseVisualStyleBackColor = true;
-			this->SendAndAddItemButton->Click += gcnew System::EventHandler(this, &CreateOrderForm::SendAndAddItem_Click);
+			this->NewItemToOrder->Location = System::Drawing::Point(424, 340);
+			this->NewItemToOrder->Name = L"NewItemToOrder";
+			this->NewItemToOrder->Size = System::Drawing::Size(176, 40);
+			this->NewItemToOrder->TabIndex = 52;
+			this->NewItemToOrder->Text = L"Send & add new item";
+			this->NewItemToOrder->UseVisualStyleBackColor = true;
+			this->NewItemToOrder->Click += gcnew System::EventHandler(this, &CreateOrderForm::SendAndAddItem_Click);
 			// 
 			// DisplayPaymentType
 			// 
@@ -695,7 +695,7 @@ namespace Gstorg {
 			this->Controls->Add(this->DisplayPaymentType);
 			this->Controls->Add(this->SendButton);
 			this->Controls->Add(this->SendItem);
-			this->Controls->Add(this->SendAndAddItemButton);
+			this->Controls->Add(this->NewItemToOrder);
 			this->Controls->Add(this->DisplayDiscountBox);
 			this->Controls->Add(this->DiscountBox);
 			this->Controls->Add(this->DisplayMarginBox);
@@ -804,7 +804,7 @@ namespace Gstorg {
 		this->PaymentNumberBox->Visible = false;
 		this->DisplayAdressBox->Visible = false;
 		this->SendButton->Visible = false;
-		this->SendAndAddItemButton->Visible = false;
+		this->NewItemToOrder->Visible = false;
 		this->Datagrid->Visible = true;
 		this->DisplayIDCustomerBox->Visible = false;
 		this->IDCustomerBox->Visible = false;
