@@ -15,8 +15,8 @@ NS_Comp_Svc_Order::CLserviceOrder::CLserviceOrder(void) {
 System::Data::DataSet^ NS_Comp_Svc_Order::CLserviceOrder::SelectOrder(System::String^ dataTableName, int id) {
 	System::String^ sql;
 
-	this->oMapOrd->setIdorder(id);
-	sql = this->oOrder->Select();
+
+	sql = Select(id);
 	return this->oCad->getRows(sql, dataTableName);
 }
 
@@ -95,8 +95,8 @@ void NS_Comp_Svc_Order::CLserviceOrder::UpdateOrder(int idord, int idcust, int p
 	this->oCad->actionRows(sql);
 }
 
-System::String^ NS_Comp_Svc_Order::CLserviceOrder::Select() {
-	return "EXEC SP_SO @id_order =" + this->oMapOrd->getIdorder().ToString();
+System::String^ NS_Comp_Svc_Order::CLserviceOrder::Select(int id) {
+	return "EXEC SP_SO @id_order =" + id.ToString();
 }
 
 System::String^ NS_Comp_Svc_Order::CLserviceOrder::Insert() {

@@ -28,7 +28,7 @@ namespace NS_Comp_Svc_Order {
 		void DeleteOrder(int);
 		void UpdateOrder(int, int , int, System::String^, System::String^, int, System::String^, System::String^, int, System::String^, System::String^, System::String^, System::String^, System::String^, int, System::String^, int, System::String^, System::String^ , System::String^, int, int);
 
-		System::String^ Select();
+		System::String^ Select(int);
 		System::String^ Insert();
 		System::String^ Delete();
 		System::String^ Update();
