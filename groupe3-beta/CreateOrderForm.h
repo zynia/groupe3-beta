@@ -32,6 +32,7 @@ namespace Gstorg {
 				delete components;
 			}
 		}
+	private: System::Windows::Forms::DataGridView^ Datagrid;
 	private: System::Windows::Forms::TextBox^ StreetNameBox;
 	private: System::Windows::Forms::TextBox^ StreetNumberBox;
 	private: System::Windows::Forms::TextBox^ ResidencyNameBox;
@@ -59,6 +60,8 @@ namespace Gstorg {
 	private: System::Windows::Forms::TextBox^ DisplayNbitemsBox;
 	private: System::Windows::Forms::TextBox^ DisplayIDCustomerBox;
 	private: System::Windows::Forms::TextBox^ DisplayIDItembox;
+	private: System::Windows::Forms::TextBox^ DisplayIdOrder;
+	private: System::Windows::Forms::TextBox^ IdOrder;
 	private: System::Windows::Forms::TextBox^ MarginBox;
 	private: System::Windows::Forms::TextBox^ TVABox;
 	private: System::Windows::Forms::TextBox^ HTCostBox;
@@ -69,6 +72,8 @@ namespace Gstorg {
 	private: System::Windows::Forms::TextBox^ DisplayDiscountBox;
 	private: System::Windows::Forms::TextBox^ DiscountBox;
 	private: System::Windows::Forms::Button^ SendButton;
+	private: System::Windows::Forms::Button^ SendItem;
+	private: System::Windows::Forms::Button^ SendAndAddItemButton;
 	private: System::Windows::Forms::TextBox^ DisplayPaymentType;
 	private: System::Windows::Forms::TextBox^ PaymentTypeBox;
 	private: System::Windows::Forms::TextBox^ DisplayPaymentDate;
@@ -92,6 +97,7 @@ namespace Gstorg {
 		/// </summary>
 		void InitializeComponent(void)
 		{
+			this->Datagrid = (gcnew System::Windows::Forms::DataGridView());
 			this->StreetNameBox = (gcnew System::Windows::Forms::TextBox());
 			this->StreetNumberBox = (gcnew System::Windows::Forms::TextBox());
 			this->ResidencyNameBox = (gcnew System::Windows::Forms::TextBox());
@@ -119,6 +125,8 @@ namespace Gstorg {
 			this->DisplayNbitemsBox = (gcnew System::Windows::Forms::TextBox());
 			this->DisplayIDCustomerBox = (gcnew System::Windows::Forms::TextBox());
 			this->DisplayIDItembox = (gcnew System::Windows::Forms::TextBox());
+			this->DisplayIdOrder = (gcnew System::Windows::Forms::TextBox());
+			this->IdOrder = (gcnew System::Windows::Forms::TextBox());
 			this->MarginBox = (gcnew System::Windows::Forms::TextBox());
 			this->TVABox = (gcnew System::Windows::Forms::TextBox());
 			this->HTCostBox = (gcnew System::Windows::Forms::TextBox());
@@ -129,13 +137,25 @@ namespace Gstorg {
 			this->DisplayDiscountBox = (gcnew System::Windows::Forms::TextBox());
 			this->DiscountBox = (gcnew System::Windows::Forms::TextBox());
 			this->SendButton = (gcnew System::Windows::Forms::Button());
+			this->SendItem = (gcnew System::Windows::Forms::Button());
+			this->SendAndAddItemButton = (gcnew System::Windows::Forms::Button());
 			this->DisplayPaymentType = (gcnew System::Windows::Forms::TextBox());
 			this->PaymentTypeBox = (gcnew System::Windows::Forms::TextBox());
 			this->DisplayPaymentDate = (gcnew System::Windows::Forms::TextBox());
 			this->PaymentDateBox = (gcnew System::Windows::Forms::TextBox());
 			this->DisplayPaymentNumber = (gcnew System::Windows::Forms::TextBox());
 			this->PaymentNumberBox = (gcnew System::Windows::Forms::TextBox());
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->Datagrid))->BeginInit();
 			this->SuspendLayout();
+			// 
+			// Datagrid
+			// 
+			this->Datagrid->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
+			this->Datagrid->Location = System::Drawing::Point(350, 57);
+			this->Datagrid->Name = L"Datagrid";
+			this->Datagrid->Size = System::Drawing::Size(200, 100);
+			this->Datagrid->TabIndex = 0;
+			this->Datagrid->Visible = false;
 			// 
 			// StreetNameBox
 			// 
@@ -453,6 +473,31 @@ namespace Gstorg {
 			this->DisplayIDItembox->TabIndex = 38;
 			this->DisplayIDItembox->Text = L"ID item :";
 			// 
+			// DisplayIdOrder
+			// 
+			this->DisplayIdOrder->Font = (gcnew System::Drawing::Font(L"Arial", 9.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->DisplayIdOrder->BorderStyle = BorderStyle::None;
+			this->DisplayIdOrder->BackColor = ColorTranslator::FromHtml("#f3f3f3");
+			this->DisplayIdOrder->Location = System::Drawing::Point(30, 57);
+			this->DisplayIdOrder->Name = L"DisplayIdOrder";
+			this->DisplayIdOrder->ReadOnly = true;
+			this->DisplayIdOrder->Size = System::Drawing::Size(110, 22);
+			this->DisplayIdOrder->TabIndex = 38;
+			this->DisplayIdOrder->Text = L"ID Order :";
+			this->DisplayIdOrder->Visible = false;
+			// 
+			// IdOrder
+			// 
+			this->IdOrder->Font = (gcnew System::Drawing::Font(L"Arial", 9.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->IdOrder->Location = System::Drawing::Point(150, 57);
+			this->IdOrder->Name = L"IdOrder";
+			this->IdOrder->Size = System::Drawing::Size(130, 22);
+			this->IdOrder->TabIndex = 38;
+			this->IdOrder->Visible = false;
+
+			// 
 			// MarginBox
 			// 
 			this->MarginBox->Font = (gcnew System::Drawing::Font(L"Arial", 9.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
@@ -540,13 +585,33 @@ namespace Gstorg {
 			// 
 			// SendButton
 			// 
-			this->SendButton->Location = System::Drawing::Point(300, 344);
+			this->SendButton->Location = System::Drawing::Point(350, 340);
 			this->SendButton->Name = L"SendButton";
-			this->SendButton->Size = System::Drawing::Size(75, 23);
+			this->SendButton->Size = System::Drawing::Size(70, 40);
 			this->SendButton->TabIndex = 52;
 			this->SendButton->Text = L"Send";
 			this->SendButton->UseVisualStyleBackColor = true;
-			this->SendButton->Click += gcnew System::EventHandler(this, &CreateOrderForm::CreateOrderForm_Click);
+			this->SendButton->Click += gcnew System::EventHandler(this, &CreateOrderForm::SendButton_Click);
+			// 
+			// SendItem
+			// 
+			this->SendItem->Location = System::Drawing::Point(350, 340);
+			this->SendItem->Name = L"SendItem";
+			this->SendItem->Size = System::Drawing::Size(70, 40);
+			this->SendItem->TabIndex = 52;
+			this->SendItem->Text = L"Send";
+			this->SendItem->UseVisualStyleBackColor = true;
+			this->SendItem->Click += gcnew System::EventHandler(this, &CreateOrderForm::SendItem_Click);
+			// 
+			// SendAndAddItemButton
+			// 
+			this->SendAndAddItemButton->Location = System::Drawing::Point(424, 340);
+			this->SendAndAddItemButton->Name = L"SendAndAddItemButton";
+			this->SendAndAddItemButton->Size = System::Drawing::Size(176, 40);
+			this->SendAndAddItemButton->TabIndex = 52;
+			this->SendAndAddItemButton->Text = L"Send & add new item";
+			this->SendAndAddItemButton->UseVisualStyleBackColor = true;
+			this->SendAndAddItemButton->Click += gcnew System::EventHandler(this, &CreateOrderForm::SendAndAddItem_Click);
 			// 
 			// DisplayPaymentType
 			// 
@@ -619,6 +684,7 @@ namespace Gstorg {
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(640, 380);
+			this->Controls->Add(this->Datagrid);
 			this->Controls->Add(this->PaymentNumberBox);
 			this->Controls->Add(this->DisplayPaymentNumber);
 			this->Controls->Add(this->PaymentDateBox);
@@ -626,6 +692,8 @@ namespace Gstorg {
 			this->Controls->Add(this->PaymentTypeBox);
 			this->Controls->Add(this->DisplayPaymentType);
 			this->Controls->Add(this->SendButton);
+			this->Controls->Add(this->SendItem);
+			this->Controls->Add(this->SendAndAddItemButton);
 			this->Controls->Add(this->DisplayDiscountBox);
 			this->Controls->Add(this->DiscountBox);
 			this->Controls->Add(this->DisplayMarginBox);
@@ -637,6 +705,8 @@ namespace Gstorg {
 			this->Controls->Add(this->DisplayNbitemsBox);
 			this->Controls->Add(this->DisplayIDCustomerBox);
 			this->Controls->Add(this->DisplayIDItembox);
+			this->Controls->Add(this->DisplayIdOrder);
+			this->Controls->Add(this->IdOrder);
 			this->Controls->Add(this->MarginBox);
 			this->Controls->Add(this->TVABox);
 			this->Controls->Add(this->HTCostBox);
@@ -666,6 +736,7 @@ namespace Gstorg {
 			this->Name = L"CreateOrderForm";
 			this->Text = L"CreateOrderForm";
 			this->Load += gcnew System::EventHandler(this, &CreateOrderForm::CreateOrderForm_load);
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->Datagrid))->EndInit();
 			this->ResumeLayout(false);
 			this->PerformLayout();
 			this->BackColor = ColorTranslator::FromHtml("#f3f3f3");
@@ -674,7 +745,7 @@ namespace Gstorg {
 	private: System::Void CreateOrderForm_load(System::Object^ sender, System::EventArgs^ e) {
 		this->oOrd = gcnew NS_Comp_Svc_Order::CLserviceOrder();
 	}
-	private: System::Void CreateOrderForm_Click(System::Object^ sender, System::EventArgs^ e) {
+	private: System::Void SendButton_Click(System::Object^ sender, System::EventArgs^ e) {
 		this->oOrd->InsertOrder(System::Convert::ToInt32(this->PostCodeBox->Text), this->CityNameBox->Text, this->StreetNameBox->Text, System::Convert::ToInt32(this->StreetNumberBox->Text), this->ResidencyNameBox->Text, this->BuildingNameBox->Text, System::Convert::ToInt32(this->FloorNumberBox->Text), this->ComplementBox->Text, this->DeliveryDateBox->Text, this->SendDateBox->Text, System::Convert::ToInt32(this->PaymentNumberBox->Text), System::Convert::ToInt32(this->IDCustomerBox->Text), System::Convert::ToInt32(this->IDitemBox->Text), this->TVABox->Text, this->HTCostBox->Text, this->DiscountBox->Text, this->MarginBox->Text, System::Convert::ToInt32(this->NbItemsBox->Text), this->PaymentTypeBox->Text, this->PaymentDateBox->Text);
 		this->IDitemBox->Clear();
 		this->IDCustomerBox->Clear();
@@ -696,6 +767,51 @@ namespace Gstorg {
 		this->PostCodeBox->Clear();
 		this->PaymentDateBox->Clear();
 		this->PaymentNumberBox->Clear();
+	}
+	private: System::Void SendAndAddItem_Click(System::Object^ sender, System::EventArgs^ e) {
+		this->DisplayPaymentType->Visible = false;
+		this->PaymentTypeBox->Visible = false;
+		this->StreetNameBox->Visible = false;
+		this->DisplayStreetName->Visible = false;
+		this->StreetNumberBox->Visible = false;
+		this->DisplayStreetNumber->Visible = false;
+		this->DisplayResidencyname->Visible = false;
+		this->ResidencyNameBox->Visible = false;
+		this->DisplayBuildingName->Visible = false;
+		this->BuildingNameBox->Visible = false;
+		this->DisplayFloorNumber->Visible = false;
+		this->FloorNumberBox->Visible = false;
+		this->DisplayComplement->Visible = false;
+		this->ComplementBox->Visible = false;
+		this->DisplayCityName->Visible = false;
+		this->CityNameBox->Visible = false;
+		this->DisplayPostcode->Visible = false;
+		this->PostCodeBox->Visible = false;
+		this->DisplayPaymentDate->Visible = false;
+		this->PaymentDateBox->Visible = false;
+		this->DisplayPaymentNumber->Visible = false;
+		this->PaymentNumberBox->Visible = false;
+		this->DisplayAdressBox->Visible = false;
+		this->SendButton->Visible = false;
+		this->SendAndAddItemButton->Visible = false;
+		this->Datagrid->Visible = true;
+		this->DisplayIDCustomerBox->Visible = false;
+		this->IDCustomerBox->Visible = false;
+		this->DisplaySendDateBox->Visible = false;
+		this->SendDateBox->Visible = false;
+		this->DisplayDeliveryDateBox->Visible = false;
+		this->DeliveryDateBox->Visible = false;
+		this->Datagrid->Refresh();
+		this->DisplayIDItembox->Location = System::Drawing::Point(30, 84);
+		this->IDitemBox->Location = System::Drawing::Point(150, 84);
+		this->DisplayMarginBox->Location = System::Drawing::Point(30, 138);
+		this->MarginBox->Location = System::Drawing::Point(150, 138);
+		this->DisplayDiscountBox->Location = System::Drawing::Point(30, 165);
+		this->DiscountBox->Location = System::Drawing::Point(150, 165);
+		this->DisplayIdOrder->Visible = true;
+		this->IdOrder->Visible = true;
+	}
+	private: System::Void SendItem_Click(System::Object^ sender, System::EventArgs^ e) {
 	}
 	};
 }
