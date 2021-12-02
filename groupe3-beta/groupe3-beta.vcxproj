@@ -162,7 +162,6 @@
     <ClInclude Include="ReadOrderForm.h" />
     <ClInclude Include="ReadStafForm.h" />
     <ClInclude Include="ReadSupplyForm.h" />
-    <ClInclude Include="CLservices.h" />
     <ClInclude Include="CLservicesclient.h" />
     <ClInclude Include="CLservicesorder.h" />
     <ClInclude Include="CLservicesstats.h" />
@@ -218,7 +217,6 @@
     <ClCompile Include="ReadOrderForm.cpp" />
     <ClCompile Include="ReadStafForm.cpp" />
     <ClCompile Include="ReadSupplyForm.cpp" />
-    <ClCompile Include="CLservices.cpp" />
     <ClCompile Include="CLservicesclient.cpp" />
     <ClCompile Include="CLservicesorder.cpp" />
     <ClCompile Include="CLservicesstats.cpp" />
