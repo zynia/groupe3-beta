@@ -9,9 +9,7 @@ NS_Comp_Svc_Supply::CLservicesupply::CLservicesupply(void) {
 System::Data::DataSet^ NS_Comp_Svc_Supply::CLservicesupply::SelectSupply(System::String^ dataTableName, int idsupply) {
 	System::String^ sql;
 
-	this->oMapArtSup->setidarticle(idsupply);
-
-	sql = this->oSupply->Select();
+	sql = Select(idsupply);
 
 	return this->oCad->getRows(sql, dataTableName);
 }
@@ -65,8 +63,8 @@ void NS_Comp_Svc_Supply::CLservicesupply::UpdateSupply(int id, System::String^ c
 	this->oCad->actionRows(sql);
 }
 
-System::String^ NS_Comp_Svc_Supply::CLservicesupply::Select() {
-	return "EXEC SP_SA @id_article ="+this->oMapArtSup->getidarticle();
+System::String^ NS_Comp_Svc_Supply::CLservicesupply::Select(int id) {
+	return "EXEC SP_SA @id_article ="+id.ToString();
 }
 
 System::String^ NS_Comp_Svc_Supply::CLservicesupply::Insert() {
