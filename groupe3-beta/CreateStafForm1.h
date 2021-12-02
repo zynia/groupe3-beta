@@ -1,4 +1,5 @@
 #pragma once
+#include "CLservicestaff.h"
 
 namespace Gstorg {
 
@@ -66,7 +67,7 @@ namespace Gstorg {
 	private: System::Windows::Forms::TextBox^ DisplayPostcode;
 	private: System::Windows::Forms::Button^ SendButton;
 
-
+	private: NS_Comp_Svc_Staf::CLservicestaff^ oStaf;
 
 
 	protected:
@@ -441,6 +442,7 @@ namespace Gstorg {
 			this->SendButton->TabIndex = 31;
 			this->SendButton->Text = L"Send";
 			this->SendButton->UseVisualStyleBackColor = true;
+			this->SendButton->Click += gcnew System::EventHandler(this, &CreateStafForm::CreateStafForm_Click);
 			// 
 			// CreateStafForm
 			// 
@@ -485,7 +487,11 @@ namespace Gstorg {
 			this->BackColor = ColorTranslator::FromHtml("#f3f3f3");
 		}
 #pragma endregion
+	private: System::Void CreateStafForm_Click(System::Object^ sender, System::EventArgs^ e) {
+		this->oStaf->InsertStaf(this->HiringDateBox->Text, this->StreetNameBox->Text, System::Convert::ToInt32(this->StreetNumberBox->Text), this->ResidencyNameBox->Text, this->BuildingNameBox->Text, System::Convert::ToInt32(this->FloorNumberBox->Text), this->ComplementBox->Text, this->CityNameBox->Text, System::Convert::ToInt32(this->PostCodeBox->Text), this->FirstNameBox->Text, this->LastNameBox->Text, this->BirthdateBox->Text, System::Convert::ToInt32(this->SupervisorBox->Text));
+	}
 	private: System::Void CreateStafForm_Load(System::Object^ sender, System::EventArgs^ e) {
+		this->oStaf = gcnew NS_Comp_Svc_Staf::CLservicestaff();
 	}
 	private: System::Void textBox1_TextChanged(System::Object^ sender, System::EventArgs^ e) {
 	}

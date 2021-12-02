@@ -1,4 +1,5 @@
 #pragma once
+#include "CLservicesclient.h"
 
 namespace Gstorg {
 
@@ -88,7 +89,7 @@ namespace Gstorg {
 	private: System::Windows::Forms::Button^ SendButton;
 
 
-
+	private: NS_Comp_Svc_Cli::CLservicesClient^ oCli;
 
 
 	protected:
@@ -519,6 +520,7 @@ namespace Gstorg {
 			this->SendButton->TabIndex = 42;
 			this->SendButton->Text = L"Send";
 			this->SendButton->UseVisualStyleBackColor = true;
+			this->SendButton->Click += gcnew System::EventHandler(this, &UpdateClientForm::UpdateClientForm_Click);
 			// 
 			// UpdateClientForm
 			// 
@@ -570,6 +572,10 @@ namespace Gstorg {
 		}
 #pragma endregion
 	private: System::Void UpdateClientForm_Load(System::Object^ sender, System::EventArgs^ e) {
+		this->oCli = gcnew NS_Comp_Svc_Cli::CLservicesClient();
+	}
+	private: System::Void UpdateClientForm_Click(System::Object^ sender, System::EventArgs^ e) {
+		//this->oCli->UpdateClient(this->IDBox->Text, this->FirstNameBox->Text, this->LastNameBox->Text, this->BirthdateBox->Text, this->StreetNameBoxBilling->Text, this->StreetNumberBoxBilling->Text, this->ResidencyNameBoxBilling->Text, this->BuildingNameBoxBilling->Text, this->FloorNumberBoxBilling->Text, this->ComplementBoxBilling->Text, this->CityNameBoxBilling->Text, this->PostCodeBoxBilling->Text, this->StreetNameBoxShipping->Text, this->StreetNumberBoxBilling->Text, this->ResidencyNameBoxShipping->Text, this->BuildingNameBoxShipping->Text, this->FloorNumberBoxShipping->Text, this->ComplementBoxShipping->Text, this->CityNameBoxShipping->Text, this->PostCodeBoxShipping->Text, this->); //todo add cases
 	}
 	private: System::Void textBox1_TextChanged(System::Object^ sender, System::EventArgs^ e) {
 	}

@@ -393,10 +393,11 @@ namespace Gstorg {
 		}
 #pragma endregion
 	private: System::Void CreateSupplyForm_Load(System::Object^ sender, System::EventArgs^ e) {
+		this->oSup = gcnew NS_Comp_Svc_Supply::CLservicesupply();
 	}
 
 	private: System::Void CreateSupplyForm_Click(System::Object^ sender, System::EventArgs^ e) {
-		//this->oSup->InsertSupply(this->ItemcolorBox->Text, this->IDitemtypeBox->Text, System::Convert::Floatthis->MarginBox->Text, this->ReplenishmenBox->Text, this->BasePriceBox->Text, this->ItemNameBox->Text, this->DiscountBox->Text, this->TVABox->Text, this->DisplayInventoryshrinkagebox->Text, this->ItemStockBox->Text);
+		this->oSup->InsertSupply(this->ItemcolorBox->Text, this->IDitemtypeBox->Text, System::Convert::ToDouble(this->MarginBox->Text), System::Convert::ToInt32(this->ReplenishmenBox->Text), System::Convert::ToDouble(this->BasePriceBox->Text), this->ItemNameBox->Text, System::Convert::ToDouble(this->DiscountBox->Text), System::Convert::ToDouble(this->TVABox->Text), System::Convert::ToDouble(this->DisplayInventoryshrinkagebox->Text), System::Convert::ToInt32(this->ItemStockBox->Text));
 	}
 	};
 }

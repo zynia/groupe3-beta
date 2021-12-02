@@ -6,7 +6,7 @@ void NS_Map_Personal_info_client::CLmapPersonalinfoclient::setidperso(int id) {
 }
 
 int NS_Map_Personal_info_client::CLmapPersonalinfoclient::getidperso(void) {
-	return id_perso;
+	return this->id_perso;
 }
 
 void NS_Map_Personal_info_client::CLmapPersonalinfoclient::setFirstname(System::String^ firstname) {
@@ -14,7 +14,7 @@ void NS_Map_Personal_info_client::CLmapPersonalinfoclient::setFirstname(System::
 }
 
 System::String^ NS_Map_Personal_info_client::CLmapPersonalinfoclient::getFirstname(void) {
-	return first_name;
+	return this->first_name;
 }
 
 void NS_Map_Personal_info_client::CLmapPersonalinfoclient::setLastname(System::String^ lastname) {
@@ -22,7 +22,7 @@ void NS_Map_Personal_info_client::CLmapPersonalinfoclient::setLastname(System::S
 }
 
 System::String^ NS_Map_Personal_info_client::CLmapPersonalinfoclient::getLastname(void) {
-	return last_name;
+	return this->last_name;
 }
 
 void NS_Map_Personal_info_client::CLmapPersonalinfoclient::setBirthdate(System::String^ birthdate) {
@@ -30,5 +30,5 @@ void NS_Map_Personal_info_client::CLmapPersonalinfoclient::setBirthdate(System::
 }
 
 System::String^ NS_Map_Personal_info_client::CLmapPersonalinfoclient::getBirthdate(void) {
-	return birth_date;
+	return this->birth_date;
 }

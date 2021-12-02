@@ -1,4 +1,5 @@
 #pragma once
+#include "CLservicestaff.h"
 
 namespace Gstorg {
 
@@ -39,6 +40,7 @@ namespace Gstorg {
 	private: System::Windows::Forms::TextBox^ DisplayID;
 	private: System::Windows::Forms::Button^ SendButton;
 
+	private: NS_Comp_Svc_Staf::CLservicestaff^ oStaf;
 	protected:
 
 	protected:
@@ -107,6 +109,7 @@ namespace Gstorg {
 			this->SendButton->TabIndex = 16;
 			this->SendButton->Text = L"Send";
 			this->SendButton->UseVisualStyleBackColor = true;
+			this->SendButton->Click += gcnew System::EventHandler(this, &DeleteStaffForm::DeleteStaffForm_Click);
 			// 
 			// DeleteStaffForm
 			// 
@@ -127,8 +130,13 @@ namespace Gstorg {
 		}
 #pragma endregion
 	private: System::Void DeleteStaffForm_Load(System::Object^ sender, System::EventArgs^ e) {
+		this->oStaf = gcnew NS_Comp_Svc_Staf::CLservicestaff();
+	}
+	private: System::Void DeleteStaffForm_Click(System::Object^ sender, System::EventArgs^ e) {
+		this->oStaf->DeleteStaf(System::Convert::ToInt32(this->IDbox->Text));
 	}
 	private: System::Void textBox1_TextChanged(System::Object^ sender, System::EventArgs^ e) {
+		
 	}
 
 	};

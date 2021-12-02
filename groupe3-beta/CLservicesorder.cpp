@@ -42,7 +42,7 @@ void NS_Comp_Svc_Order::CLserviceOrder::InsertOrder(int postcode, System::String
 	this->oMapArticlOrd->setInventoryshrinkage(invshrink);
 
 
-	sql = this->oOrder->Insert();
+	sql = Insert();
 
 	this->oCad->actionRows(sql);
 }
@@ -96,7 +96,24 @@ System::String^ NS_Comp_Svc_Order::CLserviceOrder::Select() {
 }
 
 System::String^ NS_Comp_Svc_Order::CLserviceOrder::Insert() {
-	return "EXEC SP_CO @Post_code = " + this->oMapPostcode->getPostcode().ToString() + ", @name_city = " + this->oMapCity->getNamecity() + ", @Street_name =" + this->oMapAddr->getStreetname() + ", @Street_number =" + this->oMapAddr->getStreetnumber().ToString() + ", @Residency_name =" + this->oMapAddr->getResidencename() + ", @Building_name = " + this->oMapAddr->getBuildingname() + ", @Floor_number =" + this->oMapAddr->getFloornumber().ToString() + ", @Complement =" + this->oMapAddr->getComplement() + ", @delivery_date = " + this->oMapOrd->getDeliverydate() + ", @send_date =" + this->oMapOrd->getSenddate() + ", @id_customer =" + this->oMapOrd->getIdcustomer().ToString() + ", @id_article =" + this->oMapArticlOrd->getidarticle().ToString() + ", @TVA =" + this->oMapArticlOrd->getTVA().ToString() + ", @HT =" + this->oMapArticlOrd->getHT().ToString() + ", @discount =" + this->oMapArticlOrd->getDiscount().ToString() + ", @inventory_shrinkage =" + this->oMapArticlOrd->getInventoryshrinkage() + ", @nb_article =" + this->oMapOrd->getNbarticle() + ";";
+	return "EXEC SP_CO "+
+		"@Post_code = " + this->oMapPostcode->getPostcode().ToString() + 
+		", @name_city = '" + this->oMapCity->getNamecity() + 
+		"', @Street_name ='" + this->oMapAddr->getStreetname() + 
+		"', @Street_number =" + this->oMapAddr->getStreetnumber().ToString() + 
+		", @Residency_name ='" + this->oMapAddr->getResidencename() + 
+		"', @Building_name = '" + this->oMapAddr->getBuildingname() + 
+		"', @Floor_number =" + this->oMapAddr->getFloornumber().ToString() + 
+		", @Complement ='" + this->oMapAddr->getComplement() + 
+		"', @delivery_date = '" + this->oMapOrd->getDeliverydate() + 
+		"', @send_date ='" + this->oMapOrd->getSenddate() + 
+		"', @id_customer =" + this->oMapOrd->getIdcustomer().ToString() + 
+		", @id_article =" + this->oMapArticlOrd->getidarticle().ToString() + 
+		", @TVA =" + this->oMapArticlOrd->getTVA().ToString() + 
+		", @HT =" + this->oMapArticlOrd->getHT().ToString() + 
+		", @discount =" + this->oMapArticlOrd->getDiscount().ToString() + 
+		", @inventory_shrinkage =" + this->oMapArticlOrd->getInventoryshrinkage() + 
+		", @nb_article =" + this->oMapOrd->getNbarticle() + ";";
 }
 
 System::String^ NS_Comp_Svc_Order::CLserviceOrder::Delete() {

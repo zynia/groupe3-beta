@@ -1,4 +1,5 @@
 #pragma once
+#include "CLservicesclient.h"
 
 namespace Gstorg {
 
@@ -39,6 +40,7 @@ namespace Gstorg {
 	private: System::Windows::Forms::TextBox^ DisplayID;
 	private: System::Windows::Forms::Button^ SendButton;
 
+	private: NS_Comp_Svc_Cli::CLservicesClient^ oCli;
 	protected:
 
 	protected:
@@ -107,6 +109,7 @@ namespace Gstorg {
 			this->SendButton->TabIndex = 40;
 			this->SendButton->Text = L"Send";
 			this->SendButton->UseVisualStyleBackColor = true;
+			this->SendButton->Click += gcnew System::EventHandler(this, &DeleteClientForm::DeleteClientForm_Click);
 			// 
 			// DeleteClientForm
 			// 
@@ -127,6 +130,10 @@ namespace Gstorg {
 		}
 #pragma endregion
 	private: System::Void DeleteClientForm_Load(System::Object^ sender, System::EventArgs^ e) {
+		this->oCli = gcnew NS_Comp_Svc_Cli::CLservicesClient();
+	}
+	private: System::Void DeleteClientForm_Click(System::Object^ sender, System::EventArgs^ e) {
+		this->oCli->DeleteClient(System::Convert::ToInt32(this->IDbox->Text));
 	}
 	private: System::Void textBox1_TextChanged(System::Object^ sender, System::EventArgs^ e) {
 	}

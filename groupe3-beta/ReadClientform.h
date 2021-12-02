@@ -38,6 +38,7 @@ namespace Gstorg {
 	private: System::Windows::Forms::TextBox^ DisplayPersonnalinfoBox;
 	private: System::Windows::Forms::TextBox^ DisplayID;
 	private: System::Windows::Forms::Button^ SendButton;
+	private: System::Windows::Forms::DataGridView^ dataGridView1;
 
 	protected:
 
@@ -58,11 +59,27 @@ namespace Gstorg {
 		/// </summary>
 		void InitializeComponent(void)
 		{
+
+
 			this->FirstNameBox = (gcnew System::Windows::Forms::TextBox());
 			this->DisplayPersonnalinfoBox = (gcnew System::Windows::Forms::TextBox());
 			this->DisplayID = (gcnew System::Windows::Forms::TextBox());
 			this->SendButton = (gcnew System::Windows::Forms::Button());
+
+			this->dataGridView1 = (gcnew System::Windows::Forms::DataGridView());
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->BeginInit();
+
 			this->SuspendLayout();
+			//
+			// dataGridView1
+			//
+			this->dataGridView1->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
+			this->dataGridView1->Location = System::Drawing::Point(12, 210);
+			this->dataGridView1->Name = L"dataGridView1";
+			this->dataGridView1->Size = System::Drawing::Size(240, 150);
+			this->dataGridView1->TabIndex = 42;
+			this->dataGridView1->CellContentClick += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &ReadClientForm::dataGridView1_CellContentClick);
+
 			// 
 			// FirstNameBox
 			// 
@@ -107,12 +124,14 @@ namespace Gstorg {
 			this->SendButton->TabIndex = 41;
 			this->SendButton->Text = L"Send";
 			this->SendButton->UseVisualStyleBackColor = true;
+			
 			// 
 			// ReadClientForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(640, 380);
+			this->Controls->Add(this->dataGridView1);
 			this->Controls->Add(this->SendButton);
 			this->Controls->Add(this->DisplayID);
 			this->Controls->Add(this->DisplayPersonnalinfoBox);
@@ -120,16 +139,18 @@ namespace Gstorg {
 			this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None;
 			this->Name = L"ReadClientForm";
 			this->Text = L"ReadClientForm";
-			this->Load += gcnew System::EventHandler(this, &ReadClientForm::ReadClientForm_Click);
+			this->Load += gcnew System::EventHandler(this, &ReadClientForm::ReadClientForm_Load);
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->EndInit();
 			this->ResumeLayout(false);
 			this->PerformLayout();
 			this->BackColor = ColorTranslator::FromHtml("#f3f3f3");
 		}
 #pragma endregion
-	private: System::Void ReadClientForm_Click(System::Object^ sender, System::EventArgs^ e) {
+	private: System::Void ReadClientForm_Load(System::Object^ sender, System::EventArgs^ e) {
 	}
 	private: System::Void textBox1_TextChanged(System::Object^ sender, System::EventArgs^ e) {
 	}
-
+	private: System::Void dataGridView1_CellContentClick(System::Object^ sender, System::Windows::Forms::DataGridViewCellEventArgs^ e) {
+    }
 	};
 }

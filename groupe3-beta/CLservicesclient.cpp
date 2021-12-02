@@ -12,6 +12,7 @@ NS_Comp_Svc_Cli::CLservicesClient::CLservicesClient(void)
 	this->oMapPersoInfo = gcnew NS_Map_Personal_info_client::CLmapPersonalinfoclient();
 	this->oMapPostCode = gcnew NS_Map_Post_Code::CLmapPostcodeClient();
 	this->oMapOrder = gcnew NS_Map_Order::CLmapOrder();
+	this->oMapCust = gcnew NS_Map_Customer::CLmapCustomer();
 }
 System::Data::DataSet^ NS_Comp_Svc_Cli::CLservicesClient::SelectClient(System::String^ dataTableName, int idcust)
 {
@@ -49,18 +50,18 @@ void NS_Comp_Svc_Cli::CLservicesClient::InsertClient(System::String^ streetname,
 	this->oMapPersoInfo->setLastname(lastname);
 	this->oMapPersoInfo->setBirthdate(birthdate);
 
-	sql = this->oCli->Insert();
+	sql = Insert();
 
 	this->oCad->actionRows(sql);
 }
 
-void NS_Comp_Svc_Cli::CLservicesClient::DeleteClient(int idperso) {
+void NS_Comp_Svc_Cli::CLservicesClient::DeleteClient(int id) {
 
 	System::String^ sql;
 
-	this->oMapPersoInfo->setidperso(idperso);
+	this->oMapCust->setIdcustomer(id);
 
-	sql = this->oCli->Delete();
+	sql = Delete();
 
 	this->oCad->actionRows(sql);
 }
@@ -92,23 +93,23 @@ void NS_Comp_Svc_Cli::CLservicesClient::UpdateClient(int idcust, System::String^
 	this->oMapBill->setidaddress(idaddrbill);
 	this->oMapDeliv->setidaddress(idaddrdeliv);
 
-	sql = this->oCli->Update();
+	sql = Update();
 
 	this->oCad->actionRows(sql);
 }
 
 System::String^ NS_Comp_Svc_Cli::CLservicesClient::Select() {
-	return "EXEC SP_SC @id_customer ="+this->oMapOrder->getIdcustomer().ToString();
+	return "EXEC SP_SC @id_customer ="+ this->oMapCust->getIdcustomer().ToString()+";";
 }
 
 System::String^ NS_Comp_Svc_Cli::CLservicesClient::Insert() 
 {
-	System::String^ firstname = oMapPersoInfo->getFirstname();
-	System::String^ lastname = oMapPersoInfo->getLastname();
-	System::String^ birthdate = oMapPersoInfo->getBirthdate();
-	System::String^ postcodebill = oMapBill->getPostcodeBilling().ToString();
-	System::String^ citybill = oMapBill->getCitybilling();
-	System::String^ streetnamebill = oMapBill->getStreetnameBilling();
+	System::String^ firstname = this->oMapPersoInfo->getFirstname();
+	System::String^ lastname = this->oMapPersoInfo->getLastname();
+	System::String^ birthdate = this->oMapPersoInfo->getBirthdate();
+	System::String^ postcodebill = this->oMapBill->getPostcodeBilling().ToString();
+	System::String^ citybill = this->oMapBill->getCitybilling();
+	System::String^ streetnamebill = this->oMapBill->getStreetnameBilling();
 	System::String^ streetnumberbill = this->oMapBill->getStreetnumberBilling().ToString();
 	System::String^ residencebill = this->oMapBill->getResidencenameBilling();
 	System::String^ buildingbill = this->oMapBill->getBuildingnameBilling();
@@ -123,33 +124,55 @@ System::String^ NS_Comp_Svc_Cli::CLservicesClient::Insert()
 	System::String^ floornumber = this->oMapAddr->getFloornumber().ToString();
 	System::String^ complement = this->oMapAddr->getComplement();
 	System::String^ temp = "EXEC SP_CC " +
-		"@first_name = " + firstname +
-		", @last_name =" + lastname +
-		", @birth_date =" + birthdate +
-		", @Post_code_billing_address =" + postcodebill+
-		", @name_city_billing_address =" +	citybill + 
-		", @Street_name_billing_address =" + streetnamebill + 
-		", @Street_number_billing_address =" + streetnumberbill + 
-		", @Residency_name_billing_address =" + residencebill + 
-		", @Building_name_billing_address =" + buildingbill + 
-		", @Floor_number_billing_address =" + floornumberbill + 
-		", @Complement_billing_address =" + complementbill + 
-		", @Post_code_delivering_address =" + postcode + 
-		", @name_city_delivering_address =" + cityname +
-		", @Street_name_delivering_address =" + streetname +
-		", @Street_number_delivering_address =" + streetnumber +
-		", @Residency_name_delivering_address =" + residence +
-		", @Building_name_delivering_address =" + building +
-		", @Floor_number_delivering_address =" + floornumber +
-		", @Complement_delivering_address =" + complement;
+		"@first_name ='" + firstname +
+		"', @last_name ='" + lastname +
+		"', @birth_date ='" + birthdate +
+		"', @Post_code_billing_address =" + postcodebill+
+		", @name_city_billing_address ='" +	citybill + 
+		"', @Street_name_billing_address ='" + streetnamebill + 
+		"', @Street_number_billing_address =" + streetnumberbill + 
+		", @Residency_name_billing_address ='" + residencebill + 
+		"', @Building_name_billing_address ='" + buildingbill + 
+		"', @Floor_number_billing_address =" + floornumberbill + 
+		", @Complement_billing_address ='" + complementbill + 
+		"', @Post_code_delivering_address =" + postcode + 
+		", @name_city_delivering_address ='" + cityname +
+		"', @Street_name_delivering_address ='" + streetname +
+		"', @Street_number_delivering_address =" + streetnumber +
+		", @Residency_name_delivering_address ='" + residence +
+		"', @Building_name_delivering_address ='" + building +
+		"', @Floor_number_delivering_address =" + floornumber +
+		", @Complement_delivering_address ='" + complement + "';";
 	return temp;
 	//return " ";
 }
 
 System::String^ NS_Comp_Svc_Cli::CLservicesClient::Delete() {
-	return "EXEC SP_D @tab = 'customer' , @id ="+this->oMapOrder->getIdcustomer().ToString();
+	return "EXEC SP_D @tab = 'customer' , @id ="+this->oMapCust->getIdcustomer().ToString()+";";
 }
 
 System::String^ NS_Comp_Svc_Cli::CLservicesClient::Update() {
-	return "EXEC SP_UC @id_customer ="+ this->oMapOrder->getIdcustomer().ToString()+", @first_name =" + this->oMapPersoInfo->getFirstname() + ", @last_name =" + this->oMapPersoInfo->getLastname() + ", @birth_date =" + this->oMapPersoInfo->getBirthdate() + ", @Street_name_billing_address ="+this->oMapBill->getStreetnameBilling()+", @Street_number_billing_address ="+this->oMapBill->getStreetnumberBilling().ToString()+", @Residency_name_billing_address ="+this->oMapBill->getResidencenameBilling()+", @Building_name_billing_address =" + this->oMapBill->getBuildingnameBilling() + ", @Floor_number_billing_address =" + this->oMapBill->getFloornumberBilling().ToString() + ", @Complement_billing_address =" + this->oMapBill->getComplementBilling() + ", @name_city_billing_address = " + this->oMapBill->getCitybilling() + ", @post_code_billing_address ="+this->oMapBill->getPostcodeBilling().ToString()+", @Street_name_delivering_address ="+this->oMapAddr->getStreetname()+", @Street_number_delivering_address ="+this->oMapAddr->getStreetnumber().ToString()+", @Residency_name_delivering_address ="+this->oMapAddr->getResidencename()+", @Building_name_delivering_address ="+this->oMapAddr->getBuildingname()+", @Floor_number_delivering_address ="+this->oMapAddr->getFloornumber().ToString()+", @Complement_delivering_address ="+this->oMapAddr->getComplement()+", @name_city_delivering_address ="+this->oMapCityClient->getNamecity()+", @post_code_delivering_address ="+this->oMapPostCode->getPostcode().ToString()+", @id_billing_address_changed ="+this->oMapBill->getidaddress().ToString()+", @id_delivering_address_changed ="+this->oMapDeliv->getidaddress().ToString();
+	return "EXEC SP_UC "+
+		"@id_customer = "+ this->oMapCust->getIdcustomer().ToString() +
+		", @first_name = '" + this->oMapPersoInfo->getFirstname() + 
+		"', @last_name = '" + this->oMapPersoInfo->getLastname() + 
+		"', @birth_date = '" + this->oMapPersoInfo->getBirthdate() + 
+		"', @Street_name_billing_address = '"+this->oMapBill->getStreetnameBilling()+
+		"', @Street_number_billing_address = "+this->oMapBill->getStreetnumberBilling().ToString()+
+		", @Residency_name_billing_address = '"+this->oMapBill->getResidencenameBilling()+
+		"', @Building_name_billing_address = '" + this->oMapBill->getBuildingnameBilling() + 
+		"', @Floor_number_billing_address = " + this->oMapBill->getFloornumberBilling().ToString() + 
+		", @Complement_billing_address = '" + this->oMapBill->getComplementBilling() + 
+		"', @name_city_billing_address = '" + this->oMapBill->getCitybilling() + 
+		"', @post_code_billing_address = "+this->oMapBill->getPostcodeBilling().ToString()+
+		", @Street_name_delivering_address = '"+this->oMapAddr->getStreetname()+
+		"', @Street_number_delivering_address = "+this->oMapAddr->getStreetnumber().ToString()+
+		", @Residency_name_delivering_address = '"+this->oMapAddr->getResidencename()+
+		"', @Building_name_delivering_address = '"+this->oMapAddr->getBuildingname()+
+		"', @Floor_number_delivering_address = "+this->oMapAddr->getFloornumber().ToString()+
+		", @Complement_delivering_address = '"+this->oMapAddr->getComplement()+
+		"', @name_city_delivering_address = '"+this->oMapCityClient->getNamecity()+
+		"', @post_code_delivering_address = "+this->oMapPostCode->getPostcode().ToString()+
+		", @id_billing_address_changed = "+this->oMapBill->getidaddress().ToString()+
+		", @id_delivering_address_changed = "+this->oMapDeliv->getidaddress().ToString();
 }
