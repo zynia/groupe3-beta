@@ -33,11 +33,11 @@ System::String^ NS_Map_Article_Order::CLmapArticleOrder::getTypearticle(void) {
 	return type_article;
 }
 
-void NS_Map_Article_Order::CLmapArticleOrder::setMarginarticle(float margin) {
+void NS_Map_Article_Order::CLmapArticleOrder::setMarginarticle(System::String^ margin) {
 	this->margin_article = margin;
 }
 
-float NS_Map_Article_Order::CLmapArticleOrder::getMarginarticle(void) {
+System::String^ NS_Map_Article_Order::CLmapArticleOrder::getMarginarticle(void) {
 	return margin_article;
 }
 
@@ -49,11 +49,11 @@ int NS_Map_Article_Order::CLmapArticleOrder::getReplenishmentthreshold(void) {
 	return replenishment_threshold;
 }
 
-void NS_Map_Article_Order::CLmapArticleOrder::setHT(float ht) {
+void NS_Map_Article_Order::CLmapArticleOrder::setHT(System::String^ ht) {
 	this->HT = ht;
 }
 
-float NS_Map_Article_Order::CLmapArticleOrder::getHT(void) {
+System::String^ NS_Map_Article_Order::CLmapArticleOrder::getHT(void) {
 	return HT;
 }
 
@@ -65,27 +65,27 @@ System::String^ NS_Map_Article_Order::CLmapArticleOrder::getNamearticle(void) {
 	return name_article;
 }
 
-void NS_Map_Article_Order::CLmapArticleOrder::setDiscount(float discount) {
+void NS_Map_Article_Order::CLmapArticleOrder::setDiscount(System::String^ discount) {
 	this->discount = discount;
 }
 
-float NS_Map_Article_Order::CLmapArticleOrder::getDiscount(void) {
+System::String^ NS_Map_Article_Order::CLmapArticleOrder::getDiscount(void) {
 	return discount;
 }
 
-void NS_Map_Article_Order::CLmapArticleOrder::setTVA(float tva) {
+void NS_Map_Article_Order::CLmapArticleOrder::setTVA(System::String^ tva) {
 	this->TVA = tva;
 }
 
-float NS_Map_Article_Order::CLmapArticleOrder::getTVA(void) {
+System::String^ NS_Map_Article_Order::CLmapArticleOrder::getTVA(void) {
 	return TVA;
 }
 
-void NS_Map_Article_Order::CLmapArticleOrder::setInventoryshrinkage(float invshrink) {
+void NS_Map_Article_Order::CLmapArticleOrder::setInventoryshrinkage(System::String^ invshrink) {
 	this->inventory_shrinkage = invshrink;
 }
 
-float NS_Map_Article_Order::CLmapArticleOrder::getInventoryshrinkage(void) {
+System::String^ NS_Map_Article_Order::CLmapArticleOrder::getInventoryshrinkage(void) {
 	return inventory_shrinkage;
 }
 

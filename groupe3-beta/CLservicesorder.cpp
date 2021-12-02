@@ -20,7 +20,7 @@ System::Data::DataSet^ NS_Comp_Svc_Order::CLserviceOrder::SelectOrder(System::St
 	return this->oCad->getRows(sql, dataTableName);
 }
 
-void NS_Comp_Svc_Order::CLserviceOrder::InsertOrder(int postcode, System::String^ cityname, System::String^ streetname, int streetnb, System::String^ residence, System::String^ building, int floornb, System::String^ complement, System::String^ deliverydate, System::String^ senddate, int idcust, int idart, float tva, float ht, float discount, float invshrink, int nbart) {
+void NS_Comp_Svc_Order::CLserviceOrder::InsertOrder(int postcode, System::String^ cityname, System::String^ streetname, int streetnb, System::String^ residence, System::String^ building, int floornb, System::String^ complement, System::String^ deliverydate, System::String^ senddate, int idcust, int idart, System::String^ tva, System::String^ ht, System::String^ discount, System::String^ invshrink, int nbart) {
 
 	System::String^ sql;
 
@@ -53,12 +53,12 @@ void NS_Comp_Svc_Order::CLserviceOrder::DeleteOrder(int id) {
 
 	this->oMapOrd->setIdorder(id);
 
-	sql = this->oOrder->Delete();
+	sql = Delete();
 
 	this->oCad->actionRows(sql);
 }
 
-void NS_Comp_Svc_Order::CLserviceOrder::UpdateOrder(int idord, int idcust, int postcode, System::String^ cityname, System::String^ streetname, int streetnb, System::String^ residence, System::String^ building, int floornb, System::String^ complement, float tva, float ht, float discount, float margin, int nbart, System::String^ paytype, int paynb, System::String^ paydate, System::String^ delivdate, System::String^ senddate, int idart, int idartchange) {
+void NS_Comp_Svc_Order::CLserviceOrder::UpdateOrder(int idord, int idcust, int postcode, System::String^ cityname, System::String^ streetname, int streetnb, System::String^ residence, System::String^ building, int floornb, System::String^ complement, System::String^ tva, System::String^ ht, System::String^ discount, System::String^ margin, int nbart, System::String^ paytype, int paynb, System::String^ paydate, System::String^ delivdate, System::String^ senddate, int idart, int idartchange) {
 
 	System::String^ sql;
 
@@ -86,7 +86,7 @@ void NS_Comp_Svc_Order::CLserviceOrder::UpdateOrder(int idord, int idcust, int p
 	this->oMapArticlOrd->setidarticlechanged(idartchange);
 
 	
-	sql = this->oOrder->Update();
+	sql = Update();
 
 	this->oCad->actionRows(sql);
 }
@@ -109,11 +109,11 @@ System::String^ NS_Comp_Svc_Order::CLserviceOrder::Insert() {
 		"', @send_date ='" + this->oMapOrd->getSenddate() + 
 		"', @id_customer =" + this->oMapOrd->getIdcustomer().ToString() + 
 		", @id_article =" + this->oMapArticlOrd->getidarticle().ToString() + 
-		", @TVA =" + this->oMapArticlOrd->getTVA().ToString() + 
-		", @HT =" + this->oMapArticlOrd->getHT().ToString() + 
-		", @discount =" + this->oMapArticlOrd->getDiscount().ToString() + 
+		", @TVA =" + this->oMapArticlOrd->getTVA() + 
+		", @HT =" + this->oMapArticlOrd->getHT() + 
+		", @discount =" + this->oMapArticlOrd->getDiscount() + 
 		", @inventory_shrinkage =" + this->oMapArticlOrd->getInventoryshrinkage() + 
-		", @nb_article =" + this->oMapOrd->getNbarticle() + ";";
+		", @nb_article =" + this->oMapOrd->getNbarticle().ToString() + ";";
 }
 
 System::String^ NS_Comp_Svc_Order::CLserviceOrder::Delete() {
@@ -121,5 +121,27 @@ System::String^ NS_Comp_Svc_Order::CLserviceOrder::Delete() {
 }
 
 System::String^ NS_Comp_Svc_Order::CLserviceOrder::Update() {
-	return "EXEC SP_UO @id_order =" + this->oMapOrd->getIdorder().ToString()+", @id_customer ="+this->oMapCust->getIdcustomer().ToString()+", @post_code =" + this->oMapPostcode->getPostcode().ToString() + ", @name_city =" + this->oMapCity->getNamecity() + ", @street_name =" + this->oMapAddr->getStreetnumber().ToString() + ", @street_number ="+ this->oMapAddr->getStreetnumber().ToString()+", @residency_name =" + this->oMapAddr->getResidencename() + ", @building_name =" + this->oMapAddr->getBuildingname() + ", @floor_number =" + this->oMapAddr->getFloornumber().ToString() + ", @complement =" + this->oMapAddr->getComplement() + ", @TVA =" + this->oMapArticlOrd->getTVA().ToString() + ", @HT =" + this->oMapArticlOrd->getHT().ToString() + ", @discount =" + this->oMapArticlOrd->getDiscount().ToString() + ", @margin_article ="+this->oMapArticlOrd->getMarginarticle().ToString()+", @nb_article =" + this->oMapOrd->getNbarticle() + ", @Payment_type ="+this->oMapPay->getPaymenttype()+", @nb_payment ="+this->oMapPay->getPaymentnumber().ToString()+", @Payment_date ="+this->oMapPay->getPaymentdate()+", @delivery_date ="+this->oMapOrd->getDeliverydate()+", @send_date ="+this->oMapOrd->getSenddate()+", @id_article ="+this->oMapArticlOrd->getidarticle().ToString()+", @id_article_changed ="+this->oMapArticlOrd->getidarticlechanged().ToString();
+	return "EXEC SP_UO "+
+		"@id_order = " + this->oMapOrd->getIdorder().ToString()+
+		", @id_customer = "+this->oMapCust->getIdcustomer().ToString()+
+		", @post_code = " + this->oMapPostcode->getPostcode().ToString() + 
+		", @name_city = " + this->oMapCity->getNamecity() + 
+		", @street_name = " + this->oMapAddr->getStreetnumber().ToString() + 
+		", @street_number = "+ this->oMapAddr->getStreetnumber().ToString()+
+		", @residency_name = " + this->oMapAddr->getResidencename() + 
+		", @building_name = " + this->oMapAddr->getBuildingname() + 
+		", @floor_number = " + this->oMapAddr->getFloornumber().ToString() + 
+		", @complement = " + this->oMapAddr->getComplement() + 
+		", @TVA = " + this->oMapArticlOrd->getTVA() + 
+		", @HT = " + this->oMapArticlOrd->getHT() + 
+		", @discount = " + this->oMapArticlOrd->getDiscount() + 
+		", @margin_article = "+this->oMapArticlOrd->getMarginarticle()+
+		", @nb_article = " + this->oMapOrd->getNbarticle() + 
+		", @Payment_type = "+this->oMapPay->getPaymenttype()+
+		", @nb_payment = "+this->oMapPay->getPaymentnumber().ToString()+
+		", @Payment_date = "+this->oMapPay->getPaymentdate()+
+		", @delivery_date = "+this->oMapOrd->getDeliverydate()+
+		", @send_date = "+this->oMapOrd->getSenddate()+
+		", @id_article = "+this->oMapArticlOrd->getidarticle().ToString()+
+		", @id_article_changed = "+this->oMapArticlOrd->getidarticlechanged().ToString();
 }

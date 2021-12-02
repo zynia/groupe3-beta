@@ -24,9 +24,9 @@ namespace NS_Comp_Svc_Order {
 	public:
 		CLserviceOrder(void);
 		System::Data::DataSet^ SelectOrder(System::String^, int);
-		void InsertOrder(int, System::String^, System::String^, int, System::String^, System::String^, int, System::String^, System::String^, System::String^, int, int, float, float, float, float, int);
+		void InsertOrder(int, System::String^, System::String^, int, System::String^, System::String^, int, System::String^, System::String^, System::String^, int, int, System::String^, System::String^, System::String^, System::String^, int);
 		void DeleteOrder(int);
-		void UpdateOrder(int, int , int, System::String^, System::String^, int, System::String^, System::String^, int, System::String^, float, float, float, float, int, System::String^, int, System::String^, System::String^ , System::String^, int, int);
+		void UpdateOrder(int, int , int, System::String^, System::String^, int, System::String^, System::String^, int, System::String^, System::String^, System::String^, System::String^, System::String^, int, System::String^, int, System::String^, System::String^ , System::String^, int, int);
 
 		System::String^ Select();
 		System::String^ Insert();

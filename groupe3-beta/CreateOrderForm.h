@@ -211,7 +211,6 @@ namespace Gstorg {
 			this->PostCodeBox->Name = L"PostCodeBox";
 			this->PostCodeBox->Size = System::Drawing::Size(130, 22);
 			this->PostCodeBox->TabIndex = 11;
-			this->PostCodeBox->TextChanged += gcnew System::EventHandler(this, &CreateOrderForm::textBox1_TextChanged);
 			// 
 			// DisplayAdressBox
 			// 
@@ -373,7 +372,7 @@ namespace Gstorg {
 			this->SendDateBox->Name = L"SendDateBox";
 			this->SendDateBox->Size = System::Drawing::Size(130, 22);
 			this->SendDateBox->TabIndex = 45;
-			this->SendDateBox->TextChanged += gcnew System::EventHandler(this, &CreateOrderForm::SendDate_TextChanged);
+
 			// 
 			// DisplayTVABox
 			// 
@@ -452,7 +451,6 @@ namespace Gstorg {
 			this->DisplayIDCustomerBox->Size = System::Drawing::Size(110, 22);
 			this->DisplayIDCustomerBox->TabIndex = 39;
 			this->DisplayIDCustomerBox->Text = L"ID customer :";
-			this->DisplayIDCustomerBox->TextChanged += gcnew System::EventHandler(this, &CreateOrderForm::textBox8_TextChanged);
 			// 
 			// DisplayIDItembox
 			// 
@@ -713,18 +711,7 @@ namespace Gstorg {
 		this->oOrd = gcnew NS_Comp_Svc_Order::CLserviceOrder();
 	}
 	private: System::Void CreateOrderForm_Click(System::Object^ sender, System::EventArgs^ e) {
-		this->oOrd->InsertOrder(System::Convert::ToInt32(this->PostCodeBox->Text), this->CityNameBox->Text, this->StreetNameBox->Text, System::Convert::ToInt32(this->StreetNumberBox->Text), this->ResidencyNameBox->Text, this->BuildingNameBox->Text, System::Convert::ToInt32(this->FloorNumberBox->Text), this->ComplementBox->Text, this->DeliveryDateBox->Text, this->SendDateBox->Text, System::Convert::ToInt32(this->IDCustomerBox->Text), System::Convert::ToInt32(this->IDitemBox->Text), System::Convert::ToDouble(this->TVABox->Text), System::Convert::ToDouble(this->HTCostBox->Text), System::Convert::ToDouble(this->DiscountBox->Text), System::Convert::ToDouble(this->MarginBox->Text), System::Convert::ToInt32(this->NbItemsBox->Text));
-	}
-	private: System::Void textBox1_TextChanged(System::Object^ sender, System::EventArgs^ e) {
-	}
-
-	private: System::Void FirstNameBox_TextChanged(System::Object^ sender, System::EventArgs^ e) {
-	}
-	private: System::Void textBox8_TextChanged(System::Object^ sender, System::EventArgs^ e) {
-	}
-	private: System::Void textBox1_TextChanged_1(System::Object^ sender, System::EventArgs^ e) {
-	}
-	private: System::Void SendDate_TextChanged(System::Object^ sender, System::EventArgs^ e) {
+		this->oOrd->InsertOrder(System::Convert::ToInt32(this->PostCodeBox->Text), this->CityNameBox->Text, this->StreetNameBox->Text, System::Convert::ToInt32(this->StreetNumberBox->Text), this->ResidencyNameBox->Text, this->BuildingNameBox->Text, System::Convert::ToInt32(this->FloorNumberBox->Text), this->ComplementBox->Text, this->DeliveryDateBox->Text, this->SendDateBox->Text, System::Convert::ToInt32(this->IDCustomerBox->Text), System::Convert::ToInt32(this->IDitemBox->Text), this->TVABox->Text, this->HTCostBox->Text, this->DiscountBox->Text, this->MarginBox->Text, System::Convert::ToInt32(this->NbItemsBox->Text));
 	}
 	};
 }
