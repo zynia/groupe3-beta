@@ -35,6 +35,8 @@ namespace Gstorg {
 	private: System::Windows::Forms::TextBox^ DisplayPersonnalinfoBox;
 	private: System::Windows::Forms::TextBox^ DisplayID;
 	private: System::Windows::Forms::Button^ SendButton;
+	private: System::Windows::Forms::DataGridView^ DatagridClient;
+
 	private:
 		/// <summary>
 		/// Required designer variable.
@@ -52,13 +54,24 @@ namespace Gstorg {
 			this->DisplayPersonnalinfoBox = (gcnew System::Windows::Forms::TextBox());
 			this->DisplayID = (gcnew System::Windows::Forms::TextBox());
 			this->SendButton = (gcnew System::Windows::Forms::Button());
+			this->DatagridClient = (gcnew System::Windows::Forms::DataGridView());
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->DatagridClient))->BeginInit();
 			this->SuspendLayout();
+			// 
+			// DatagridClient
+			// 
+			this->DatagridClient->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
+			this->DatagridClient->Location = System::Drawing::Point(400, 80);
+			this->DatagridClient->Name = L"dgv_enr";
+			this->DatagridClient->Size = System::Drawing::Size(200, 200);
+			this->DatagridClient->TabIndex = 0;
+			this->DatagridClient->Visible = false;
 			// 
 			// FirstNameBox
 			// 
 			this->FirstNameBox->Font = (gcnew System::Drawing::Font(L"Arial", 9.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->FirstNameBox->Location = System::Drawing::Point(315, 150);
+			this->FirstNameBox->Location = System::Drawing::Point(215, 150);
 			this->FirstNameBox->Name = L"FirstNameBox";
 			this->FirstNameBox->Size = System::Drawing::Size(100, 22);
 			this->FirstNameBox->TabIndex = 0;
@@ -69,7 +82,7 @@ namespace Gstorg {
 				static_cast<System::Byte>(0)));
 			this->DisplayPersonnalinfoBox->BorderStyle = BorderStyle::None;
 			this->DisplayPersonnalinfoBox->BackColor = ColorTranslator::FromHtml("#f3f3f3");
-			this->DisplayPersonnalinfoBox->Location = System::Drawing::Point(250, 71);
+			this->DisplayPersonnalinfoBox->Location = System::Drawing::Point(150, 71);
 			this->DisplayPersonnalinfoBox->Name = L"DisplayPersonnalinfoBox";
 			this->DisplayPersonnalinfoBox->ReadOnly = true;
 			this->DisplayPersonnalinfoBox->Size = System::Drawing::Size(140, 29);
@@ -82,7 +95,7 @@ namespace Gstorg {
 				static_cast<System::Byte>(0)));
 			this->DisplayID->BorderStyle = BorderStyle::None;
 			this->DisplayID->BackColor = ColorTranslator::FromHtml("#f3f3f3");
-			this->DisplayID->Location = System::Drawing::Point(230, 150);
+			this->DisplayID->Location = System::Drawing::Point(130, 150);
 			this->DisplayID->Name = L"DisplayID";
 			this->DisplayID->ReadOnly = true;
 			this->DisplayID->Size = System::Drawing::Size(70, 22);
@@ -91,19 +104,21 @@ namespace Gstorg {
 			// 
 			// SendButton
 			// 
-			this->SendButton->Location = System::Drawing::Point(280, 210);
+			this->SendButton->Location = System::Drawing::Point(180, 210);
 			this->SendButton->Name = L"SendButton";
 			this->SendButton->Size = System::Drawing::Size(75, 23);
 			this->SendButton->TabIndex = 41;
 			this->SendButton->Text = L"Send";
 			this->SendButton->UseVisualStyleBackColor = true;
-			
+			this->SendButton->Click += gcnew System::EventHandler(this, &ReadClientForm::SendButton_Click);
+
 			// 
 			// ReadClientForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(640, 380);
+			this->Controls->Add(this->DatagridClient);
 			this->Controls->Add(this->SendButton);
 			this->Controls->Add(this->DisplayID);
 			this->Controls->Add(this->DisplayPersonnalinfoBox);
@@ -112,12 +127,17 @@ namespace Gstorg {
 			this->Name = L"ReadClientForm";
 			this->Text = L"ReadClientForm";
 			this->Load += gcnew System::EventHandler(this, &ReadClientForm::ReadClientForm_Load);
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->DatagridClient))->EndInit();
 			this->ResumeLayout(false);
 			this->PerformLayout();
 			this->BackColor = ColorTranslator::FromHtml("#f3f3f3");
 		}
 #pragma endregion
 	private: System::Void ReadClientForm_Load(System::Object^ sender, System::EventArgs^ e) {
+	}
+	private: System::Void SendButton_Click(System::Object^ sender, System::EventArgs^ e) {
+		this->DatagridClient->Visible = true;
+		this->DatagridClient->Refresh();
 	}
 	};
 }
