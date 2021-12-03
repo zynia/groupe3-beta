@@ -97,6 +97,28 @@ void NS_Comp_Svc_Cli::CLservicesClient::UpdateClient(int idcust, System::String^
 	this->oCad->actionRows(sql);
 }
 
+void NS_Comp_Svc_Cli::CLservicesClient::AddnewbillingClient(int idcust, int postcodebill, System::String^ citybill, System::String^ streetbill, int nbbill, System::String^ residencebill, System::String^ buildingbill, int floorbill, System::String^ complementbill) {
+	System::String^ sql;
+
+	sql = Addnewbilling(idcust, postcodebill, citybill, streetbill, nbbill, residencebill, buildingbill, floorbill, complementbill);
+
+	this->oCad->actionRows(sql);
+}
+
+System::String^ NS_Comp_Svc_Cli::CLservicesClient::Addnewbilling(int idcust, int postcodebill, System::String^ citybill, System::String^ streetbill, int nbbill, System::String^ residencebill, System::String^ buildingbill, int floorbill, System::String^ complementbill) {
+	return "EXEC SP_ADD_BILLING_ADDRESS " +
+		" @id_customer =" + idcust.ToString() +
+		", @Post_code_billing_address =" + postcodebill.ToString() +
+		", @name_city_billing_address ='" + citybill +
+		"', @Street_name_billing_address ='" + streetbill +
+		", @Street_number_billing_address =" + nbbill.ToString() +
+		", @Residency_name_billing_address ='" + residencebill +
+		"', @Building_name_billing_address ='" + buildingbill +
+		"', @Floor_number_billing_address =" + floorbill.ToString() +
+		", @Complement_billing_address ='" + complementbill + "';";
+}
+
+
 System::String^ NS_Comp_Svc_Cli::CLservicesClient::Select(int idcustomer) {
 	return "EXEC SP_SC @id_customer ="+idcustomer.ToString()+";";
 }

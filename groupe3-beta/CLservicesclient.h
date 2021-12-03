@@ -33,7 +33,11 @@ namespace NS_Comp_Svc_Cli
 		void InsertClient(System::String^, int, System::String^, System::String^, int, System::String^, System::String^, int, System::String^, int, System::String^, System::String^, int, System::String^, System::String^, int, System::String^, System::String^, System::String^);
 		void DeleteClient(int);
 		void UpdateClient(int, System::String^, System::String^, System::String^, System::String^, int, System::String^, System::String^, int, System::String^, System::String^, int , System::String^ , int, System::String^, System::String^, int, System::String^, System::String^, int, int, int);
+		void AddnewshippingClient();
+		void AddnewbillingClient(int, int, System::String^, System::String^, int, System::String^, System::String^, int, System::String^);
 
+		System::String^ Addnewshipping();
+		System::String^ Addnewbilling(int, int, System::String^, System::String^, int, System::String^, System::String^, int, System::String^);
 		System::String^ Select(int);
 		System::String^ Insert();
 		System::String^ Delete();
