@@ -45,6 +45,7 @@ namespace Gstorg {
 	private: System::Windows::Forms::TextBox^ PostCodeBoxBilling;
 	private: System::Windows::Forms::TextBox^ DisplayAdressBox;
 	private: System::Windows::Forms::TextBox^ DisplayBillingAdress;
+	private: System::Windows::Forms::TextBox^ DisplayShippingAdress;
 	private: System::Windows::Forms::TextBox^ DisplayBillingAddress;
 	private: System::Windows::Forms::TextBox^ DisplayPersonnalinfoBox;
 	private: System::Windows::Forms::TextBox^ DisplayFirstName;
@@ -60,6 +61,7 @@ namespace Gstorg {
 	private: System::Windows::Forms::TextBox^ BuildingNameBoxBilling;
 	private: System::Windows::Forms::TextBox^ DisplayPostcode;
 	private: System::Windows::Forms::TextBox^ DisplayClientId;
+	private: System::Windows::Forms::TextBox^ ClientIdBox;
 	private: System::Windows::Forms::TextBox^ StreetNameBoxShipping;
 	private: System::Windows::Forms::TextBox^ StreetNumberBoxShipping;
 	private: System::Windows::Forms::TextBox^ ResidencyNameBoxShipping;
@@ -71,6 +73,8 @@ namespace Gstorg {
 	private: System::Windows::Forms::Button^ SendButton;
 	private: System::Windows::Forms::Button^ AddBillingAddressButton;
 	private: System::Windows::Forms::Button^ AddShippingAddressButton;
+	private: System::Windows::Forms::Button^ SendBillingAddressButton;
+	private: System::Windows::Forms::Button^ SendShippingAddressButton;
 	private: NS_Comp_Svc_Cli::CLservicesClient^ oCli;
 
 	protected:
@@ -99,8 +103,10 @@ namespace Gstorg {
 			this->CityNameBoxBilling = (gcnew System::Windows::Forms::TextBox());
 			this->PostCodeBoxBilling = (gcnew System::Windows::Forms::TextBox());
 			this->DisplayClientId = (gcnew System::Windows::Forms::TextBox());
+			this->ClientIdBox = (gcnew System::Windows::Forms::TextBox());
 			this->DisplayAdressBox = (gcnew System::Windows::Forms::TextBox());
 			this->DisplayBillingAdress = (gcnew System::Windows::Forms::TextBox());
+			this->DisplayShippingAdress = (gcnew System::Windows::Forms::TextBox());
 			this->DisplayPersonnalinfoBox = (gcnew System::Windows::Forms::TextBox());
 			this->DisplayFirstName = (gcnew System::Windows::Forms::TextBox());
 			this->DisplayLastname = (gcnew System::Windows::Forms::TextBox());
@@ -125,6 +131,8 @@ namespace Gstorg {
 			this->SendButton = (gcnew System::Windows::Forms::Button());
 			this->AddBillingAddressButton = (gcnew System::Windows::Forms::Button());
 			this->AddShippingAddressButton = (gcnew System::Windows::Forms::Button());
+			this->SendBillingAddressButton = (gcnew System::Windows::Forms::Button());
+			this->SendShippingAddressButton = (gcnew System::Windows::Forms::Button());
 			this->SuspendLayout();
 			// 
 			// FirstNameBox
@@ -243,6 +251,20 @@ namespace Gstorg {
 			this->DisplayBillingAdress->Size = System::Drawing::Size(381, 29);
 			this->DisplayBillingAdress->TabIndex = 13;
 			this->DisplayBillingAdress->Text = L"Billing Address";
+			// 
+			// DisplayShippingAdress
+			// 
+			this->DisplayShippingAdress->Font = (gcnew System::Drawing::Font(L"Arial", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->DisplayShippingAdress->Visible = false;
+			this->DisplayShippingAdress->BorderStyle = BorderStyle::None;
+			this->DisplayShippingAdress->BackColor = ColorTranslator::FromHtml("#f3f3f3");
+			this->DisplayShippingAdress->Location = System::Drawing::Point(25, 40);
+			this->DisplayShippingAdress->Name = L"DisplayShippingAdress";
+			this->DisplayShippingAdress->ReadOnly = true;
+			this->DisplayShippingAdress->Size = System::Drawing::Size(381, 29);
+			this->DisplayShippingAdress->TabIndex = 13;
+			this->DisplayShippingAdress->Text = L"Shipping Address";
 			// 
 			// DisplayPersonnalinfoBox
 			// 
@@ -423,6 +445,16 @@ namespace Gstorg {
 			this->DisplayClientId->TabIndex = 30;
 			this->DisplayClientId->Text = L"Client ID  :";
 			// 
+			// ClientIdBox
+			// 
+			this->ClientIdBox->Font = (gcnew System::Drawing::Font(L"Arial", 9.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->ClientIdBox->Location = System::Drawing::Point(140, 340);
+			this->ClientIdBox->Name = L"ClientIdBox";
+			this->ClientIdBox->Size = System::Drawing::Size(130, 22);
+			this->ClientIdBox->TabIndex = 31;
+			this->ClientIdBox->Visible = false;
+			// 
 			// StreetNameBoxShipping
 			// 
 			this->StreetNameBoxShipping->Font = (gcnew System::Drawing::Font(L"Arial", 9.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
@@ -525,6 +557,28 @@ namespace Gstorg {
 			this->AddShippingAddressButton->UseVisualStyleBackColor = true;
 			this->AddShippingAddressButton->Click += gcnew System::EventHandler(this, &CreateClientForm::AddShipping_Click);
 			// 
+			// SendBillingAddressButton
+			// 
+			this->SendBillingAddressButton->Location = System::Drawing::Point(460, 330);
+			this->SendBillingAddressButton->Name = L"SendBillingAddressButton";
+			this->SendBillingAddressButton->Size = System::Drawing::Size(120, 40);
+			this->SendBillingAddressButton->TabIndex = 39;
+			this->SendBillingAddressButton->Text = L"Send additionnal address";
+			this->SendBillingAddressButton->UseVisualStyleBackColor = true;
+			this->SendBillingAddressButton->Click += gcnew System::EventHandler(this, &CreateClientForm::SendBillingAddress_Click);
+			this->SendBillingAddressButton->Visible = false;
+			// 
+			// SendShippingAddressButton
+			// 
+			this->SendShippingAddressButton->Location = System::Drawing::Point(460, 330);
+			this->SendShippingAddressButton->Name = L"SendShippingAddressButton";
+			this->SendShippingAddressButton->Size = System::Drawing::Size(120, 40);
+			this->SendShippingAddressButton->TabIndex = 39;
+			this->SendShippingAddressButton->Text = L"Send additionnal address";
+			this->SendShippingAddressButton->UseVisualStyleBackColor = true;
+			this->SendShippingAddressButton->Click += gcnew System::EventHandler(this, &CreateClientForm::SendShippingAddress_Click);
+			this->SendShippingAddressButton->Visible = false;
+			// 
 			// CreateClientForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
@@ -533,6 +587,8 @@ namespace Gstorg {
 			this->Controls->Add(this->SendButton);
 			this->Controls->Add(this->AddBillingAddressButton);
 			this->Controls->Add(this->AddShippingAddressButton);
+			this->Controls->Add(this->SendBillingAddressButton);
+			this->Controls->Add(this->SendShippingAddressButton);
 			this->Controls->Add(this->PostCodeBoxShipping);
 			this->Controls->Add(this->CityNameBoxShipping);
 			this->Controls->Add(this->ComplementBoxShipping);
@@ -543,6 +599,7 @@ namespace Gstorg {
 			this->Controls->Add(this->StreetNameBoxShipping);
 			this->Controls->Add(this->DisplayPostcode);
 			this->Controls->Add(this->DisplayClientId);
+			this->Controls->Add(this->ClientIdBox);
 			this->Controls->Add(this->BuildingNameBoxBilling);
 			this->Controls->Add(this->DisplayCityName);
 			this->Controls->Add(this->DisplayComplement);
@@ -557,6 +614,7 @@ namespace Gstorg {
 			this->Controls->Add(this->DisplayPersonnalinfoBox);
 			this->Controls->Add(this->DisplayAdressBox);
 			this->Controls->Add(this->DisplayBillingAdress);
+			this->Controls->Add(this->DisplayShippingAdress);
 			this->Controls->Add(this->PostCodeBoxBilling);
 			this->Controls->Add(this->CityNameBoxBilling);
 			this->Controls->Add(this->ComplementBoxBilling);
@@ -613,6 +671,7 @@ namespace Gstorg {
 		this->CityNameBoxShipping->Visible = false;
 		this->PostCodeBoxShipping->Visible = false;
 		this->DisplayClientId->Visible = true;
+		this->ClientIdBox->Visible = true;
 		this->FirstNameBox->Visible = false;
 		this->LastNameBox->Visible = false;
 		this->BirthdateBox->Visible = false;
@@ -622,11 +681,77 @@ namespace Gstorg {
 		this->DisplayPersonnalinfoBox->Visible = false;
 		this->DisplayAdressBox->Visible = false;
 		this->DisplayBillingAdress->Visible = true;
+		this->DisplayBillingAdress->Visible = false;
 		this->AddBillingAddressButton->Visible = false;
 		this->AddShippingAddressButton->Visible = false;
 		this->SendButton->Visible = false;
+		this->SendBillingAddressButton->Visible = true;
+		this->SendShippingAddressButton->Visible = true;
 	}
 	private: System::Void AddShipping_Click(System::Object^ sender, System::EventArgs^ e) {
+		this->StreetNameBoxShipping->Visible = true;
+		this->StreetNumberBoxShipping->Visible = true;
+		this->ResidencyNameBoxShipping->Visible = true;
+		this->BuildingNameBoxShipping->Visible = true;
+		this->FloorNumberBoxShipping->Visible = true;
+		this->ComplementBoxShipping->Visible = true;
+		this->CityNameBoxShipping->Visible = true;
+		this->PostCodeBoxShipping->Visible = true;
+		this->DisplayClientId->Visible = true;
+		this->StreetNameBoxBilling->Visible = false;
+		this->StreetNumberBoxBilling->Visible = false;
+		this->ResidencyNameBoxBilling->Visible = false;
+		this->BuildingNameBoxBilling->Visible = false;
+		this->FloorNumberBoxBilling->Visible = false;
+		this->ComplementBoxBilling->Visible = false;
+		this->CityNameBoxBilling->Visible = false;
+		this->PostCodeBoxBilling->Visible = false;
+		this->StreetNameBoxShipping->Location = System::Drawing::Point(140, 84);
+		this->StreetNumberBoxShipping->Location = System::Drawing::Point(140, 116);
+		this->ResidencyNameBoxShipping->Location = System::Drawing::Point(140, 148);
+		this->BuildingNameBoxShipping->Location = System::Drawing::Point(140, 180);
+		this->FloorNumberBoxShipping->Location = System::Drawing::Point(140, 212);
+		this->ComplementBoxShipping->Location = System::Drawing::Point(140, 246);
+		this->CityNameBoxShipping->Location = System::Drawing::Point(140, 276);
+		this->PostCodeBoxShipping->Location = System::Drawing::Point(140, 308);
+		this->ClientIdBox->Visible = true;
+		this->FirstNameBox->Visible = false;
+		this->LastNameBox->Visible = false;
+		this->BirthdateBox->Visible = false;
+		this->DisplayFirstName->Visible = false;
+		this->DisplayLastname->Visible = false;
+		this->DisplayBirthDate->Visible = false;
+		this->DisplayPersonnalinfoBox->Visible = false;
+		this->DisplayAdressBox->Visible = false;
+		this->DisplayBillingAdress->Visible = false;
+		this->DisplayShippingAdress->Visible = true;
+		this->AddBillingAddressButton->Visible = false;
+		this->AddShippingAddressButton->Visible = false;
+		this->SendButton->Visible = false;
+		this->SendBillingAddressButton->Visible = false;
+		this->SendShippingAddressButton->Visible = true;
+	}
+	private: System::Void SendBillingAddress_Click(System::Object^ sender, System::EventArgs^ e) {
+		this->StreetNameBoxBilling->Clear();
+		this->StreetNumberBoxBilling->Clear();
+		this->ResidencyNameBoxBilling->Clear();
+		this->BuildingNameBoxBilling->Clear();
+		this->FloorNumberBoxBilling->Clear();
+		this->ComplementBoxBilling->Clear();
+		this->CityNameBoxBilling->Clear();
+		this->PostCodeBoxBilling->Clear();
+		this->ClientIdBox->Clear();
+	}
+	private: System::Void SendShippingAddress_Click(System::Object^ sender, System::EventArgs^ e) {
+		this->StreetNameBoxShipping->Clear();
+		this->StreetNumberBoxShipping->Clear();
+		this->ResidencyNameBoxShipping->Clear();
+		this->BuildingNameBoxShipping->Clear();
+		this->FloorNumberBoxShipping->Clear();
+		this->ComplementBoxShipping->Clear();
+		this->CityNameBoxShipping->Clear();
+		this->PostCodeBoxShipping->Clear();
+		this->ClientIdBox->Clear();
 	}
 	};
 }
