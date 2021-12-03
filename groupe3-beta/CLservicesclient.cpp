@@ -97,6 +97,28 @@ void NS_Comp_Svc_Cli::CLservicesClient::UpdateClient(int idcust, System::String^
 	this->oCad->actionRows(sql);
 }
 
+void NS_Comp_Svc_Cli::CLservicesClient::AddnewshippingClient(int idcust, int postcodeship, System::String^ cityship, System::String^ streetship, int nbship, System::String^ residenceship, System::String^ buildingship, int floorship, System::String^ complementship) {
+	System::String^ sql;
+
+	sql = Addnewshipping(idcust, postcodeship, cityship, streetship, nbship, residenceship, buildingship, floorship, complementship);
+
+	this->oCad->actionRows(sql);
+}
+
+System::String^ NS_Comp_Svc_Cli::CLservicesClient::Addnewshipping(int idcust, int postcodeship, System::String^ cityship, System::String^ streetship, int nbship, System::String^ residenceship, System::String^ buildingship, int floorship, System::String^ complementship) {
+	return "EXEC SP_ADD_DELIVERING_ADDRESS " +
+		" @id_customer =" + idcust.ToString() +
+		", @Post_code_delivering_address =" + postcodeship.ToString() +
+		", @name_city_delivering_address ='" + cityship +
+		"', @Street_name_delivering_address ='" + streetship +
+		"', @Street_number_delivering_address =" + nbship.ToString() +
+		", @Residency_name_delivering_address ='" + residenceship +
+		"', @Building_name_delivering_address ='" + buildingship +
+		"', @Floor_number_delivering_address =" + floorship.ToString() +
+		", @Complement_delivering_address ='" + complementship + "';";
+}
+
+
 void NS_Comp_Svc_Cli::CLservicesClient::AddnewbillingClient(int idcust, int postcodebill, System::String^ citybill, System::String^ streetbill, int nbbill, System::String^ residencebill, System::String^ buildingbill, int floorbill, System::String^ complementbill) {
 	System::String^ sql;
 
@@ -111,7 +133,7 @@ System::String^ NS_Comp_Svc_Cli::CLservicesClient::Addnewbilling(int idcust, int
 		", @Post_code_billing_address =" + postcodebill.ToString() +
 		", @name_city_billing_address ='" + citybill +
 		"', @Street_name_billing_address ='" + streetbill +
-		", @Street_number_billing_address =" + nbbill.ToString() +
+		"', @Street_number_billing_address =" + nbbill.ToString() +
 		", @Residency_name_billing_address ='" + residencebill +
 		"', @Building_name_billing_address ='" + buildingbill +
 		"', @Floor_number_billing_address =" + floorbill.ToString() +

@@ -33,10 +33,10 @@ namespace NS_Comp_Svc_Cli
 		void InsertClient(System::String^, int, System::String^, System::String^, int, System::String^, System::String^, int, System::String^, int, System::String^, System::String^, int, System::String^, System::String^, int, System::String^, System::String^, System::String^);
 		void DeleteClient(int);
 		void UpdateClient(int, System::String^, System::String^, System::String^, System::String^, int, System::String^, System::String^, int, System::String^, System::String^, int , System::String^ , int, System::String^, System::String^, int, System::String^, System::String^, int, int, int);
-		void AddnewshippingClient();
+		void AddnewshippingClient(int, int, System::String^, System::String^, int, System::String^, System::String^, int, System::String^);
 		void AddnewbillingClient(int, int, System::String^, System::String^, int, System::String^, System::String^, int, System::String^);
 
-		System::String^ Addnewshipping();
+		System::String^ Addnewshipping(int, int, System::String^, System::String^, int, System::String^, System::String^, int, System::String^);
 		System::String^ Addnewbilling(int, int, System::String^, System::String^, int, System::String^, System::String^, int, System::String^);
 		System::String^ Select(int);
 		System::String^ Insert();

@@ -732,6 +732,7 @@ namespace Gstorg {
 		this->SendShippingAddressButton->Visible = true;
 	}
 	private: System::Void SendBillingAddress_Click(System::Object^ sender, System::EventArgs^ e) {
+		this->oCli->AddnewbillingClient(System::Convert::ToInt32(this->ClientIdBox->Text), System::Convert::ToInt32(this->PostCodeBoxBilling->Text), this->CityNameBoxBilling->Text, this->StreetNameBoxBilling->Text, System::Convert::ToInt32(this->StreetNumberBoxBilling->Text), this->ResidencyNameBoxBilling->Text, this->BuildingNameBoxBilling->Text, System::Convert::ToInt32(this->FloorNumberBoxBilling->Text), this->ComplementBoxBilling->Text);
 		this->StreetNameBoxBilling->Clear();
 		this->StreetNumberBoxBilling->Clear();
 		this->ResidencyNameBoxBilling->Clear();
@@ -743,6 +744,7 @@ namespace Gstorg {
 		this->ClientIdBox->Clear();
 	}
 	private: System::Void SendShippingAddress_Click(System::Object^ sender, System::EventArgs^ e) {
+		this->oCli->AddnewshippingClient(System::Convert::ToInt32(this->ClientIdBox->Text), System::Convert::ToInt32(this->PostCodeBoxShipping->Text), this->CityNameBoxShipping->Text, this->StreetNameBoxShipping->Text, System::Convert::ToInt32(this->StreetNumberBoxShipping->Text), this->ResidencyNameBoxShipping->Text, this->BuildingNameBoxShipping->Text, System::Convert::ToInt32(this->FloorNumberBoxShipping->Text), this->ComplementBoxShipping->Text);
 		this->StreetNameBoxShipping->Clear();
 		this->StreetNumberBoxShipping->Clear();
 		this->ResidencyNameBoxShipping->Clear();
